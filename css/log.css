@@ -19,6 +19,7 @@ td {
 }
 
 .power {
+    border-radius: 20px;
     color:white;
     white-space:nowrap;
     padding:5px 5px 5px 30px ;
