@@ -1,6 +1,6 @@
 var game;
 var Game = {};
-var Setup={};
+var Setup = {};
 
 var Powers = {
     'ottoman':"The Ottomans",
@@ -20,9 +20,9 @@ Setup.currentPlayer = 0;
 Setup.Battles = [];
 Setup.Explorers = [];
 Setup.Conquistadors = [];
-Setup.Reformations=[];
-Setup.CounterReformations=[];
-Setup.Turns=[
+Setup.Reformations = [];
+Setup.CounterReformations = [];
+Setup.Turns = [
 {'ottoman':[],'hapsburg':[],'england':[],'france':[],'pope':[],'protestant':[]},
 {'ottoman':[],'hapsburg':[],'england':[],'france':[],'pope':[],'protestant':[]},
 {'ottoman':[],'hapsburg':[],'england':[],'france':[],'pope':[],'protestant':[]},
@@ -45,7 +45,7 @@ Setup.BattleDice = {'ottoman':[0,0,0,0,0,0,0],
 Battle = function(b) {
     Object.assign(this,JSON.parse(JSON.stringify(b)));
     if (this.type=='Diet') {
-        this.initiator='pope';
+        this.initiator = 'pope';
     }
     this.dice = [];
     this.addDice = (who, what) => {
@@ -126,7 +126,7 @@ Game.reformation = function(location, result, type) {
         thing = this.Reformations;
     }
     if (!thing[location]) {
-        thing[location]={success:0,fail:0};
+        thing[location] = {success:0,fail:0};
     }
     thing[location]
     if (result=='succeeds!') {
@@ -183,8 +183,8 @@ Game.addBattle = function(text, type, where, winner, other) {
     default:
         loser = other;
     }
-    if (type=='Debate'||type=='Diet') {
-        loser = ['protestant','pope'].filter(item=>item!=winner)[0];
+    if (type=='Debate' || type=='Diet') {
+        loser = ['protestant','pope'].filter(item=>item != winner)[0];
     }
     if (type=='Exploration') {
         initiator = game.Explorers[winner];
@@ -301,8 +301,8 @@ Jan-May 1521
 */
 }
 Game.maxImpulse = function(turn) {
-    var max=0;
-    for (var power in this.Turns[turn]) {max=this.Turns[turn][power].length>max?this.Turns[turn][power].length:max;};
+    var max = 0;
+    for (var power in this.Turns[turn]) {max = this.Turns[turn][power].length>max?this.Turns[turn][power].length:max;};
     return max;
 }
 
@@ -338,15 +338,15 @@ function update(e) {
     $('#stats tbody tr').remove();
     powers.forEach(power=>{
         var data = game.extract(power);
-        total.cardcount+=data.cardcount;
-        total.ops+=data.ops;
+        total.cardcount += data.cardcount;
+        total.ops += data.ops;
         total.averageOps = total.ops/total.cardcount;
         total.totalDice += data.totalDice;
         total.diceTotal += data.diceTotal;
         total.averageDice = total.diceTotal/total.totalDice;
         total.battlesInitiated+= data.battlesInitiated;
-        total.hits+=data.hits;
-        total.hitsPerc=total.hits/total.totalDice;
+        total.hits += data.hits;
+        total.hitsPerc = total.hits/total.totalDice;
         
         if (power=='total') {
             data = total;
@@ -469,18 +469,18 @@ function parseTheses(text) {
 }
 
 function parseImpulse(text) {
-    var powers={'Ottoman':'ottoman','Hapsburg':'hapsburg','English':'england','French':'france','Papal':'pope','Protestant':'protestant'};
+    var powers = {'Ottoman':'ottoman','Hapsburg':'hapsburg','English':'england','French':'france','Papal':'pope','Protestant':'protestant'};
     var whowhich = text.match(/Turn (\d), (\w*) (\d*).*impulse/);
     var turn = whowhich[1];
     var who = powers[whowhich[2]];
-    var impulseNumber=whowhich[3];
+    var impulseNumber = whowhich[3];
     card = text.match(/.*plays? the following card (.*?):[\s\S]*?#(\d*) -\s*Ops (\d)/);
     if (!card) {
         return;
     }
-    var type=card[1];
-    var num=card[2];
-    var ops=card[3];
+    var type = card[1];
+    var num = card[2];
+    var ops = card[3];
     var types = {"for Command Points":'CPs',"as an Event":'Event',"as a Mandatory Event":'Mandatory'}
     game.addTurn(turn, who, impulseNumber, types[type], num, ops);
     game.currentBattle = null;
@@ -704,7 +704,7 @@ function parseNewWorld(text) {
 function parseExplorers(text) {
     var explorers = text.match(/.*explorer ((selected:)|(is)).*/g);
     if (explorers) {
-        explorers.forEach(x=>{var matches = x.match(/(.*) explorer (?:(?:selected:)|(?:is)) (.*)/); game.Explorers[matches[2]]=Game.power(matches[1])});
+        explorers.forEach(x=>{var matches = x.match(/(.*) explorer (?:(?:selected:)|(?:is)) (.*)/); game.Explorers[matches[2]] = Game.power(matches[1])});
     }
     var explorations = text.match(/.*discovers .*!!!/g)||[];
     explorations.forEach(text=>{
@@ -715,7 +715,7 @@ function parseExplorers(text) {
 function parseConquests(text) {
     var conquistadors = text.match(/.*conquistador selected:.*/g);
     if (conquistadors) {
-        conquistadors.forEach(x=>{var matches = x.match(/(.*) conquistador selected: (.*)/); game.Conquistadors[matches[2]]=Game.power(matches[1])});
+        conquistadors.forEach(x=>{var matches = x.match(/(.*) conquistador selected: (.*)/); game.Conquistadors[matches[2]] = Game.power(matches[1])});
     }
     var conquests = text.match(/.*conquers .*!!!/g)||[];
     conquests.forEach(text=>{
