@@ -1,0 +1,79 @@
+.gamelog {
+    display:none;
+}
+h1 {
+    font-size:inherit;
+}
+td {
+    text-align:right;
+}
+#battles td {
+    text-align:left;
+}
+.dice {
+    font-size:25px;
+}
+.dice .hit {
+    font-size:30px;
+    color:red;
+}
+
+.power {
+    color:white;
+    white-space:nowrap;
+    padding:5px 5px 5px 30px ;
+    background-size:27px;
+    background-repeat:no-repeat;
+}
+.power.ottoman {
+    background-color:#019D4C;
+    background-image:url(ottoman.png);
+}
+.power.pope {
+    background-color:#7B4D96;
+    background-image:url(pope.png);
+}
+.power.england {
+    background-color:#E54640;
+    background-image:url(england.png);
+}
+.power.hapsburg {
+    background-color:#FCE75A;
+    color:black;
+    background-image:url(hapsburg.png);
+
+}
+.power.protestant {
+    background-color: #A2583D;
+    background-image:url(protestant.png);
+}
+.power.france {
+    background-color: #0090CF;
+    background-image:url(france.png);
+}
+.power.independent {
+    background-color: #C4C4C6;
+    color:black;
+    background-image:url(independent.png);
+}
+.power.total {
+    color:black;
+}
+#stats .power  {
+    cursor:pointer;
+}
+
+textarea {
+    width:350px;
+    height:700px;
+}
+
+#right {
+    margin-left:360px;
+    float:right;
+    height:100%;
+    overflow:scroll;
+    position:absolute;
+}
+
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <style>
+    #hand {
+        display:flex;
+        width:100%;
+        flex-wrap: wrap;
+    }
+
+    span {
+        display:inline-block;
+        width:20%;
+        position:relative;
+    }
+
+    #close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 100;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        font-size: x-large;
+        background-color: white;
+        font-weight: bolder;
+        text-align: center;
+        padding-bottom: 5px;
+        opacity: .8;
+    }
+
+    img {
+        max-width:100%;
+        height:auto;
+    }
+
+    textarea {
+        width:100%;
+    }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script>
+        function update(e) {
+            var open = '<span><img src="cards/HIS-';
+            var close = '.png"></span>';
+            document.getElementById('hand').innerHTML = open + document.getElementById('input').value.match(/(?<=#)\d+/g).map(x=>("00" + x).slice(-3)).join(close + open) + close;
+        }
+        $(function() {
+            console.log('running');
+            var close = $('#close');
+
+            $('body').on('mouseover','#hand span', function() {
+
+                $(this).prepend(close);
+                close.show();
+            });
+            $('#input').on('input', update);
+            close.on('click', function() {
+                var id=parseInt($(this).parent().find('img').attr('src').match(/HIS-(\d*)/)[1]);
+                $('#input').val($('#input').val().replace(new RegExp('#'+id+'[^#]*'),''));
+                update();
+            });
+        });
+    </script>
+</head>
+<body>
+    <textarea id='input' placeholder='Paste card numbers'></textarea>
+    <div class='hand' id='hand'></div>
+    <span id='close' style='display:none'>×</span>
+</body>
+</html>
+
