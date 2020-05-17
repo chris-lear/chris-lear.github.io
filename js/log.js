@@ -431,11 +431,11 @@ function parseDebateDice(text) {
 function parseDiet(text) {
     var winner = text.match(/(.*) win the Diet of Worms/);
     if (winner) {
-        winner = winner[1];
+        winner = game.power(winner[1]);
     } else {
         winner = 'pope';// not true
     }
-    game.addBattle(text,'Diet',"Worms",'pope',game.power(winner));
+    game.addBattle(text,'Diet',"Worms",'pope', winner);
     parseHits(text);
 }
 function parseReformations(text) {
@@ -726,6 +726,7 @@ function parseConquests(text) {
 function parseWinter(text) {
 }
 $(function() {
+    var timeout;
     $('#input').on('change', update);
 
     $('#battles').on('mouseover', '.battle', function() {
@@ -750,9 +751,20 @@ $(function() {
         }
     });
     $('#gameselector button').on('click', function() {
-        $('textarea').val($('#'+$(this).attr('gameid')).text());
-        update();
+        clearTimeout(timeout);
+        fetchGame($(this).attr('gameid') + '.txt');
     });
     $('#gameselector button')[1].click();
+    function fetchGame(file) {
+        $.get(file, function(data) {
+            $('textarea').val(data);
+            update();
+        });
+    }
+    function doPoll(){
+        fetchGame('log.txt');
+        timeout = setTimeout(doPoll,5000);
+    }
+    doPoll();
 });
 
