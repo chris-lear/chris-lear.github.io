@@ -1,4 +1,3 @@
-var game;
 var Game = {};
 var Setup = {};
 
@@ -13,6 +12,18 @@ var Powers = {
     'total': 'Total'
 };
 
+var Turn = function() {
+    this.ottoman = [];
+    this.hapsburg = [];
+    this.england = [];
+    this.france = [];
+    this.pope = [];
+    this.protestant = [];
+
+
+}
+
+
 Setup.currentBattle = null;
 Setup.currentTurn = 0;
 Setup.currentImpulse = 0;
@@ -22,16 +33,8 @@ Setup.Explorers = [];
 Setup.Conquistadors = [];
 Setup.Reformations = [];
 Setup.CounterReformations = [];
-Setup.Turns = [
-    {'ottoman':[],'hapsburg':[],'england':[],'france':[],'pope':[],'protestant':[]},
-    {'ottoman':[],'hapsburg':[],'england':[],'france':[],'pope':[],'protestant':[]},
-    {'ottoman':[],'hapsburg':[],'england':[],'france':[],'pope':[],'protestant':[]},
-    {'ottoman':[],'hapsburg':[],'england':[],'france':[],'pope':[],'protestant':[]},
-    {'ottoman':[],'hapsburg':[],'england':[],'france':[],'pope':[],'protestant':[]},
-    {'ottoman':[],'hapsburg':[],'england':[],'france':[],'pope':[],'protestant':[]},
-    {'ottoman':[],'hapsburg':[],'england':[],'france':[],'pope':[],'protestant':[]},
-    {'ottoman':[],'hapsburg':[],'england':[],'france':[],'pope':[],'protestant':[]}
-];
+Setup.PowerTurn = {'cards':[],'score':[]};
+Setup.Turns = [];
 Setup.ReformationDice = {'protestant':[0,0,0,0,0,0,0],'pope':[0,0,0,0,0,0,0]};
 Setup.DebateDice = {'protestant':[0,0,0,0,0,0,0],'pope':[0,0,0,0,0,0,0]};
 Setup.BattleDice = {'ottoman':[0,0,0,0,0,0,0],
@@ -92,7 +95,7 @@ Battle = function(b) {
     this.class = function() {
         return this.type.toLowerCase().replace(/ /g,'-');
     }
-    this.getDate = function() {
+    this.getDate = function(game) {
         if (this.type=='Diet') {
             return 'Jan-May 1521';
         }
@@ -162,8 +165,8 @@ Game.hitDice = function(who, what, hits) {
         }
     });
 }
-Game.addTurn = function(turn, who, impulseNumber, type, num, ops) {
-    this.Turns[turn][who].push({'ops':+ops, 'type':type, 'cardNumber':+num});
+Game.addImpulse = function(turn, who, impulseNumber, type, num, ops) {
+    this.Turns[turn-1][who].push({'ops':+ops, 'type':type, 'cardNumber':+num});
     this.currentTurn = +turn;
     this.currentImpulse = +impulseNumber;
     this.currentPlayer = who;
@@ -187,10 +190,10 @@ Game.addBattle = function(text, type, where, winner, other) {
         loser = ['protestant','pope'].filter(item=>item != winner)[0];
     }
     if (type=='Exploration') {
-        initiator = game.Explorers[winner];
+        initiator = this.Explorers[winner];
     }
     if (type=='Conquest') {
-        initiator = game.Conquistadors[winner];
+        initiator = this.Conquistadors[winner];
     }
     this.currentBattle = new Battle({
         'turn': this.currentTurn,
@@ -254,9 +257,13 @@ Game.extract = function(power) {
             return dice.reduce((a,c)=>a+=c);
         }
     };
+    // battleDice, debateDice, reformationDice per turn
     ret.battleDice = this.BattleDice[power];
     ret.debateDice = this.DebateDice[power];
     ret.reformationDice = this.ReformationDice[power];
+    var cards = this.Turns.map(x=>x[power]).filter(x=>x);
+
+
     ret.totalDice = ret.count(ret.debateDice)+ret.count(ret.reformationDice)+ret.count(ret.battleDice);
     ret.allDice = addvector(addvector(ret.battleDice,ret.debateDice),ret.reformationDice);
     ret.allDiceText = ret.allDice.reduce((a,c,i)=>{if (!i) return ''; return a+' ' + c + ' '+ i + 's';},'');
@@ -264,7 +271,6 @@ Game.extract = function(power) {
     ret.hitsPerc = ret.hits/ret.totalDice||0;
     ret.diceTotal = ret.allDice.reduce((a,c,i)=>{if(!i)return 0; return a+(c*i);},0);
     ret.averageDice = ret.diceTotal/ret.totalDice||0;
-    var cards = this.Turns.map(x=>x[power]).filter(x=>x);
     ret.cards = [].concat(...cards);
     ret.cardcount = ret.cards.length;
     ret.ops = ret.cards.reduce((acc,curr)=>acc+curr.ops, 0);
@@ -306,38 +312,220 @@ Game.maxImpulse = function(turn) {
     return max;
 }
 
-G = function(){
-
-    Object.assign(this,JSON.parse(JSON.stringify(Setup)));
-};
-G.prototype = Game;
-function addvector(a,b){
-    if (!a&&!b) {
-        return [];
+Game.parsePhase = function(phase) {
+    var name = phase.match(/\*\* (.*?) \.*?Phase *\*/)[1];
+    switch(name) {
+        case "Luther's 95 Thesis":
+            this.parseTheses(phase);
+            break;
+        case "Action":
+            this.parseAction(phase);
+            break;
+        case "Card Draw":
+            break;
+        case "Diet of Worms":
+            this.parseDiet(phase);
+            break;
+        case "Diplomacy":
+            break;
+        case "New World":
+            this.parseNewWorld(phase);
+            break;
+        case "Spring Deployment":
+            break;
+        case "Winter":
+            this.parseWinter(phase);
+            break;
+        default:
+            console.log(name + ' not implemented');
     }
-    if (!b){return a;};
-    if(!a) return b;
-    return a.map((e,i) => e + b[i]);
 }
 
-function update(e) {
-    game = new G();
-    var t = $('#input').val();
+
+Game.parseDebateDice = function(text) {
+    dice1 = text.match(/Protestant .*dic?e roll: (.*?) --/);
+    this.debateDice('protestant',dice1[1]);
+    dice2 = text.match(/Catholic .*dic?e roll: (.*?) --/);
+    this.debateDice('pope',dice2[1]);
+
+}
+Game.parseDiet = function(text) {
+    var winner = text.match(/(.*) wins? the Diet of Worms/);
+    if (winner) {
+        winner = this.power(winner[1]);
+    } else {
+        winner = 'pope';// not true
+    }
+    this.addBattle(text,'Diet',"Worms",'pope', winner);
+    this.parseHits(text);
+}
+Game.parseReformations = function(text) {
+    refs = [...text.matchAll(/(?:Counter )?Reformation attempt in [\s\S]*?The (?:counter )?reformation roll in .*/g)];
+    refs.forEach(ref=>{
+
+        this.reformation(ref[1],ref[3],ref[2]);
+        this.parseReformationDice(text);
+    });
+
+}
+
+Game.parseReformationDice = function(text) {
+    dice1 = text.match(/Protestant dic?e roll: (.*?) --.*high roll/);
+    if (dice1) {
+        this.reformationDice('protestant',dice1[1]);
+    }
+    dice2 = text.match(/Catholic dic?e roll: (.*?) --.*high roll/);
+    if (dice2) {
+        this.reformationDice('pope',dice2[1]);
+    }
+
+}
+
+
+Game.parseTheses = function(text) {
+    this.parseReformations(text);
+}
+
+Game.parseImpulse = function(text) {
+    var powers = {'Ottoman':'ottoman','Hapsburg':'hapsburg','English':'england','French':'france','Papal':'pope','Protestant':'protestant'};
+    var whowhich = text.match(/Turn (\d), (\w*) (\d*).*impulse/);
+    var turn = whowhich[1];
+    var who = powers[whowhich[2]];
+    var impulseNumber = whowhich[3];
+    var card = text.match(/.*plays? the following card (.*?):[\s\S]*?#(\d*) -\s*Ops (\d)/);
+    if (!card) {
+        return;
+    }
+    var type = card[1];
+    var num = card[2];
+    var ops = card[3];
+    var types = {"for Command Points":'CPs',"as an Event":'Event',"as a Mandatory Event":'Mandatory'}
+    this.addImpulse(turn, who, impulseNumber, types[type], num, ops);
+    this.currentBattle = null;
+    this.parseReformations(text);
+    this.parseBattles(text);
+}
+
+Game.parseBattles = function(text) {
+
+    var assault = [...text.matchAll(/\*\* Assault of (.*)\*\*[\s\S]*?(.*?) dic?e.*\(defending\)[\s\S]*?assault in \1 (.*)!/g)];
+    assault.forEach(a=> {
+        this.currentBattle = null;
+        this.addBattle(a[0],'Assault',a[1],a[3],this.power(a[2]));
+        this.parseHits(a[0]);
+    });
+
+    var battle = [...text.matchAll(/\*\* Battle of (.*) \*\*[\s\S]*?(.*?) dic?e: [\s\S]*?(.*?) dic?e: [\s\S]*?\s\s*(.*?) wins? the battle of *\1/g)];
+    battle.forEach(b=> {
+        this.currentBattle = null;
+        loser = [this.power(b[2]),this.power(b[3])].filter(item=>item!=this.power(b[4]))[0];
+        this.addBattle(b[0],'Field Battle',b[1],this.power(b[4]),loser);
+        this.parseHits(b[0]);
+    });
+
+    var foreignWar = [...text.matchAll(/to fight a foreign war[\s\S]*?\*\* Battle of (.*) \*\*[\s\S]*?(.*?) dic?e: [\s\S]*?(.*?) dic?e: [\s\S]*?War with \1/g)];
+    foreignWar.forEach(f=> {
+        this.currentBattle = null;
+        this.addBattle(f[0],'Foreign War',f[1],this.power(f[3]),this.power(f[2]));
+        this.parseHits(f[0]);
+    });
+
+    var navals = [...text.matchAll(/\*\* Naval Combat in (.*?), (.*) vs\. (.*?) \*\*[\s\S]*?(.*?) win the naval battle in \1/g)];
+    navals.forEach(naval=> {
+        loser = [naval[2],naval[3]].filter(item=>item!=naval[4])[0];
+        this.addBattle(naval[0],'Naval', naval[1],this.power(naval[4]),this.power(loser));
+        this.parseHits(naval[0]);
+    });
+
+    var debates = [...text.matchAll(/(.*) calls? a debate in the (.*) language zone[\s\S]*?(.*) wins? the debate.*/g)];
+    debates.forEach(debate=>{
+        this.currentBattle = null;
+        this.addBattle(debate[0],'Debate',debate[2],this.power(debate[3]));
+        this.parseHits(debate[0]);
+    });
+
+
+}
+
+
+Game.parseHits = function(text) {
+    rolls = [...text.matchAll(/\*\* (.*?) dic?e roll: (.*?) -- (\d*) (?:extra )?hits?.*?(\*\*)?(, making \d* total)?/g)];
+    rolls.forEach(hit=>{
+        if (hit[4]) {
+            this.hitDice(this.power(hit[1]),hit[2],hit[3]);
+        } else {
+            switch(hit[1]) {
+                case 'Anti-Piracy':
+                case 'Ottoman Piracy':
+                    break;
+                default:
+                    this.hitDice(this.power(hit[1]),hit[2],hit[3]);
+                    break;
+            }
+        }
+    });
+}
+
+Game.parseAction = function(text) {
+    var impulses = [...text.matchAll(/Turn \d, .*impulse\n[\s\S]*?(?=(Turn \d, .*impulse)|$)/g)];
+    impulses.forEach((impulse)=> {
+        this.parseImpulse(impulse[0]);
+    });
+}
+
+Game.parseNewWorld = function(text) {
+    this.parseExplorers(text);
+    this.parseConquests(text);
+}
+
+Game.parseExplorers = function(text) {
+    var explorers = [...text.matchAll(/(.*) explorer (?:(?:selected:)|(?:is)) (.*)/g)];
+    explorers.forEach(x=>{this.Explorers[x[2]] = Game.power(x[1])});
+    var explorations = [...text.matchAll(/(.*) discovers (.*)!!!/g)];
+    explorations.forEach(exploration=>{
+        this.addBattle(exploration[0], 'Exploration', exploration[2], exploration[1]);
+    });
+}
+
+Game.parseConquests = function(text) {
+    var conquistadors = [...text.matchAll(/(.*) conquistador selected: (.*)/g)];
+    conquistadors.forEach(x=>{
+        this.Conquistadors[x[2]] = Game.power(x[1])
+    });
+    var conquests = [...text.matchAll(/(.*) conquers (.*)!!!/g)];
+    conquests.forEach(conquest=>{
+        this.addBattle(conquest[0], 'Conquest', conquest[2], conquest[1]);
+    });
+}
+Game.parseWinter = function(text) {
+}
+
+
+
+
+
+
+
+
+
+
+Game.update = function(t) {
     var turns = t.split(/\*\* Start of Turn \d \*\*/)
     turns.shift();
 
-    $(turns).each(function() {
-        $(this.match(/\*\*.*?Phase \*\*[\s\S]*?(?=(\*\*.*?Phase \*\*)|$)/g)).each(function() {
-            parsePhase(this);
+    turns.forEach(turn=> {
+        this.Turns.push(new Turn());
+        turn.match(/\*\*.*?Phase \*\*[\s\S]*?(?=(\*\*.*?Phase \*\*)|$)/g).forEach(phase=> {
+            this.parsePhase(phase);
         });
     });
-    console.log(game);
+    console.log(this);
 
-    total = game.extract('');
+    total = this.extract('');
     powers = ['protestant','pope','hapsburg','england','france','ottoman','independent','total'];
     $('#stats tbody tr').remove();
     powers.forEach(power=>{
-        var data = game.extract(power);
+        var data = this.extract(power);
         total.cardcount += data.cardcount;
         total.ops += data.ops;
         total.averageOps = total.ops/total.cardcount;
@@ -380,10 +568,10 @@ function update(e) {
         $('#overviews').append(overview);
     });
     $('#battles').empty();
-    game.Battles.forEach(battle=>{
+    this.Battles.forEach(battle=>{
         $('#battles').append($(`<tr class='battle ${battle.winner} ${battle.loser} ${battle.initiator}'>
 
-            <td><span class='date' title='Turn ${battle.turn} Impulse ${battle.impulse}'>${battle.getDate()}</span></td>
+            <td><span class='date' title='Turn ${battle.turn} Impulse ${battle.impulse}'>${battle.getDate(this)}</span></td>
             <td><span class='initiator power ${battle.initiator}'>${battle.initiatorName()}</span></td>
             <td><span class='battleDesc ${battle.class()}' title='${battle.text}'> ${battle.description()}</span></td>
             <td><span class='winner power ${battle.winner}'>${battle.winnerName()}</span><br/><span class='dice winner-dice'>${battle.getWinnerDice()}</span></td>
@@ -392,339 +580,25 @@ function update(e) {
     });
 }
 
-function parsePhase(phase) {
-    var name = phase.match(/\*\* (.*?) \.*?Phase *\*/)[1];
-    switch(name) {
-        case "Luther's 95 Thesis":
-            parseTheses(phase);
-            break;
-        case "Action":
-            parseAction(phase);
-            break;
-        case "Card Draw":
-            break;
-        case "Diet of Worms":
-            parseDiet(phase);
-            break;
-        case "Diplomacy":
-            break;
-        case "New World":
-            parseNewWorld(phase);
-            break;
-        case "Spring Deployment":
-            break;
-        case "Winter":
-            parseWinter(phase);
-            break;
-        default:
-            console.log(name + ' not implemented');
+G = function(){
+    Object.assign(this,JSON.parse(JSON.stringify(Setup)));
+};
+G.prototype = Game;
+function addvector(a,b){
+    if (!a&&!b) {
+        return [];
     }
+    if (!b){return a;};
+    if(!a) return b;
+    return a.map((e,i) => e + b[i]);
 }
 
-function parseDebateDice(text) {
-    dice1 = text.match(/Protestant .*dic?e roll: (.*?) --/);
-    game.debateDice('protestant',dice1[1]);
-    dice2 = text.match(/Catholic .*dic?e roll: (.*?) --/);
-    game.debateDice('pope',dice2[1]);
-
-}
-function parseDiet(text) {
-    var winner = text.match(/(.*) win the Diet of Worms/);
-    if (winner) {
-        winner = game.power(winner[1]);
-    } else {
-        winner = 'pope';// not true
-    }
-    game.addBattle(text,'Diet',"Worms",'pope', winner);
-    parseHits(text);
-}
-function parseReformations(text) {
-    refs = text.match(/(?:Counter )?Reformation attempt in [\s\S]*?The (?:counter )?reformation roll in .*/g);
-    $(refs).each(function() {
-        parseReformation(this);
-    });
-
-}
-function parseReformation(text) {
-    ref = text.match(/(?:Counter )?Reformation attempt in (.*?)\n[\s\S]*?The (counter )?reformation roll in \1 (.*) \*\*/);
-    game.reformation(ref[1],ref[3],ref[2]);
-    parseReformationDice(text);
-}
-
-function parseReformationDice(text) {
-    dice1 = text.match(/Protestant dic?e roll: (.*?) --.*high roll/);
-    if (dice1) {
-        game.reformationDice('protestant',dice1[1]);
-    }
-    dice2 = text.match(/Catholic dic?e roll: (.*?) --.*high roll/);
-    if (dice2) {
-        game.reformationDice('pope',dice2[1]);
-    }
-
+function update(e) {
+    var game = new G();
+    game.update($('#input').val());
 }
 
 
-function parseTheses(text) {
-    parseReformations(text);
-}
-
-function parseImpulse(text) {
-    var powers = {'Ottoman':'ottoman','Hapsburg':'hapsburg','English':'england','French':'france','Papal':'pope','Protestant':'protestant'};
-    var whowhich = text.match(/Turn (\d), (\w*) (\d*).*impulse/);
-    var turn = whowhich[1];
-    var who = powers[whowhich[2]];
-    var impulseNumber = whowhich[3];
-    card = text.match(/.*plays? the following card (.*?):[\s\S]*?#(\d*) -\s*Ops (\d)/);
-    if (!card) {
-        return;
-    }
-    var type = card[1];
-    var num = card[2];
-    var ops = card[3];
-    var types = {"for Command Points":'CPs',"as an Event":'Event',"as a Mandatory Event":'Mandatory'}
-    game.addTurn(turn, who, impulseNumber, types[type], num, ops);
-    game.currentBattle = null;
-    parseReformations(text);
-    parseBattles(text);
-    // TODO multiple battles in one impulse
-}
-
-function parseBattles(text) {
-    /*
-     ** Battle of Boulogne **
-  (response cards)
-
-French dice: 7 SPs +1(Francis I) = 8 dice
-English dice: 3 SPs +1(Henry VIII) +1(defending) = 5 dice
-  (combat cards)
-
-     ** France dice roll: 1, 6, 2, 1, 1, 3, 6, 2 -- 2 hits **
-     ** England dice roll: 4, 2, 2, 5, 5 -- 2 hits **
-     */
-
-
-
-    /*
-
-
-The Ottomans spend 1 CP to fight a foreign war
-
-     ** Battle of Persia **
-      (response cards)
-
-      Ottoman dice: 5 SPs +2(Suleiman I) = 7 dice
-      Persian dice: 4 SPs = 4 dice
-        (combat cards)
-
-     ** The Ottomans dice roll: 5, 5, 3, 2, 1, 3, 1 -- 2 hits **
-     ** Persia dice roll: 1, 6, 6, 1 -- 2 hits **
-        Rebel forces for the War with Persia now at 2 SPs
-
-*/
-
-    var assault = text.match(/\*\* Assault of (.*)\*\*[\s\S]*?(.*?) dic?e.*\(defending\)[\s\S]*?assault in \1 (.*)!/g);
-    $(assault).each(function() {
-        game.currentBattle = null;
-        parseAssault(this);
-        parseHits(this);
-    });
-
-    var battle = text.match(/\*\* Battle of (.*) \*\*[\s\S]*?(.*?) dic?e: [\s\S]*?(.*?) dic?e: [\s\S]*?\s\s*(.*?) wins? the battle of *\1/g);
-    $(battle).each(function() {
-        game.currentBattle = null;
-        parseFieldBattle(this);
-        parseHits(this);
-    });
-
-    var foreignWar = text.match(/to fight a foreign war[\s\S]*?\*\* Battle of (.*) \*\*[\s\S]*?(.*?) dic?e: [\s\S]*?(.*?) dic?e: [\s\S]*?War with \1/g);
-    $(foreignWar).each(function() {
-        game.currentBattle = null;
-        parseForeignWar(this);
-        parseHits(this);
-    });
-
-    /*
-     ** Naval Combat in Barbary Coast, The Ottomans vs. The Hapsburgs **
-Ottoman dice: 6(1 squadron, 4 corsairs) +2(Barbarossa) = 8 dice
-Hapsburg dice: 2(1 squadron) = 2 dice
-
-     ** Ottoman dice roll: 4, 1, 2, 5, 1, 6, 1, 4 -- 2 hits **
-     ** Hapsburg dice roll: 5, 6 -- 2 hits **
-The Hapsburgs win the naval battle in Barbary Coast!
-*/
-
-    var naval = text.match(/\*\* Naval Combat in (.*?)[\s\S]*? win the naval battle in .*/g);
-    $(naval).each(function() {
-        game.currentBattle = null;
-        parseNavalBattle(this);
-        parseHits(this);
-    });
-    /*
-The Papacy calls a debate in the German language zone
-     Papal debater: Contarini(2) (specifically chosen due to Leipzig Debate)
-    Protestant debater: Bullinger(2)  (randomly selected from the committed debaters)
-Papal dice: 2(Contarini), +3(attacking) = 5 dice
-Protestant dice: 2(Bullinger), +1(defending while committed) = 3 dice
-
-     ** Papal dice roll: 1, 2, 1, 5, 3 -- 1 hit
-     ** Protestant dice roll: 1, 4, 5 -- 1 hit
-
-The debate score is tied--there will be another round of debating!
-
-The Papal debater randomly selected for the second round is Tetzel
-The Protestant debater randomly selected for the second round is Melanchthon
-Papal dice: 1(Tetzel), +3(attacking) = 4 dice
-Protestant dice: 3(Melanchthon), +2(defending while uncommitted) = 5 dice
-
-     ** Papal dice roll: 3, 4, 5, 6 -- 2 hits
-     ** Protestant dice roll: 4, 4, 1, 4, 4 -- 0 hits
-
-The Papacy wins the debate, 2 to 0
-    Trier converted to Catholic control
-    Worms converted to Catholic control
-    */
-
-    var debates = text.match(/.*calls? a debate[\s\S]*?wins? the debate.*/g);
-    $(debates).each(function() {
-        game.currentBattle = null;
-        parseDebate(this);
-        parseHits(this);
-    });
-
-
-}
-
-function parseDebate(text) {
-    var debate = text.match(/(.*) calls? a debate in the (.*) language zone[\s\S]*?(.*) wins? the debate.*/);
-    if (debate) {
-        game.addBattle(debate[0],'Debate',debate[2],game.power(debate[3]));
-    }
-}
-
-function parseAssault(text) {
-    var assault = text.match(/\*\* Assault of (.*)\*\*[\s\S]*?(.*?) dic?e.*\(defending\)[\s\S]*?assault in \1 (.*)!/);
-    if (assault) {
-        game.addBattle(assault[0],'Assault',assault[1],assault[3],game.power(assault[2]));
-    }
-}
-function parseFieldBattle(text) {
-    var battle = text.match(/\*\* Battle of (.*) \*\*[\s\S]*?(.*?) dic?e: [\s\S]*?(.*?) dic?e: [\s\S]*?\s\s*(.*?) wins? the battle of *\1/);
-    if (battle) {
-        loser = [game.power(battle[2]),game.power(battle[3])].filter(item=>item!=game.power(battle[4]))[0];
-        game.addBattle(battle[0],'Field Battle',battle[1],game.power(battle[4]),loser);
-    }
-}
-function parseNavalBattle(text) {
-    naval = text.match(/\*\* Naval Combat in (.*?), (.*) vs\. (.*?) \*\*[\s\S]*?(.*?) win the naval battle in \1/);
-    if (naval) {
-        loser = [naval[2],naval[3]].filter(item=>item!=naval[4])[0];
-        game.addBattle(naval[0],'Naval', naval[1],game.power(naval[4]),game.power(loser));
-    }
-}
-function parseForeignWar(text) {
-    var foreignWar = text.match(/to fight a foreign war[\s\S]*?\*\* Battle of (.*) \*\*[\s\S]*?(.*?) dic?e: [\s\S]*?(.*?) dic?e: [\s\S]*?War with \1/);
-    if (foreignWar) {
-        game.addBattle(foreignWar[0],'Foreign War',foreignWar[1],game.power(foreignWar[3]),game.power(foreignWar[2]));
-    }
-}
-
-function parseHit(text) {
-    //     ** The Hapsburgs  Tercios  dice roll: 5, 5, 3 -- 2 extra hits **, making 4 total
-    hit = text.match(/\*\* (.*?) dic?e roll: (.*?) -- (\d*) (?:extra )?hits?.*?(\*\*)?(, making \d* total)?$/);
-    if (hit) {
-        if (hit[4]) {
-            game.hitDice(game.power(hit[1]),hit[2],hit[3]);
-        } else {
-            switch(hit[1]) {
-                case 'Anti-Piracy':
-                case 'Ottoman Piracy':
-                    break;
-                default:
-                    game.hitDice(game.power(hit[1]),hit[2],hit[3]);
-                    break;
-            }
-        }
-    } else {
-        console.log('parseHit fail',text);
-    }
-}
-
-function parseHits(text) {
-    rolls = text.match(/.*dic?e roll:.*? --.*? hits?[ *]*/g);
-    $(rolls).each(function() {
-        parseHit(this);
-    });
-}
-function parseAction(text) {
-    var impulses = text.match(/Turn \d, .*impulse\n[\s\S]*?(?=(Turn \d, .*impulse)|$)/g);
-    $(impulses).each(function() {
-        parseImpulse(this);
-    });
-}
-/*
- ** New World Phase **
-Hapsburg explorer selected: Magellan
-English explorer selected: Willoughby
-French explorer selected: Roberval
-
- ** Magellan's exploration dice roll: 1, 1 = 2 +4(Magellan) -1(Uncharted Waters) = 5
-No effect -- Magellan is returned to the force pool
-
- ** Willoughby's exploration dice roll: 4, 5 = 9 +0(Willoughby) -1(Uncharted Waters) = 8
-Willoughby discovers the Great Lakes!!!
- ** England receives 1 Exploration VP for discovering the Great Lakes **
-
- ** Roberval's exploration dice roll: 6, 2 = 8 +0(Roberval) -1(Uncharted Waters) = 7
-Roberval discovers the St. Lawrence River!!!
- ** France receives 1 Exploration VP for discovering the St. Lawrence River **
-Hapsburg conquistador selected: Montejo
- ** Conquest dice roll: 2, 3 = 5 +2(Montejo) = 7
-No effect -- Montejo is returned to the force pool
-
-
-
-English explorer selected: Chancellor
-French explorer selected: Verrazano
-
- ** Verrazano's exploration dice roll: 1, 3 = 4 +2(Verrazano) = 6
-No effect -- Verrazano is returned to the force pool
-
- ** Chancellor's exploration dice roll: 5, 2 = 7 +1(Chancellor) = 8
-No effect -- Chancellor is returned to the force pool
-Hapsburg conquistador selected: Montejo
- ** Conquest dice roll: 2, 6 = 8 +2(Montejo) +2(Smallpox) = 12
-Montejo conquers the Incas!!!
- ** The Hapsburgs receive 2 Conquest VPs for conquering the Incas **
- */
-function parseNewWorld(text) {
-    parseExplorers(text);
-    parseConquests(text);
-}
-
-function parseExplorers(text) {
-    var explorers = text.match(/.*explorer ((selected:)|(is)).*/g);
-    if (explorers) {
-        explorers.forEach(x=>{var matches = x.match(/(.*) explorer (?:(?:selected:)|(?:is)) (.*)/); game.Explorers[matches[2]] = Game.power(matches[1])});
-    }
-    var explorations = text.match(/.*discovers .*!!!/g)||[];
-    explorations.forEach(text=>{
-        exploration = text.match(/(.*) discovers (.*)!!!/);
-        game.addBattle(text, 'Exploration', exploration[2], exploration[1]);
-    });
-}
-function parseConquests(text) {
-    var conquistadors = text.match(/.*conquistador selected:.*/g);
-    if (conquistadors) {
-        conquistadors.forEach(x=>{var matches = x.match(/(.*) conquistador selected: (.*)/); game.Conquistadors[matches[2]] = Game.power(matches[1])});
-    }
-    var conquests = text.match(/.*conquers .*!!!/g)||[];
-    conquests.forEach(text=>{
-        conquest = text.match(/(.*) conquers (.*)!!!/);
-        game.addBattle(text, 'Conquest', conquest[2], conquest[1]);
-    });
-}
-function parseWinter(text) {
-}
 $(function() {
     var timeout;
     $('#input').on('change', update);
@@ -751,10 +625,9 @@ $(function() {
         }
     });
     $('#gameselector button').on('click', function() {
-        clearTimeout(timeout);
+        //clearTimeout(timeout);
         fetchGame($(this).attr('gameid') + '.txt');
     });
-    $('#gameselector button')[1].click();
     function fetchGame(file) {
         $.get(file, function(data) {
             $('textarea').val(data);
@@ -765,6 +638,7 @@ $(function() {
         fetchGame('log.txt');
         timeout = setTimeout(doPoll,5000);
     }
-    doPoll();
+    //doPoll();
+    $('#gameselector button')[1].click();
 });
 
