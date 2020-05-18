@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
     <style>
     #hand {
         display:flex;
@@ -44,12 +45,14 @@
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     <script>
         function update(e) {
-            var open = '<span><img src="cards/HIS-';
+            var open = '<span><img src="img/cards/HIS-';
             var close = '.png"></span>';
-            document.getElementById('hand').innerHTML = open + document.getElementById('input').value.match(/(?<=#)\d+/g).map(x=>("00" + x).slice(-3)).join(close + open) + close;
+            try {
+                document.getElementById('hand').innerHTML = open + document.getElementById('input').value.match(/(?<=#)\d+/g).map(x=>("00" + x).slice(-3)).join(close + open) + close;
+            } catch(e) {
+            }
         }
         $(function() {
-            console.log('running');
             var close = $('#close');
 
             $('body').on('mouseover','#hand span', function() {
@@ -67,6 +70,7 @@
     </script>
 </head>
 <body>
+    <h1>Here I Stand Cards</h1>
     <textarea id='input' placeholder='Paste card numbers'></textarea>
     <div class='hand' id='hand'></div>
     <span id='close' style='display:none'>×</span>
