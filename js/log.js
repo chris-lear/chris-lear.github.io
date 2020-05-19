@@ -182,7 +182,7 @@ Game.addBattle = function(text, type, where, winner, other) {
             break;
         case 'fails':
             loser = this.currentPlayer;
-            winner = this.power(other);
+            winner = other;
             break;
         default:
             loser = other;
@@ -245,7 +245,7 @@ Game.power= function(text) {
     if (powers[text]) {
         return powers[text];
     } else {
-        console.log(text);
+        console.log(text + ' interpreted as independent');
         return "independent";
     }
 }
@@ -437,8 +437,9 @@ Game.parseBattles = function(text) {
 
 
 Game.parseHits = function(text) {
-    var rolls = [...text.matchAll(/\*\* (.*?) dic?e roll: (.*?) -- (\d*) (?:extra )?hits?.*?(\*\*)?(, making \d* total)?/g)];
+    var rolls = [...text.matchAll(/\*\* (.*?) (?:siege artillery )?dic?e (?:roll|\(3-6 to hit\)): (.*?) -- (\d*) (?:extra )?hits?.*?(\*\*)?(, making \d* total)?/g)];
     rolls.forEach(hit=>{
+
         if (hit[4]) {
             this.hitDice(this.power(hit[1]),hit[2],hit[3]);
         } else {
