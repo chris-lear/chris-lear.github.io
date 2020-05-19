@@ -293,19 +293,6 @@ Game.date = function(turn,impulse) {
     const date = new Date(2009, month, 10);  // 2009-11-10
     month = date.toLocaleString('default', { month: 'long' });
     return month + " " + (baseYear+year);
-    /*
-October 1517
-Jan-May 1521
-1523
-1524-1527
-1528-1531
-1532-1535
-1536-1539
-1540-1543
-1544-1547
-1548-1551
-1552-1555
-*/
 }
 Game.maxImpulse = function(turn) {
     var max = 0;
@@ -357,7 +344,7 @@ Game.parseDiet = function(text) {
     } else {
         winner = 'pope';// not true
     }
-    this.addBattle(text,'Diet',"Worms",'pope', winner);
+    this.addBattle(text,'Diet',"Worms",winner);
     this.parseHits(text);
 }
 Game.parseReformations = function(text) {
