@@ -529,18 +529,18 @@ Game.update = function(t) {
             data.battlesWon = data.battlesLost = data.battlesInitiated;
         }
         $('#stats tbody').append(
-            `<tr id='${power}' class='stats-row'>
-            <td ><span class='power ${power}'>${Powers[power]}</span></td>
-            <td class='cards-played'>${data.cards.length}</td>
-            <td class='total-ops'>${data.ops}</td>
-            <td class='average-ops'>${data.averageOps.toFixed(2)}</td>
-            <td class='total-dice' title='${data.allDiceText}'>${data.totalDice}</td>
-            <td class='average-dice'>${data.averageDice.toFixed(2)}</td>
-            <td class='hits'>${data.hits}</td>
-            <td class='hits-percentage'>${(data.hitsPerc*100).toFixed(2)}</td>
-            <td class='battles-initiated'>${data.battlesInitiated}</td>
-            <td class='battles-won'>${data.battlesWon}</td>
-            <td class='battles-lost'>${data.battlesLost}</td>
+            `<tr id="${power}" class="stats-row">
+            <td ><span class="power ${power}">${Powers[power]}</span></td>
+            <td class="cards-played">${data.cards.length}</td>
+            <td class="total-ops">${data.ops}</td>
+            <td class="average-ops">${data.averageOps.toFixed(2)}</td>
+            <td class="total-dice" title="${data.allDiceText}">${data.totalDice}</td>
+            <td class="average-dice">${data.averageDice.toFixed(2)}</td>
+            <td class="hits">${data.hits}</td>
+            <td class="hits-percentage">${(data.hitsPerc*100).toFixed(2)}</td>
+            <td class="battles-initiated">${data.battlesInitiated}</td>
+            <td class="battles-won">${data.battlesWon}</td>
+            <td class="battles-lost">${data.battlesLost}</td>
             </tr>`);
 
         var overview = $(`
@@ -557,13 +557,13 @@ Game.update = function(t) {
     });
     $('#battles').empty();
     this.Battles.forEach(battle=>{
-        $('#battles').append($(`<tr class='battle ${battle.winner} ${battle.loser} ${battle.initiator}'>
+        $('#battles').append($(`<tr class="battle ${battle.winner} ${battle.loser} ${battle.initiator}">
 
-            <td><span class='date' title='Turn ${battle.turn} Impulse ${battle.impulse}'>${battle.getDate(this)}</span></td>
-            <td><span class='initiator power ${battle.initiator}'>${battle.initiatorName()}</span></td>
-            <td><span class='battleDesc ${battle.class()}' title='${battle.text}'> ${battle.description()}</span></td>
-            <td><span class='winner power ${battle.winner}'>${battle.winnerName()}</span><br/><span class='dice winner-dice'>${battle.getWinnerDice()}</span></td>
-            <td><span class='loser power ${battle.loser}'>${battle.loserName()}</span><br/><span class='dice loser-dice'>${battle.getLoserDice()}</span></td>
+            <td><span class="date" title="Turn ${battle.turn} Impulse ${battle.impulse}">${battle.getDate(this)}</span></td>
+            <td><span class="initiator power ${battle.initiator}">${battle.initiatorName()}</span></td>
+            <td><span class="battleDesc ${battle.class()}" title="${battle.text}"> ${battle.description()}</span></td>
+            <td><span class="winner power ${battle.winner}">${battle.winnerName()}</span><br/><span class="dice winner-dice">${battle.getWinnerDice()}</span></td>
+            <td><span class="loser power ${battle.loser}">${battle.loserName()}</span><br/><span class="dice loser-dice">${battle.getLoserDice()}</span></td>
             </tr>`));
     });
 }
