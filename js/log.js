@@ -287,7 +287,7 @@ Game.extract = function(power) {
 }
 Game.date = function(turn,impulse) {
     var baseYear = 1516 + turn*4;
-    var month = Math.floor(impulse*4*12/this.maxImpulse(turn));
+    var month = Math.floor(impulse*4*12/this.maxImpulse(turn-1));
     var year = Math.floor(month/12);
     month = month%12;
     const date = new Date(2009, month, 10);  // 2009-11-10
