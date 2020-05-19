@@ -1,3 +1,4 @@
+'use strict';
 var Game = {};
 var Setup = {};
 
@@ -45,7 +46,7 @@ Setup.BattleDice = {'ottoman':[0,0,0,0,0,0,0],
     'protestant':[0,0,0,0,0,0,0],
     'independent':[0,0,0,0,0,0,0]
 };
-Battle = function(b) {
+var Battle = function(b) {
     Object.assign(this,JSON.parse(JSON.stringify(b)));
     if (this.type=='Diet') {
         this.initiator = 'pope';
@@ -103,7 +104,7 @@ Battle = function(b) {
     }
     this.getDice = function(which) {
         var out = '';
-        dChars = ['','⚀','⚁','⚂','⚃','<span class="hit">⚄</span>','<span class="hit">⚅</span>'];
+        var dChars = ['','⚀','⚁','⚂','⚃','<span class="hit">⚄</span>','<span class="hit">⚅</span>'];
         var thing = this.dice[this.loser];
         if (which == 'winner') {
             thing = this.dice[this.winner];
@@ -122,7 +123,7 @@ Battle = function(b) {
     }
 }
 Game.reformation = function(location, result, type) {
-
+    var thing;
     if (type=="counter ") {
         thing = this.CounterReformations;
     } else {
@@ -360,7 +361,7 @@ Game.parseDiet = function(text) {
     this.parseHits(text);
 }
 Game.parseReformations = function(text) {
-    refs = [...text.matchAll(/(?:Counter )?Reformation attempt in [\s\S]*?The (?:counter )?reformation roll in .*/g)];
+    var refs = [...text.matchAll(/(?:Counter )?Reformation attempt in [\s\S]*?The (?:counter )?reformation roll in .*/g)];
     refs.forEach(ref=>{
 
         this.reformation(ref[1],ref[3],ref[2]);
@@ -370,11 +371,11 @@ Game.parseReformations = function(text) {
 }
 
 Game.parseReformationDice = function(text) {
-    dice1 = text.match(/Protestant dic?e roll: (.*?) --.*high roll/);
+    var dice1 = text.match(/Protestant dic?e roll: (.*?) --.*high roll/);
     if (dice1) {
         this.reformationDice('protestant',dice1[1]);
     }
-    dice2 = text.match(/Catholic dic?e roll: (.*?) --.*high roll/);
+    var dice2 = text.match(/Catholic dic?e roll: (.*?) --.*high roll/);
     if (dice2) {
         this.reformationDice('pope',dice2[1]);
     }
@@ -407,7 +408,7 @@ Game.parseImpulse = function(text) {
 }
 
 Game.parseBattles = function(text) {
-
+    var loser;
     var assault = [...text.matchAll(/\*\* Assault of (.*)\*\*[\s\S]*?(.*?) dic?e.*\(defending\)[\s\S]*?assault in \1 (.*)!/g)];
     assault.forEach(a=> {
         this.currentBattle = null;
@@ -449,7 +450,7 @@ Game.parseBattles = function(text) {
 
 
 Game.parseHits = function(text) {
-    rolls = [...text.matchAll(/\*\* (.*?) dic?e roll: (.*?) -- (\d*) (?:extra )?hits?.*?(\*\*)?(, making \d* total)?/g)];
+    var rolls = [...text.matchAll(/\*\* (.*?) dic?e roll: (.*?) -- (\d*) (?:extra )?hits?.*?(\*\*)?(, making \d* total)?/g)];
     rolls.forEach(hit=>{
         if (hit[4]) {
             this.hitDice(this.power(hit[1]),hit[2],hit[3]);
@@ -521,8 +522,8 @@ Game.update = function(t) {
     });
     console.log(this);
 
-    total = this.extract('');
-    powers = ['protestant','pope','hapsburg','england','france','ottoman','independent','total'];
+    var total = this.extract('');
+    var powers = ['protestant','pope','hapsburg','england','france','ottoman','independent','total'];
     $('#stats tbody tr').remove();
     powers.forEach(power=>{
         var data = this.extract(power);
@@ -580,7 +581,7 @@ Game.update = function(t) {
     });
 }
 
-G = function(){
+var G = function(){
     Object.assign(this,JSON.parse(JSON.stringify(Setup)));
 };
 G.prototype = Game;
