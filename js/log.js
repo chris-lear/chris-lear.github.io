@@ -590,9 +590,10 @@ function update(e) {
 
 $(function() {
     var timeout;
-
-    $('#battles').on('mouseover', '.battle', function() {
-        var text = $(this).find('.battleDesc').attr('title');
+    function highlight(text) {
+        if (!text) {
+            return;
+        }
         $("#gamelog").unmark({
             done: function() {
                 $("#gamelog").mark(text, {
@@ -607,19 +608,39 @@ $(function() {
                 });
             }
         });
+    }
+    $('#battles').on('click', '.battle', function() {
+        $('#battles tr').removeClass('clicked');
+        $(this).addClass('clicked');
+        var text = $(this).find('.battleDesc').attr('title');
+        highlight(text);
     });
-    $('#stats').on('click','.power', function() {
-        var power = $(this).closest('tr').attr('id');
+
+    $('#battles').on('mouseover', '.battle', function() {
+        var text = $(this).find('.battleDesc').attr('title');
+        highlight(text);
+    });
+    $('#battles').on('mouseout', function() {
+        highlight($(this).find('.clicked .battleDesc').attr('title'));
+    });
+    $('#gameselector button').on('click', function() {
+        //clearTimeout(timeout);
+        fetchGame($(this).attr('gameid') + '.txt');
+    });
+    $('#right').on('mouseover', 'tbody tr',function() {
+        $(this).addClass('hover');
+    });
+    $('#right').on('mouseout', 'tbody tr',function() {
+        $(this).removeClass('hover');
+    });
+    $('#stats').on('click','tr', function() {
+        var power = $(this).attr('id');
         if (power == 'total') {
             $('tr.battle').show();
         } else {
             $('tr.battle').hide();
             $('tr.battle.'+power).show();
         }
-    });
-    $('#gameselector button').on('click', function() {
-        //clearTimeout(timeout);
-        fetchGame($(this).attr('gameid') + '.txt');
     });
     function fetchGame(file) {
         $.get(file, function(data) {

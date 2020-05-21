@@ -17,6 +17,13 @@ td {
     font-size:30px;
     color:red;
 }
+tr.hover {
+    background-color:#eee;
+    cursor:pointer;
+}
+tr.clicked {
+    background-color:#ddd;
+}
 
 /* power colour scheme */
 
@@ -61,9 +68,6 @@ td {
 }
 .power.total {
     color:black;
-}
-#stats .power  {
-    cursor:pointer;
 }
 
 
