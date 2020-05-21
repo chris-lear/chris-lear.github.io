@@ -3,60 +3,67 @@
     <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-        <link href="css/lib/jquery.highlight-within-textarea.css" rel="stylesheet">
         <link href="css/log.css" rel="stylesheet">
         <link rel="icon" type="image/png" href="img/logo.png">
         <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-        <script src="js/lib/jquery.highlight-within-textarea.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.es6.min.js" integrity="sha256-TvIHnOHkQXUdrCyMb3Q1qk+9BIGt9a/Skml3iDiNEzI=" crossorigin="anonymous"></script>
         <script src='js/log.js'>
         </script>
     </head>
     <body>
-        <div id='gameselector'><button gameid='game0'>Game 0 (Most of)</button> <button gameid='game1'>Game I (Complete)</button> <button gameid='game2'>Game II (Ongoing)</button></div>
-        <div id='right'>
-            <h1>Stats</h1>
-            <table class='pure-table' id='stats'>
-                <thead>
-                    <tr>
-                        <th rowspan=2>Power</th>
-                        <th rowspan=2>Cards<br/>Played</th>
-                        <th rowspan=2>Total<br/>Ops</th>
-                        <th rowspan=2>Ops/<br/>Card</th>
-                        <th rowspan=2>Dice<br/>Rolled</th>
-                        <th rowspan=2>Mean<br/>Die<br/>Roll</th>
-                        <th colspan=2>Hits</th>
-                        <th colspan=3>Battles</th>
-                    </tr>
-                    <tr rowspan=2>
-                        <th>Total</th>
-                        <th>%</th>
-                        <th>Initiated</th>
-                        <th>Won</th>
-                        <th>Lost</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-            <h1>Timeline</h1>
-            <table class='pure-table' id='timeline'>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Initiator</th>
-                        <th>Event</th>
-                        <th>Winner</th>
-                        <th>Loser</th>
-                    </tr>
-                </thead>
-                <tbody id='battles'>
-                </tbody>
-            </table>
-        </div>
-        <div id='left'>
-            <textarea id='input' placeholder='Paste log'></textarea>
-            <div class='gamelog' id='game2'></div>
-            <div id='game1' class='gamelog'></div>
+        <div id='outer' class='flex-col'>
+            <div id='gameselector'><button gameid='game0'>Game 0 (Most of)</button> <button gameid='game1'>Game I (Complete)</button> <button gameid='game2'>Game II (Ongoing)</button></div>
+            <div id='container' class='flex-row'>
+                <div id='left' class='flex-col'>
+                    <h1>Log</h1>
+                    <div id='gamelog' class='row-flexi'></div>
+                    <!--                    <textarea id='input' placeholder='Paste log' class='row-flexi'></textarea>-->
+                </div>
+                <div id='right' class='flex-col'>
+                    <div>
+                        <h1>Stats</h1>
+                        <table class='pure-table' id='stats'>
+                            <thead>
+                                <tr>
+                                    <th rowspan=2>Power</th>
+                                    <th rowspan=2>Cards<br/>Played</th>
+                                    <th rowspan=2>Total<br/>Ops</th>
+                                    <th rowspan=2>Ops/<br/>Card</th>
+                                    <th rowspan=2>Dice<br/>Rolled</th>
+                                    <th rowspan=2>Mean<br/>Die<br/>Roll</th>
+                                    <th colspan=2>Hits</th>
+                                    <th colspan=3>Battles</th>
+                                </tr>
+                                <tr rowspan=2>
+                                    <th>Total</th>
+                                    <th>%</th>
+                                    <th>Initiated</th>
+                                    <th>Won</th>
+                                    <th>Lost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class='row-flexi'>
+                        <h1>Timeline</h1>
+                        <table class='pure-table' id='timeline'>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Initiator</th>
+                                    <th>Event</th>
+                                    <th>Winner</th>
+                                    <th>Loser</th>
+                                </tr>
+                            </thead>
+                            <tbody id='battles'>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

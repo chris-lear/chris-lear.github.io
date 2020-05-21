@@ -584,25 +584,29 @@ function addvector(a,b){
 
 function update(e) {
     var game = new G();
-    game.update($('#input').val());
+    game.update($('#gamelog').text());
 }
 
 
 $(function() {
     var timeout;
-    $('#input').on('change', update);
 
     $('#battles').on('mouseover', '.battle', function() {
         var text = $(this).find('.battleDesc').attr('title');
-        $('textarea').highlightWithinTextarea({
-            highlight: text
+        $("#gamelog").unmark({
+            done: function() {
+                $("#gamelog").mark(text, {
+                    "accuracy": "complementary",
+                    "caseSensitive": true,
+                    "separateWordSearch": false,
+                    "diacritics": false
+                });
+                $('mark')[0].scrollIntoView({
+                    behavior: "smooth", // or "auto" or "instant"
+                    block: "start" // or "end"
+                });
+            }
         });
-        $('mark')[0].scrollIntoView({
-            behavior: "instant", // or "auto" or "instant"
-            block: "start" // or "end"
-        });
-        let scrollTop = $('.hwt-backdrop').scrollTop();
-        $('textarea').scrollTop(scrollTop);
     });
     $('#stats').on('click','.power', function() {
         var power = $(this).closest('tr').attr('id');
@@ -619,7 +623,7 @@ $(function() {
     });
     function fetchGame(file) {
         $.get(file, function(data) {
-            $('textarea').val(data);
+            $('#gamelog').text(data);
             update();
         });
     }

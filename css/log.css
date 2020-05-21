@@ -1,12 +1,12 @@
-.gamelog {
-    display:none;
-}
+/* pure-css is used as a starting point*/
 h1 {
     font-size:inherit;
 }
 td {
     text-align:right;
 }
+
+/* assorted effects */
 #battles td {
     text-align:left;
 }
@@ -17,6 +17,8 @@ td {
     font-size:30px;
     color:red;
 }
+
+/* power colour scheme */
 
 .power {
     border-radius: 20px;
@@ -64,17 +66,35 @@ td {
     cursor:pointer;
 }
 
-textarea {
-    width:350px;
-    height:700px;
-}
 
-#right {
-    margin-left:360px;
-    float:right;
+/* overall structure: flexbox stuff */
+
+html, body, #outer {
     height:100%;
-    overflow:scroll;
-    position:absolute;
 }
 
+.flex-col {
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+}
+.flex-row {
+    display:flex;
+    flex-direction:row;
+    overflow:hidden;
+}
+.row-flexi {
+    flex:1;
+    overflow:scroll;
+}
+.col-flexi {
+    flex:1;
+    overflow:scroll;
+}
+#left {
+    min-width:200px;
+    flex:1;
+    overflow:hidden;
+    white-space:pre;
+}
 
