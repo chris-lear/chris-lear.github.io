@@ -112,7 +112,7 @@ var Battle = function(b) {
         if (!thing) {
             return '';
         }
-        thing.forEach((d,i)=>{out+=dChars[i].repeat(d)});
+        thing.forEach((d,i)=>{out+=('&#8203;'+dChars[i]).repeat(d)});
         return out;
     }
     this.getWinnerDice = function() {
@@ -590,9 +590,12 @@ function update(e) {
 
 $(function() {
     var timeout;
-    function highlight(text) {
+    function highlight(text, behavior) {
         if (!text) {
             return;
+        }
+        if (!behavior) {
+            behavior = 'smooth';
         }
         $("#gamelog").unmark({
             done: function() {
@@ -603,8 +606,8 @@ $(function() {
                     "diacritics": false
                 });
                 $('mark')[0].scrollIntoView({
-                    behavior: "smooth", // or "auto" or "instant"
-                    block: "start" // or "end"
+                    behavior: behavior,
+                    block: "start"
                 });
             }
         });
@@ -621,7 +624,7 @@ $(function() {
         highlight(text);
     });
     $('#battles').on('mouseout', function() {
-        highlight($(this).find('.clicked .battleDesc').attr('title'));
+        highlight($(this).find('.clicked .battleDesc').attr('title'), 'instant');
     });
     $('#gameselector button').on('click', function() {
         //clearTimeout(timeout);

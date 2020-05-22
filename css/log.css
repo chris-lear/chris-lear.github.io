@@ -89,11 +89,11 @@ html, body, #outer {
 }
 .row-flexi {
     flex:1;
-    overflow:scroll;
+    overflow:auto;
 }
 .col-flexi {
     flex:1;
-    overflow:scroll;
+    overflow:auto;
 }
 #left {
     min-width:200px;
@@ -101,4 +101,12 @@ html, body, #outer {
     overflow:hidden;
     white-space:pre;
 }
-
+@media screen and (max-width:1200px) {
+    #right {
+        font-size:1.328vw;
+    }
+}
+#right table {
+    max-width:100%;
+    overflow:hidden;
+}
