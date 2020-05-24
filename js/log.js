@@ -456,7 +456,7 @@ Game.parseHits = function(text) {
 }
 
 Game.parseAction = function(text) {
-    var impulses = [...text.matchAll(/Turn \d, .*impulse\n[\s\S]*?(?=(Turn \d, .*impulse)|$)/g)];
+    var impulses = [...text.matchAll(/Turn \d, .*impulse\r?\n[\s\S]*?(?=(Turn \d, .*impulse)|$)/g)];
     impulses.forEach((impulse)=> {
         this.parseImpulse(impulse[0]);
     });
@@ -656,6 +656,6 @@ $(function() {
         timeout = setTimeout(doPoll,5000);
     }
     //doPoll();
-    $('#gameselector button')[1].click();
+    $('#gameselector button')[2].click();
 });
 
