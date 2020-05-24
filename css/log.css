@@ -95,6 +95,29 @@ html, body, #outer {
     flex:1;
     overflow:auto;
 }
+#stats-selector {
+    align-items: center;
+}
+#stats-selector span {
+    display:inline-block;
+}
+#stats-selector span.turn-selector {
+    padding:8px;
+    background-color:#eee;
+    border-width:2px;
+    cursor:pointer;
+    border-color:black;
+    border-style:solid;
+}
+#stats-selector span.turn-selector:hover ,
+#stats-selector span.turn-selector.selected {
+    background-color:#ddd;
+}
+#stats-selector span.turn-selector.selected {
+    background-color:#ccc;
+    border-color:red;
+}
+
 #left {
     min-width:200px;
     flex:1;
