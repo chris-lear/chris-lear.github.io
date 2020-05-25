@@ -17,11 +17,20 @@ var Powers = {
 var PowersTurn = function() {
     this.dice = [0,0,0,0,0,0,0];
     this.cards = [];
+    this.vps = 0;
 }
-var Turn = function() {
+var Turn = function(zero) {
     Object.keys(Powers).forEach(power=> {
         this[power] = new PowersTurn();
     });
+    if (zero) {
+        this['ottoman'].vps = 8;
+        this['hapsburg'].vps = 9;
+        this['england'].vps = 9;
+        this['france'].vps = 12;
+        this['pope'].vps = 19;
+        this['protestant'].vps = 0;
+    }
 
 
 }
@@ -178,7 +187,6 @@ Game.hitDice = function(who, what, hits) {
 }
 Game.addImpulse = function(turn, who, impulseNumber, type, num, ops) {
     this.Turns[turn][who]['cards'].push({'ops':+ops, 'type':type, 'cardNumber':+num});
-    this.currentTurn = +turn;
     this.currentImpulse = +impulseNumber;
     this.currentPlayer = who;
 }
@@ -231,6 +239,7 @@ Game.power= function(text) {
     var powers = {
         'The Ottomans':'ottoman',
         'Ottoman':'ottoman',
+        'Ottomans':'ottoman',
         'The Hapsburgs':'hapsburg',
         'Hapsburg':'hapsburg',
         'Hapsburgs':'hapsburg',
@@ -242,7 +251,9 @@ Game.power= function(text) {
         'French':'france',
         'The Catholics':'pope',
         'The Papacy':'pope',
+        'Papacy':'pope',
         'Protestant':'protestant',
+        'Protestants':'protestant',
         'Protestant Diet of Worms':'protestant',
         'Catholic Diet of Worms':'pope',
         'The Protestants':'protestant',
@@ -280,6 +291,10 @@ Game.extract = function(power, turnNumber) {
     ret.debateDice = this.DebateDice[turnNumber][power];
     ret.reformationDice = this.ReformationDice[turnNumber][power];
     var cards = this.Turns[turnNumber][power]['cards'];
+    ret.vps = this.Turns[turnNumber][power]['vps'];
+    if (turnNumber>0) {
+        ret.vpDelta = this.Turns[turnNumber][power]['vps'] - this.Turns[turnNumber - 1][power]['vps'];
+    }
 
 
     ret.totalDice = ret.count(ret.debateDice)+ret.count(ret.reformationDice)+ret.count(ret.battleDice);
@@ -340,6 +355,9 @@ Game.parsePhase = function(phase) {
             break;
         case "Winter":
             this.parseWinter(phase);
+            break;
+        case 'Victory Determination':
+            this.parseVictoryDetermination(phase);
             break;
         default:
             console.log(name + ' not implemented');
@@ -523,7 +541,19 @@ Game.parseConquests = function(text) {
 Game.parseWinter = function(text) {
 }
 
-
+/*
+ * Ottomans: 12
+ * Hapsburgs: 12
+ * England: 9
+ * France: 15
+ * Papacy: 18
+ * Protestants: 1
+ */
+Game.parseVictoryDetermination = function(text) {
+    [...text.matchAll(/(.*): (\d*)/g)].forEach(points=>{
+        this.Turns[this.currentTurn][this.power(points[1])]['vps'] = points[2];
+    });
+}
 
 
 
@@ -536,11 +566,12 @@ Game.update = function(t) {
     this.BattleDice.push(new TurnDice());
     this.DebateDice.push(new TurnDice());
     this.ReformationDice.push(new TurnDice());
-    this.Turns.push(new Turn()); // Turn 0 diet of worms
+    this.Turns.push(new Turn('turnZero')); // sets up initial scores
     var turns = t.split(/\*\* Start of Turn \d \*\*/)
     turns.shift();
 
     turns.forEach(turn=> {
+        this.currentTurn++;
         this.Turns.push(new Turn());
         this.BattleDice.push(new TurnDice());
         this.DebateDice.push(new TurnDice());
@@ -560,7 +591,8 @@ Game.showStats = function(turnNumber) {
         hits: 0,
         ops: 0,
         reformationDice: 0,
-        totalDice: 0
+        totalDice: 0,
+        vps: 0
     }
 
 
@@ -593,7 +625,14 @@ Game.showStats = function(turnNumber) {
                 data.battlesLost += oneTurn.battlesLost;
                 data.hits += oneTurn.hits;
                 data.hitsPerc = data.hits/data.totalDice;
+                if (oneTurn.vps) {
+                    data.vps = oneTurn.vps;
+                }
             });
+            if (!data.averageOps) {
+                data.averageOps = 0;
+            }
+            data.vpDelta = data.vps;
         } else {
             data = this.extract(power, turnNumber);
         }
@@ -606,6 +645,8 @@ Game.showStats = function(turnNumber) {
         total.battlesInitiated+= data.battlesInitiated;
         total.hits += data.hits;
         total.hitsPerc = total.hits/total.totalDice;
+        total.vps = 'n/a';
+        total.vpDelta = 'n/a';
 
         if (power=='total') {
             data = total;
@@ -624,6 +665,8 @@ Game.showStats = function(turnNumber) {
             <td class="battles-initiated">${data.battlesInitiated}</td>
             <td class="battles-won">${data.battlesWon}</td>
             <td class="battles-lost">${data.battlesLost}</td>
+            <td class="vps">${data.vps==undefined?'n/a':data.vps}</td>
+            <td class="vp-delta">${data.vps===undefined?'n/a':((data.vpDelta>0?"+":"") + data.vpDelta)}</td>
             </tr>`);
 /*
         var overview = $(`
@@ -677,7 +720,9 @@ function update(e) {
     $('#stats-selector .turn-selector').remove();
     $('#stats-selector').append($(`<span class='turn-selector' data-turn=-1>All</span>`));
     game.Turns.forEach((t,i)=>{
-        $('#stats-selector').append($(`<span class='turn-selector turn-{$i}' data-turn=${i}>Turn ${i}</span>`));
+        if (i > 0) {
+            $('#stats-selector').append($(`<span class='turn-selector turn-${i}' data-turn=${i}>Turn ${i}</span>`));
+        }
     });
     $('.turn-selector')[0].click();
 }
