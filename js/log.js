@@ -66,9 +66,15 @@ var Battle = function(b) {
         return Powers[this.initiator];
     }
     this.winnerName = function() {
+        if (this.type == 'Exploration' || this.type == 'Conquest') {
+            return '';
+        }
         return Powers[this.winner];
     }
     this.loserName = function() {
+        if (this.type == 'Exploration' || this.type == 'Conquest') {
+            return '';
+        }
         return Powers[this.loser];
     }
     this.description = function() {
@@ -262,7 +268,6 @@ Game.extract = function(power, turnNumber) {
     };
     // battleDice, debateDice, reformationDice per turn
     ret.battleDice = this.BattleDice[turnNumber][power];
-    console.log(ret.battleDice);
     ret.debateDice = this.DebateDice[turnNumber][power];
     ret.reformationDice = this.ReformationDice[turnNumber][power];
     var cards = this.Turns[turnNumber][power]['cards'];
@@ -278,7 +283,7 @@ Game.extract = function(power, turnNumber) {
     ret.cards = [].concat(...cards);
     ret.cardcount = ret.cards.length;
     ret.ops = ret.cards.reduce((acc,curr)=>acc+curr.ops, 0);
-    ret.battlesInitiated = this.battlesOnTurn(turnNumber).reduce((acc,curr)=>{return (curr.initiator==power)?acc+1:acc;},0)
+    ret.battlesInitiated = this.battlesOnTurn(turnNumber).reduce((acc,curr)=>{return (curr.initiator==power && curr.type!='Exploration' && curr.type!='Conquest')?acc+1:acc;},0)
     ret.battlesWon = this.battlesOnTurn(turnNumber).reduce((acc,curr)=>{return (curr.winner==power)?acc+1:acc;},0)
     ret.battlesLost = this.battlesOnTurn(turnNumber).reduce((acc,curr)=>{return (curr.loser==power)?acc+1:acc;},0)
     if (ret.ops) {
@@ -526,12 +531,6 @@ Game.update = function(t) {
             this.parsePhase(phase);
         });
     });
-    $('#stats-selector .turn-selector').remove();
-    $('#stats-selector').append($(`<span class='turn-selector' data-turn=-1>All</span>`));
-    this.Turns.forEach((t,i)=>{
-        $('#stats-selector').append($(`<span class='turn-selector turn-{$i}' data-turn=${i}>Turn ${i}</span>`));
-    });
-    $('.turn-selector')[0].click();
 }
 
 Game.showStats = function(turnNumber) {
@@ -657,6 +656,12 @@ function addvector(a,b){
 function update(e) {
     game = new G();
     game.update($('#gamelog').text());
+    $('#stats-selector .turn-selector').remove();
+    $('#stats-selector').append($(`<span class='turn-selector' data-turn=-1>All</span>`));
+    game.Turns.forEach((t,i)=>{
+        $('#stats-selector').append($(`<span class='turn-selector turn-{$i}' data-turn=${i}>Turn ${i}</span>`));
+    });
+    $('.turn-selector')[0].click();
 }
 
 
