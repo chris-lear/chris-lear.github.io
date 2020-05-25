@@ -98,6 +98,8 @@ var Battle = function(b) {
                 return `${this.winner} Discovers ${this.location}`;
             case 'Conquest':
                 return `${this.winner} Conquers ${this.location}`;
+            case 'Piracy':
+                return `Ottoman piracy in ${this.location}`;
             default:
                 console.log('unknown battle type '+this.type);
         }
@@ -448,6 +450,12 @@ Game.parseBattles = function(text) {
         this.parseHits(debate[0]);
     });
 
+    var piracies = [...text.matchAll(/The Ottomans .*?initiate piracy in (.*?) against (.*)[\s\S]*?Ottoman Piracy dic?e roll:.*/g)];
+    piracies.forEach(piracy=>{
+        this.currentBattle = null;
+        this.addBattle(piracy[0],'Piracy',piracy[1],'ottoman',this.power(piracy[2]));
+        this.parseHits(piracy[0]);
+    });
 
 }
 
@@ -461,7 +469,10 @@ Game.parseHits = function(text) {
         } else {
             switch(hit[1]) {
                 case 'Anti-Piracy':
+                    this.hitDice(this.currentBattle.loser,hit[2],hit[3]);
+                    break;
                 case 'Ottoman Piracy':
+                    this.hitDice('ottoman',hit[2],hit[3]);
                     break;
                 default:
                     this.hitDice(this.power(hit[1]),hit[2],hit[3]);
