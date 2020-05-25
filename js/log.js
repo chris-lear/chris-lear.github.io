@@ -204,7 +204,12 @@ Game.addBattle = function(text, type, where, winner, other) {
         initiator = this.Explorers[winner];
     }
     if (type=='Conquest') {
-        initiator = this.Conquistadors[winner];
+        var conqueror;
+        if (conqueror = winner.match(/(.*) conqueror/)) {
+            initiator = this.power(conqueror[1]);
+        } else {
+            initiator = this.Conquistadors[winner];
+        }
     }
     this.currentBattle = new Battle({
         'turn': this.currentTurn,
@@ -230,6 +235,8 @@ Game.power= function(text) {
         'Hapsburg':'hapsburg',
         'Hapsburgs':'hapsburg',
         'England':'england',
+        'The English':'england',
+        'The French':'france',
         'France':'france',
         'English':'england',
         'French':'france',
