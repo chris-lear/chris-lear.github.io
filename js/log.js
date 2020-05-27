@@ -387,7 +387,7 @@ Game.parseReformations = function(text) {
     refs.forEach(ref=>{
 
         this.reformation(ref[1],ref[3],ref[2]);
-        this.parseReformationDice(text);
+        this.parseReformationDice(ref[0]);
     });
 
 }
@@ -718,7 +718,7 @@ function update(e) {
     game = new G();
     game.update($('#gamelog').text());
     $('#stats-selector .turn-selector').remove();
-    $('#stats-selector').append($(`<span class='turn-selector' data-turn=-1>All</span>`));
+    $('#stats-selector').append($(`<span class='turn-selector' data-turn=-1>Summary</span>`));
     game.Turns.forEach((t,i)=>{
         if (i > 0) {
             $('#stats-selector').append($(`<span class='turn-selector turn-${i}' data-turn=${i}>Turn ${i}</span>`));
