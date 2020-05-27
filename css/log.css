@@ -11,10 +11,12 @@ td {
     text-align:left;
 }
 .dice {
-    font-size:25px;
+    display:block;
+    padding-top:5px;
+    font-size:larger;
 }
 .dice .hit {
-    font-size:30px;
+    font-size:larger;
     color:red;
 }
 tr.hover {
@@ -34,6 +36,7 @@ tr.clicked {
     padding:5px 5px 5px 30px ;
     background-size:27px;
     background-repeat:no-repeat;
+    background-position-y: center;
 }
 .power.ottoman {
     background-color:#019D4C;
@@ -119,14 +122,23 @@ html, body, #outer {
 }
 
 #left {
-    min-width:200px;
+    max-width:200px;
     flex:1;
     overflow:hidden;
     white-space:pre;
 }
-@media screen and (max-width:1200px) {
+@media screen and (max-width:1400px) {
     #right {
-        font-size:1.328vw;
+        font-size:1.2vw;
+    }
+}
+@media screen and (max-width:1000px) {
+    .power {
+        background-size:2.6vw;
+        border-radius: 1vw;
+        padding:.5vw .5vw .5vw 3vw ;
+        background-repeat:no-repeat;
+        background-position-y: center;
     }
 }
 #right table {
