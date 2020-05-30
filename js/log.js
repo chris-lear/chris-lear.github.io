@@ -5,8 +5,10 @@ function update(e) {
     $('#stats-selector .turn-selector').remove();
     $('#stats-selector').append($(`<span class='turn-selector' data-turn=-1>Summary</span>`));
     game.Turns.forEach((t,i)=>{
-        if (i > 0) {
-            $('#stats-selector').append($(`<span class='turn-selector turn-${i}' data-turn=${i}>Turn ${i}</span>`));
+        if (t.ottoman.cards.length) {
+            if (i > 0) {
+                $('#stats-selector').append($(`<span class='turn-selector turn-${i}' data-turn=${i}>Turn ${i}</span>`));
+            }
         }
     });
     $('.turn-selector')[0].click();

@@ -602,7 +602,7 @@ Game.showStats = function(turnNumber) {
     var powers = Object.keys(Powers);
     $('#stats tbody tr').remove();
     powers.forEach(power=>{
-        var data;
+        var data, startVps;
         if (turnNumber == -1 ) {
             data = {
                 battlesInitiated: 0,
@@ -631,11 +631,14 @@ Game.showStats = function(turnNumber) {
                 if (oneTurn.vps) {
                     data.vps = oneTurn.vps;
                 }
+                if (i==0) {
+                    startVps = oneTurn.vps;
+                }
             });
             if (!data.averageOps) {
                 data.averageOps = 0;
             }
-            data.vpDelta = data.vps;
+            data.vpDelta = data.vps - startVps;
         } else {
             data = this.extract(power, turnNumber);
         }
@@ -671,19 +674,6 @@ Game.showStats = function(turnNumber) {
             <td class="vps">${data.vps==undefined?'n/a':data.vps}</td>
             <td class="vp-delta">${data.vps===undefined?'n/a':((data.vpDelta>0?"+":"") + data.vpDelta)}</td>
             </tr>`);
-/*
-        var overview = $(`
-            <table class='pure-table ${power} overview'>
-            <thead>
-            <tr>
-            <th>${Powers[power]}</th>
-            </tr>
-            </thead>
-            <tbody class='stats'>
-            </tbody>
-            </table>`);
-        $('#overviews').append(overview);
-    */
     });
     $('#battles').empty();
     this.battlesOnTurn(turnNumber).forEach(battle=>{
