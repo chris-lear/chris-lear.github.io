@@ -489,7 +489,7 @@ Game.parseBattles = function(text) {
 
 
 Game.parseHits = function(text) {
-    var rolls = [...text.matchAll(/\*\* (.*?) (?:siege artillery )?dic?e (?:roll|\(3-6 to hit\)): (.*?) -- (\d*) (?:extra )?hits?.*?(\*\*)?(, making \d* total)?/g)];
+    var rolls = [...text.matchAll(/\*\* (.*?) (?:extra )?(?:siege artillery )?dic?e (?:roll|\(3-6 to hit\)): (.*?) -- (\d*) (?:extra )?hits?.*?(\*\*)?(, making \d* total)?/g)];
     rolls.forEach(hit=>{
 
         if (hit[4]) {
