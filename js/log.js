@@ -54,7 +54,8 @@ $(function() {
         highlight($(this).find('.clicked .battleDesc').attr('title'), 'instant');
     });
     $('#gameselector button').on('click', function() {
-        //clearTimeout(timeout);
+        $('#gameselector button').removeClass('selected');
+        $(this).addClass('selected');
         fetchGame($(this).attr('gameid') + '.txt');
     });
     $('#right').on('mouseover', 'tbody tr',function() {

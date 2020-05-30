@@ -112,11 +112,26 @@ html, body, #outer {
     border-color:black;
     border-style:solid;
 }
-#stats-selector span.turn-selector:hover ,
-#stats-selector span.turn-selector.selected {
+#stats-selector span.turn-selector:hover {
     background-color:#ddd;
 }
 #stats-selector span.turn-selector.selected {
+    background-color:#ccc;
+    border-color:red;
+}
+#gameselector button {
+    padding:8px;
+    background-color:#eee;
+    border-width:2px;
+    cursor:pointer;
+    border-color:black;
+    border-style:solid;
+}
+
+#stats-selector button:hover {
+    background-color:#ddd;
+}
+#gameselector button.selected {
     background-color:#ccc;
     border-color:red;
 }
