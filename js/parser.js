@@ -471,7 +471,7 @@ Game.parseBattles = function(text) {
         this.parseHits(naval[0]);
     });
 
-    var debates = [...text.matchAll(/(.*) calls? a debate in the (.*) language zone[\s\S]*?(?:(.*) wins? the debate|The debate is inconclusive).*/g)];
+    var debates = [...text.matchAll(/(.*?) (?:spends? 3 CPs to )?calls? a debate in the (.*) language zone[\s\S]*?(?:(.*) wins? the debate|The debate is inconclusive).*/g)];
     debates.forEach(debate=>{
         this.currentBattle = null;
         this.addBattle(debate[0],'Debate',debate[2],this.power(debate[3]), this.power(debate[1]));
