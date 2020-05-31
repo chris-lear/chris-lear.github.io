@@ -64,6 +64,23 @@ var Battle = function(b) {
     if (this.type=='Diet') {
         this.initiator = 'pope';
     }
+    switch (this.type) {
+        case 'Field Battle':
+        case 'Naval':
+        case 'Assault':
+        case 'Foreign War':
+            this.winnable = 0;
+        case 'Debate':
+        case 'Diet':
+            // fix inconclusive debates
+            this.winnable = 1;
+            break;
+        case 'Exploration':
+        case 'Conquest':
+        case 'Piracy':
+            this.winnable = 0;
+            break;
+    }
     this.dice = [];
     this.addDice = (who, what) => {
         if (!this.dice[who]) {
@@ -310,9 +327,9 @@ Game.extract = function(power, turnNumber) {
     ret.cards = [].concat(...cards);
     ret.cardcount = ret.cards.length;
     ret.ops = ret.cards.reduce((acc,curr)=>acc+curr.ops, 0);
-    ret.battlesInitiated = this.battlesOnTurn(turnNumber).reduce((acc,curr)=>{return (curr.initiator==power && curr.type!='Exploration' && curr.type!='Conquest')?acc+1:acc;},0)
-    ret.battlesWon = this.battlesOnTurn(turnNumber).reduce((acc,curr)=>{return (curr.winner==power)?acc+1:acc;},0)
-    ret.battlesLost = this.battlesOnTurn(turnNumber).reduce((acc,curr)=>{return (curr.loser==power)?acc+1:acc;},0)
+    ret.battlesInitiated = this.battlesOnTurn(turnNumber).reduce((acc,curr)=>{return (curr.initiator==power && curr.winnable)?acc+1:acc;},0)
+    ret.battlesWon = this.battlesOnTurn(turnNumber).reduce((acc,curr)=>{return (curr.winner==power && curr.winnable)?acc+1:acc;},0)
+    ret.battlesLost = this.battlesOnTurn(turnNumber).reduce((acc,curr)=>{return (curr.loser==power && curr.winnable)?acc+1:acc;},0)
     if (ret.ops) {
         ret.averageOps = ret.ops/ret.cards.length;
     } else {
