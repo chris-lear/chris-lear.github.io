@@ -69,17 +69,11 @@ var Battle = function(b) {
         case 'Naval':
         case 'Assault':
         case 'Foreign War':
-            this.winnable = 0;
         case 'Debate':
         case 'Diet':
-            // fix inconclusive debates
-            this.winnable = 1;
-            break;
         case 'Exploration':
         case 'Conquest':
         case 'Piracy':
-            this.winnable = 0;
-            break;
     }
     this.dice = [];
     this.addDice = (who, what) => {
@@ -209,6 +203,7 @@ Game.addImpulse = function(turn, who, impulseNumber, type, num, ops) {
 }
 Game.addBattle = function(text, type, where, winner, other) {
     var loser;
+    var winnable = 1;
     var initiator = this.currentPlayer;
     switch (winner) {
         case 'is successful':
@@ -223,13 +218,19 @@ Game.addBattle = function(text, type, where, winner, other) {
             loser = other;
     }
     if (type=='Debate' || type=='Diet') {
+        if (winner == 'inconclusive') {
+            winner = 'pope';
+            winnable = 0;
+        }
         if (!winner) {
             winner = other;
+            winnable = 0;
         }
         loser = ['protestant','pope'].filter(item=>item != winner)[0];
     }
     if (type=='Exploration') {
         initiator = this.Explorers[winner];
+        winnable = 0;
     }
     if (type=='Conquest') {
         var conqueror;
@@ -238,6 +239,10 @@ Game.addBattle = function(text, type, where, winner, other) {
         } else {
             initiator = this.Conquistadors[winner];
         }
+        winnable = 0;
+    }
+    if (type=='Piracy') {
+        winnable = 0;
     }
     this.currentBattle = new Battle({
         'turn': this.currentTurn,
@@ -247,7 +252,8 @@ Game.addBattle = function(text, type, where, winner, other) {
         'location': where,
         'winner': winner,
         'loser':loser,
-        'text':text
+        'text':text,
+        'winnable':winnable
     });
     this.Battles.push(this.currentBattle);
 }
@@ -397,7 +403,7 @@ Game.parseDiet = function(text) {
     if (winner) {
         winner = this.power(winner[1]);
     } else {
-        winner = 'pope';// not true
+        winner = 'inconclusive';
     }
     this.addBattle(text,'Diet',"Worms",winner);
     this.parseHits(text);
@@ -716,11 +722,11 @@ var G = function(){
 };
 G.prototype = Game;
 function addvector(a,b){
-    if (!a&&!b) {
+    if (!a && !b) {
         return [];
     }
-    if (!b){return a;};
-    if(!a) return b;
+    if (!b) return a;
+    if (!a) return b;
     return a.map((e,i) => e + b[i]);
 }
 
