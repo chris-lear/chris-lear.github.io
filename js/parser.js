@@ -649,6 +649,8 @@ Game.showStats = function(turnNumber) {
                 data.battlesInitiated += oneTurn.battlesInitiated;
                 data.battlesWon += oneTurn.battlesWon;
                 data.battlesLost += oneTurn.battlesLost;
+                data.allDice = addvector(data.allDice, oneTurn.allDice);
+                data.allDiceText = data.allDice.reduce((a,c,i)=>{if (!i) return ''; return a+' ' + c + ' '+ i + 's';},'');
                 data.hits += oneTurn.hits;
                 data.hitsPerc = data.hits/data.totalDice;
                 if (oneTurn.vps) {
