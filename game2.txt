@@ -4475,14 +4475,6 @@ England spends 1 CP to construct units
 
 Turn 6, French 3rd impulse
 
-   Ottoman Strategy Hand
-#1 -  Ops 5: Janissaries (home card)
-#24 -  Ops 1: Arquebusiers (combat)
-#62 -  Ops 2: Book of Common Prayer
-#89 -  Ops 3: Pirate Haven
-#42 -  Ops 4: Roxelana
-
-
 
 France plays the following card for Command Points:
   #45 -  Ops 1: Calvin Expelled *
@@ -5154,16 +5146,3 @@ Protestants: 23
 **************************************************
 ** France wins a standard victory!!!
 **************************************************
-
-Type anything to exit.
-** MSG FROM PAPACY: anything
-
-** MSG FROM FRANCE: anything to exit
-
-** MSG FROM HAPSBURGS: anything
-Msg to opponents: bg
-
-** MSG FROM FRANCE: go next
-
-The game is being saved.
-Game is being saved as hissave57j.wgr
