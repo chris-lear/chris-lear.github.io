@@ -487,10 +487,11 @@ Game.parseBattles = function(text) {
         this.parseHits(f[0]);
     });
 
-    var navals = [...text.matchAll(/\*\* Naval Combat in (.*?), (.*) vs\. (.*?) \*\*[\s\S]*?(.*?) win the naval battle in \1/g)];
+    var navals = [...text.matchAll(/\*\* Naval Combat in (.*?), (.*) vs\. (.*?) \*\*[\s\S]*?(.*?) wins? the naval battle in \1/g)];
     navals.forEach(naval=> {
-        loser = [naval[2],naval[3]].filter(item=>item!=naval[4])[0];
-        this.addBattle(naval[0],'Naval', naval[1],this.power(naval[4]),this.power(loser));
+        var winner = naval[4].replace(/.*\*\s*/,'');
+        loser = [naval[2],naval[3]].filter(item=>item!=winner)[0];
+        this.addBattle(naval[0],'Naval', naval[1],this.power(winner),this.power(loser));
         this.parseHits(naval[0]);
     });
 
