@@ -160,9 +160,20 @@ html, body, #outer {
     max-width:100%;
 }
 
+
+/*
+ * timeline table header
+ */
 #timeline th {
     position: sticky;
     top: -1px;
     z-index:2;
     background-color:#e0e0e0;
+}
+
+/*
+ * winner highlight
+ */
+.winner::after {
+    content: '🏆';
 }
