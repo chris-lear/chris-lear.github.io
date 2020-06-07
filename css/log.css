@@ -158,5 +158,11 @@ html, body, #outer {
 }
 #right table {
     max-width:100%;
-    overflow:hidden;
+}
+
+#timeline th {
+    position: sticky;
+    top: -1px;
+    z-index:2;
+    background-color:#e0e0e0;
 }
