@@ -85,7 +85,39 @@ var Battle = function(b) {
     this.initiatorName = function() {
         return Powers[this.initiator];
     }
+    this.initiatorClass = function() {
+        var cl = this.initiator;
+        if (this.initiator == this.winner) {
+            cl += ' winner';
+        }
+        return cl;
+    }
+    this.otherPowerClass = function() {
+        if (this.type == 'Exploration' || this.type == 'Conquest') {
+            return '';
+        }
+        var cl;
+        if (this.initiator == this.winner) {
+            cl = this.loser;
+        } else {
+            cl = this.winner + " winner";
+        }
+        return cl;
+    }
+    this.otherPowerName = function() {
+        if (this.type == 'Exploration' || this.type == 'Conquest') {
+            return '';
+        }
+        var other;
+        if (this.initiator == this.winner) {
+            other = this.loser;
+        } else {
+            other = this.winner;
+        }
+        return Powers[other];
+    }
     this.winnerName = function() {
+
         if (this.type == 'Exploration' || this.type == 'Conquest') {
             return '';
         }
@@ -115,9 +147,9 @@ var Battle = function(b) {
             case 'Diet':
                 return `Diet of Worms`
             case 'Exploration':
-                return `${this.winner} Discovers ${this.location}`;
+                return this.text;
             case 'Conquest':
-                return `${this.winner} Conquers ${this.location}`;
+                return this.text.match(/.*conquer.*|.*--.*/);
             case 'Piracy':
                 return `Ottoman piracy in ${this.location}`;
             default:
@@ -149,6 +181,20 @@ var Battle = function(b) {
     }
     this.getWinnerDice = function() {
         return this.getDice('winner');
+    }
+    this.getInitiatorDice = function() {
+        if (this.initiator == this.winner) {
+            return this.getDice('winner');
+        } else {
+            return this.getDice('loser');
+        }
+    }
+    this.getOtherDice = function() {
+        if (this.initiator == this.winner) {
+            return this.getDice('loser');
+        } else {
+            return this.getDice('winner');
+        }
     }
     this.getLoserDice = function() {
         return this.getDice('loser');
@@ -229,15 +275,18 @@ Game.addBattle = function(text, type, where, winner, other) {
         loser = ['protestant','pope'].filter(item=>item != winner)[0];
     }
     if (type=='Exploration') {
-        initiator = this.Explorers[winner];
+        initiator = other;
+        loser = null;
+        if (!winner) {
+            loser = initiator;
+        }
         winnable = 0;
     }
     if (type=='Conquest') {
-        var conqueror;
-        if (conqueror = winner.match(/(.*) conqueror/)) {
-            initiator = this.power(conqueror[1]);
-        } else {
-            initiator = this.Conquistadors[winner];
+        initiator = other;
+        loser = null;
+        if (!winner) {
+            loser = initiator;
         }
         winnable = 0;
     }
@@ -323,13 +372,13 @@ Game.extract = function(power, turnNumber) {
     }
 
 
-    ret.totalDice = ret.count(ret.debateDice)+ret.count(ret.reformationDice)+ret.count(ret.battleDice);
+    ret.diceRolled = ret.count(ret.debateDice)+ret.count(ret.reformationDice)+ret.count(ret.battleDice);
     ret.allDice = addvector(addvector(ret.battleDice,ret.debateDice),ret.reformationDice);
     ret.allDiceText = ret.allDice.reduce((a,c,i)=>{if (!i) return ''; return a+' ' + c + ' '+ i + 's';},'');
     ret.hits = ret.allDice.reduce((a,c,i)=>{if (i>4) {return a+=c;} else return a;},0);
-    ret.hitsPerc = ret.hits/ret.totalDice||0;
+    ret.hitsPerc = ret.hits/ret.diceRolled||0;
     ret.diceTotal = ret.allDice.reduce((a,c,i)=>{if(!i)return 0; return a+(c*i);},0);
-    ret.averageDice = ret.diceTotal/ret.totalDice||0;
+    ret.averageDice = ret.diceTotal/ret.diceRolled||0;
     ret.cards = [].concat(...cards);
     ret.cardcount = ret.cards.length;
     ret.ops = ret.cards.reduce((acc,curr)=>acc+curr.ops, 0);
@@ -533,6 +582,35 @@ Game.parseHits = function(text) {
         }
     });
 }
+Game.parseNewWorldDice = function(text, explorer) {
+    var rolls = [...text.matchAll(new RegExp(explorer+'\'s exploration dic?e roll: (.*?) =','g'))];
+    rolls.forEach(roll=>{
+
+        var dice = roll[1].split(/\s*,\s*/);
+        dice.forEach(die=>{
+            this.BattleDice[this.currentTurn][this.Explorers[explorer]][die]++;
+            this.currentBattle.addDice(this.Explorers[explorer],die);
+        });
+    });
+}
+Game.parseConquestDice = function(text, power) {
+    var rolls = [...text.matchAll(new RegExp('Conquest dice roll: (.*?) =','g'))];
+    rolls.forEach(roll=>{
+        var dice = roll[1].split(/\s*,\s*/);
+        dice.forEach(die=>{
+            this.BattleDice[this.currentTurn][power][die]++;
+            this.currentBattle.addDice(power,die);
+        });
+    });
+}
+Game.parseCircumDice = function(text, power) {
+    var roll = text.match(/Circumnavigation dic?e roll: (.*?) =/);
+    var dice = roll[1].split(/\s*,\s*/);
+    dice.forEach(die=>{
+        this.BattleDice[this.currentTurn][power][die]++;
+        this.currentBattle.addDice(power,die);
+    });
+}
 
 Game.parseAction = function(text) {
     var impulses = [...text.matchAll(/Turn \d, .*impulse\r?\n[\s\S]*?(?=(Turn \d, .*impulse)|$)/g)];
@@ -548,34 +626,46 @@ Game.parseNewWorld = function(text) {
 
 Game.parseExplorers = function(text) {
     var explorers = [...text.matchAll(/(.*) explorer (?:(?:selected:)|(?:is)) (.*)/g)];
-    explorers.forEach(x=>{this.Explorers[x[2]] = Game.power(x[1])});
-    var explorations = [...text.matchAll(/(.*) discovers (.*)!!!/g)];
-    explorations.forEach(exploration=>{
-        this.addBattle(exploration[0], 'Exploration', exploration[2], exploration[1]);
+    explorers.forEach(explorer=>{
+        this.Explorers[explorer[2]] = this.power(explorer[1])
+        var exploration = text.match(new RegExp(explorer[2] + ' (?:is|discovers).*'));
+        var winner = !!text.match(new RegExp(explorer[2] + ' discovers'));
+        this.addBattle(exploration[0], 'Exploration', '', (winner)?this.power(explorer[1]):null, this.power(explorer[1]));
+        this.parseNewWorldDice(text, explorer[2]);
+        var re = '(?:' + explorer[2] + ' attempts to circumnavigate.*)[\\s\\S]*?' + '\\(' + explorer[2] + '\\)[\\s\\S]*?(' + explorer[2] + '.*(circumnavigates)?.*?)';
+        var circ = text.match(new RegExp(re));
+        if (circ) {
+            this.addBattle(circ[1], 'Exploration', '', (circ[2])?this.power(explorer[1]):null, this.power(explorer[1]));
+            this.parseCircumDice(circ[0], this.power(explorer[1]));
+        }
     });
 }
 
 Game.parseConquests = function(text) {
     var conquistadors = [...text.matchAll(/(.*) conquistador selected: (.*)/g)];
     conquistadors.forEach(x=>{
-        this.Conquistadors[x[2]] = Game.power(x[1])
+        this.Conquistadors[x[2]] = this.power(x[1])
     });
-    var conquests = [...text.matchAll(/(.*) conquers (.*)!!!/g)];
+    var conquests = [...text.matchAll(/Conquest dice roll.*[\r\n]*(?:No effect -- )?(.*) ((conquers|is) .*)/g)];
     conquests.forEach(conquest=>{
-        this.addBattle(conquest[0], 'Conquest', conquest[2], conquest[1]);
+        var conqueror, initiator;
+        if ( conqueror = conquest[1].match(/(.*) conqueror/)) {
+            initiator = this.power(conqueror[1]);
+        } else {
+            initiator = this.Conquistadors[conquest[1]];
+        }
+        var winner;
+        if (conquest[2].match(/conquers/)) {
+            winner = initiator;
+        };
+        this.addBattle(conquest[0], 'Conquest', conquest[2], winner, initiator);
+        this.parseConquestDice(conquest[0], initiator);
     });
 }
+
 Game.parseWinter = function(text) {
 }
 
-/*
- * Ottomans: 12
- * Hapsburgs: 12
- * England: 9
- * France: 15
- * Papacy: 18
- * Protestants: 1
- */
 Game.parseVictoryDetermination = function(text) {
     [...text.matchAll(/(.*): (\d*)/g)].forEach(points=>{
         this.Turns[this.currentTurn][this.power(points[1])]['vps'] = points[2];
@@ -618,7 +708,7 @@ Game.showStats = function(turnNumber) {
         hits: 0,
         ops: 0,
         reformationDice: 0,
-        totalDice: 0,
+        diceRolled: 0,
         vps: 0
     }
 
@@ -637,23 +727,23 @@ Game.showStats = function(turnNumber) {
                 hits: 0,
                 ops: 0,
                 reformationDice: 0,
-                totalDice: 0
+                diceRolled: 0
             }
             this.Turns.forEach((t,i)=>{
                 var oneTurn = this.extract(power,i);
                 data.cardcount += oneTurn.cardcount;
                 data.ops += oneTurn.ops;
                 data.averageOps = data.ops/data.cardcount;
-                data.totalDice += oneTurn.totalDice;
+                data.diceRolled += oneTurn.diceRolled;
                 data.diceTotal += oneTurn.diceTotal;
-                data.averageDice = data.diceTotal/data.totalDice;
+                data.averageDice = data.diceTotal/data.diceRolled;
                 data.battlesInitiated += oneTurn.battlesInitiated;
                 data.battlesWon += oneTurn.battlesWon;
                 data.battlesLost += oneTurn.battlesLost;
                 data.allDice = addvector(data.allDice, oneTurn.allDice);
                 data.allDiceText = data.allDice.reduce((a,c,i)=>{if (!i) return ''; return a+' ' + c + ' '+ i + 's';},'');
                 data.hits += oneTurn.hits;
-                data.hitsPerc = data.hits/data.totalDice;
+                data.hitsPerc = data.hits/data.diceRolled;
                 if (oneTurn.vps) {
                     data.vps = oneTurn.vps;
                 }
@@ -671,12 +761,12 @@ Game.showStats = function(turnNumber) {
         total.cardcount += data.cardcount;
         total.ops += data.ops;
         total.averageOps = total.ops/total.cardcount;
-        total.totalDice += data.totalDice;
+        total.diceRolled += data.diceRolled;
         total.diceTotal += data.diceTotal;
-        total.averageDice = total.diceTotal/total.totalDice;
+        total.averageDice = total.diceTotal/total.diceRolled;
         total.battlesInitiated+= data.battlesInitiated;
         total.hits += data.hits;
-        total.hitsPerc = total.hits/total.totalDice;
+        total.hitsPerc = total.hits/total.diceRolled;
         total.vps = 'n/a';
         total.vpDelta = 'n/a';
 
@@ -690,7 +780,7 @@ Game.showStats = function(turnNumber) {
             <td class="cards-played">${data.cardcount}</td>
             <td class="total-ops">${data.ops}</td>
             <td class="average-ops">${data.averageOps.toFixed(2)}</td>
-            <td class="total-dice" title="${data.allDiceText}">${data.totalDice}</td>
+            <td class="total-dice" title="${data.allDiceText}">${data.diceRolled}</td>
             <td class="average-dice">${data.averageDice.toFixed(2)}</td>
             <td class="hits">${data.hits}</td>
             <td class="hits-percentage">${(data.hitsPerc*100).toFixed(2)}</td>
@@ -706,10 +796,9 @@ Game.showStats = function(turnNumber) {
         $('#battles').append($(`<tr class="battle ${battle.winner} ${battle.loser} ${battle.initiator}">
 
             <td><span class="date" title="Turn ${battle.turn} Impulse ${battle.impulse}">${battle.getDate(this)}</span></td>
-            <td><span class="initiator power ${battle.initiator}">${battle.initiatorName()}</span></td>
             <td><span class="battleDesc ${battle.class()}" title="${battle.text}"> ${battle.description()}</span></td>
-            <td><span class="winner power ${battle.winner}">${battle.winnerName()}</span><br/><span class="dice winner-dice">${battle.getWinnerDice()}</span></td>
-            <td><span class="loser power ${battle.loser}">${battle.loserName()}</span><br/><span class="dice loser-dice">${battle.getLoserDice()}</span></td>
+            <td><span class="initiator power ${battle.initiatorClass()}">${battle.initiatorName()}</span><span class="dice initiator-dice">${battle.getInitiatorDice()}</span></td>
+            <td><span class="power ${battle.otherPowerClass()}">${battle.otherPowerName()}</span><br/><span class="dice loser-dice">${battle.getOtherDice()}</span></td>
             </tr>`));
     });
 }
