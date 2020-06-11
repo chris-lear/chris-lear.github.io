@@ -212,8 +212,6 @@ var Battle = function(b) {
                 return `Foreign war in ${this.location}`;
             case 'Debate':
                 return `Debate in ${this.location}`;
-            case 'Theses':
-                return `Luther's 95 Theses`
             case 'Diet':
                 return `Diet of Worms`
             case 'Exploration':
@@ -222,6 +220,8 @@ var Battle = function(b) {
                 return this.text.match(/.*conquer.*|.*--.*/);
             case 'Piracy':
                 return `Ottoman piracy in ${this.location}`;
+            case 'Theses':
+                var out= `Luther's 95 Theses:`
             case 'Reformation':
                 var locs = [];
                 var outcome;
@@ -231,10 +231,12 @@ var Battle = function(b) {
                 }
                 locs = locs.join(' ');
                 var out;
-                if (this.initiator == 'pope') {
-                    out = "Counter-reformation: ";
-                } else {
-                    out = 'Reformation: ';
+                if (!out) {
+                    if (this.initiator == 'pope') {
+                        out = "Counter-reformation: ";
+                    } else {
+                        out = 'Reformation: ';
+                    }
                 }
                 return `${out}<span class='ref-locations'>${locs}</span>`;
             default:
