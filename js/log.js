@@ -74,9 +74,11 @@ $(function() {
         }
     });
     $('#stats-selector').on('click', 'span', function() {
-        $('#stats-selector span').removeClass('selected');
-        $(this).addClass('selected');
-        game.showStats($(this).data('turn'));
+        if ($(this).data('turn')) {
+            $('#stats-selector span').removeClass('selected');
+            $(this).addClass('selected');
+            game.showStats($(this).data('turn'));
+        }
     });
     function fetchGame(file) {
         $.get(file, function(data) {
