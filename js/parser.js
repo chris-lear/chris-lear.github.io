@@ -220,12 +220,11 @@ Game.hitDice = function(who, what, hits) {
     if (!what) {
         return;
     }
-    var g = this;
     var dice = what.split(/\s*,\s*/);
-    $(dice).each(function() {
-        g.BattleDice[g.currentTurn][who][this]++;
-        if (g.currentBattle) {
-            g.currentBattle.addDice(who,this);
+    [...dice].forEach(d => {
+        this.BattleDice[this.currentTurn][who][d]++;
+        if (this.currentBattle) {
+            this.currentBattle.addDice(who,d);
         }
     });
 }
