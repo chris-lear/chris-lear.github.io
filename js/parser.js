@@ -14,6 +14,77 @@ var Powers = {
     'total': 'Total'
 };
 
+
+var Locations = {
+    'Amsterdam': 'none',
+    'Antwerp':'none',
+    'Augsburg': 'germany',
+    'Avignon':'france',
+    'Basel': 'germany',
+    'Besancon': 'germany',
+    'Bordeaux':'france',
+    'Boulogne':'france',
+    'Brandenburg': 'germany',
+    'Bremen': 'germany',
+    'Brest':'france',
+    'Bristol':'england',
+    'Brunswick': 'germany',
+    'Brussels': 'france',
+    'Calais': 'france',
+    'Carlisle':'england',
+    'Cologne': 'germany',
+    'Dijon': 'france',
+    'Edinburgh':'england',
+    'Erfurt': 'germany',
+    'Geneva': 'france',
+    'Glasgow':'england',
+    'Graz': 'germany',
+    'Grenoble': 'france',
+    'Hamburg': 'germany',
+    'Innsbruck': 'germany',
+    'Kassel': 'germany',
+    'Leipzig': 'germany',
+    'Liege': 'france',
+    'Limoges': 'france',
+    'Lincoln': 'england',
+    'Linz': 'germany',
+    'London':'england',
+    'Lubeck': 'germany',
+    'Lyon': 'france',
+    'Magdeburg': 'germany',
+    'Mainz': 'germany',
+    'Marseille':'france',
+    'Metz': 'france',
+    'Munster': 'germany',
+    'Nantes':'france',
+    'Nice':'nice',
+    'Norwich': 'england',
+    'Nuremberg': 'germany',
+    'Orleans': 'france',
+    'Paris': 'france',
+    'Plymouth':'england',
+    'Portsmouth': 'england',
+    'Regensburg': 'germany',
+    'Rouen':'france',
+    'Salzburg': 'germany',
+    'Shrewsbury':'england',
+    'St. Dizier': 'france',
+    'St. Quentin': 'france',
+    'Stettin': 'germany',
+    'Stirling':'england',
+    'Strasburg': 'germany',
+    'Toulouse':'france',
+    'Tours': 'france',
+    'Trier': 'germany',
+    'Vienna':'germany',
+    'Wales':'england',
+    'Wittenberg': 'germany',
+    'Worms': 'germany',
+    'York':'england',
+    'York': 'england',
+    'Zurich': 'germany'
+}
+
 var PowersTurn = function() {
     this.dice = [0,0,0,0,0,0,0];
     this.cards = [];
@@ -152,22 +223,26 @@ var Battle = function(b) {
             case 'Piracy':
                 return `Ottoman piracy in ${this.location}`;
             case 'Reformation':
-                var locs = '';
+                var locs = [];
+                var outcome;
                 for (var x in this.locations) {
-                    locs += `<span class='ref-location ${this.locations[x]?'success':'fail'}'>${x}</span>`;
+                    outcome = this.locations[x]?'success':'fail';
+                    locs.push(`<span class='ref-location ${outcome} ${Locations[x]}' title='${outcome}'>${x}</span>`);
                 }
+                locs = locs.join(' ');
                 var out;
                 if (this.initiator == 'pope') {
-                    out = "Counter-reformation";
+                    out = "Counter-reformation: ";
                 } else {
-                    out = 'Reformation';
+                    out = 'Reformation: ';
                 }
-                return out + " attempts in " + locs;
+                return `${out}<span class='ref-locations'>${locs}</span>`;
             default:
                 console.log('unknown battle type '+this.type);
         }
         return `${this.type} in ${this.location}`
     }
+
     this.class = function() {
         return this.type.toLowerCase().replace(/ /g,'-');
     }
@@ -289,8 +364,8 @@ Game.addBattle = function(text, type, where, winner, other) {
     }
     if (type=='Reformation') {
         battle.winnable = 0;
-        battle.other = ['protestant','pope'].filter(item=>item != initiator)[0];
         battle.initiator = where;
+        battle.other = ['protestant','pope'].filter(item=>item != battle.initiator)[0];
         battle.loser = null;
     }
     if (type=='Exploration') {

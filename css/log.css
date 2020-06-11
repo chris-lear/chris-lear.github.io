@@ -179,8 +179,21 @@ html, body, #outer {
 }
 
 .ref-location {
-    padding-right: 1em;
+    margin:-0.15vw;
+    padding:0.3vw;
 }
+
+
 .ref-location.success {
     font-weight:bold;
+}
+
+.ref-location.germany {
+    background-color:#DCC6A1;
+}
+.ref-location.france {
+    background-color:#CBDEDC;
+}
+.ref-location.england {
+    background-color:#EFB88F;
 }
