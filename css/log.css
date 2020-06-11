@@ -177,3 +177,10 @@ html, body, #outer {
 .winner::after {
     content: '🏆';
 }
+
+.ref-location {
+    padding-right: 1em;
+}
+.ref-location.success {
+    font-weight:bold;
+}

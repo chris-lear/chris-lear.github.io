@@ -71,6 +71,9 @@ var Battle = function(b) {
         }
         this.dice[who][what]++;
     }
+    this.addReformationLocation = (location, result) => {
+        this.locations[location] = (result == 'succeeds');
+    }
     this.initiatorName = function() {
         return Powers[this.initiator];
     }
@@ -149,7 +152,17 @@ var Battle = function(b) {
             case 'Piracy':
                 return `Ottoman piracy in ${this.location}`;
             case 'Reformation':
-                return `Reformation attempt`;
+                var locs = '';
+                for (var x in this.locations) {
+                    locs += `<span class='ref-location ${this.locations[x]?'success':'fail'}'>${x}</span>`;
+                }
+                var out;
+                if (this.initiator == 'pope') {
+                    out = "Counter-reformation";
+                } else {
+                    out = 'Reformation';
+                }
+                return out + " attempts in " + locs;
             default:
                 console.log('unknown battle type '+this.type);
         }
@@ -202,6 +215,7 @@ Game.reformation = function(location, result, type) {
     } else {
         thing[location].fail++;
     }
+    this.currentBattle.addReformationLocation(location, result);
 }
 Game.reformationDice = function(who, what) {
     var dice = what.split(/\s*,\s*/);
@@ -248,7 +262,8 @@ Game.addBattle = function(text, type, where, winner, other) {
         'loser': other,
         'text': text,
         'winnable': winnable,
-        'other': other
+        'other': other,
+        'locations':[]
     };
     switch (winner) {
         case 'is successful':
@@ -275,7 +290,8 @@ Game.addBattle = function(text, type, where, winner, other) {
     if (type=='Reformation') {
         winnable = 0;
         battle.other = ['protestant','pope'].filter(item=>item != initiator)[0];
-        loser = null;
+        battle.initiator = where;
+        battle.loser = null;
     }
     if (type=='Exploration') {
         battle.other = null;
@@ -452,14 +468,22 @@ Game.parseDiet = function(text) {
     this.parseHits(text);
 }
 Game.parseReformations = function(text) {
-    var refs = [...text.matchAll(/(?:Counter )?Reformation attempt in [\s\S]*?The (?:counter )?reformation roll in .*(fails|succeeds)/g)];
-    if (refs.length) {
-        this.addBattle(text,'Reformation');
+    var refs = text.match(/(Counter )?Reformation attempt in [\s\S]*?The (?:counter )?reformation roll in .*(fails|succeeds)/);
+    if (refs) {
+        var initiator;
+        if (refs[1]) {
+            initiator = 'pope';
+        } else {
+            initiator = 'protestant';
+        }
+
+        this.addBattle(text,'Reformation', initiator);
         this.parseReformation(text);
     }
 }
+
 Game.parseReformation = function(text) {
-    var refs = [...text.matchAll(/(?:Counter )?Reformation attempt in [\s\S]*?The (?:counter )?reformation roll in .*(fails|succeeds)/g)];
+    var refs = [...text.matchAll(/(?:Counter )?Reformation attempt in (.*)[\s\S]*?The (counter )?reformation roll in \1.*(fails|succeeds)/g)];
     refs.forEach(ref=>{
 
         this.reformation(ref[1],ref[3],ref[2]);
