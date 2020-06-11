@@ -288,7 +288,7 @@ Game.addBattle = function(text, type, where, winner, other) {
         battle.loser = ['protestant','pope'].filter(item=>item != winner)[0];
     }
     if (type=='Reformation') {
-        winnable = 0;
+        battle.winnable = 0;
         battle.other = ['protestant','pope'].filter(item=>item != initiator)[0];
         battle.initiator = where;
         battle.loser = null;
