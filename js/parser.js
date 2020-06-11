@@ -88,7 +88,7 @@ var Battle = function(b) {
         if (this.type == 'Exploration' || this.type == 'Conquest') {
             return '';
         }
-        if (this.other) {
+        if (this.other && !this.winnable) {
             return this.other;
         }
         var cl;
@@ -312,6 +312,11 @@ Game.addBattle = function(text, type, where, winner, other) {
         battle.winner = null;
         battle.initiator = 'protestant';
         battle.other = 'pope';
+    }
+    if (type=='Field Battle') {
+        if (battle.loser==initiator) {
+            battle.other = winner;
+        }
     }
     this.currentBattle = new Battle(battle);
     this.Battles.push(this.currentBattle);
@@ -824,7 +829,7 @@ Game.showStats = function(turnNumber) {
             <td><span class="date" title="Turn ${battle.turn} Impulse ${battle.impulse}">${battle.getDate(this)}</span></td>
             <td><span class="battleDesc ${battle.class()}" title="${battle.text}"> ${battle.description()}</span></td>
             <td><span class="initiator power ${battle.initiatorClass()}">${battle.initiatorName()}</span><span class="dice initiator-dice">${battle.getInitiatorDice()}</span></td>
-            <td><span class="power ${battle.otherPowerClass()}">${battle.otherPowerName()}</span><br/><span class="dice loser-dice">${battle.getOtherDice()}</span></td>
+            <td><span class="power ${battle.otherPowerClass()}">${battle.otherPowerName()}</span><br/><span class="dice other-dice">${battle.getOtherDice()}</span></td>
             </tr>`));
     });
 }
