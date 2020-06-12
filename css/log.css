@@ -197,3 +197,9 @@ html, body, #outer {
 .ref-location.england {
     background-color:#EFB88F;
 }
+#log-toggle.show::after {
+    content: '▶️';
+}
+#log-toggle.hide::after {
+    content: '◀️';
+}

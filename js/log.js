@@ -92,4 +92,14 @@ $(function() {
     }
     //doPoll();
     $('#gameselector button')[2].click();
+    $('#log-toggle').on('click',x=>{
+        if ($(x.target).hasClass('show')) {
+            $(x.target).attr('class','hide');
+            $('#left').show();
+        } else {
+            $(x.target).attr('class','show');
+            $('#left').hide();
+        }
+    });
+    $('#left').hide();
 });
