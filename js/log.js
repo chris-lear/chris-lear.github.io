@@ -65,7 +65,10 @@ $(function() {
         $(this).removeClass('hover');
     });
     $('#stats').on('click','tr', function() {
+        $('#stats tr').removeClass('selected');
+        $(this).addClass('selected');
         var power = $(this).attr('id');
+        $('#stats').data('power',power);
         if (power == 'total') {
             $('tr.battle').show();
         } else {
@@ -78,6 +81,8 @@ $(function() {
             $('#stats-selector span').removeClass('selected');
             $(this).addClass('selected');
             game.showStats($(this).data('turn'));
+            var power = $('#stats').data('power') || "total";
+            $(`#${power}`)[0].click();
         }
     });
     function fetchGame(file) {

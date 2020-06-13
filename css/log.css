@@ -135,6 +135,9 @@ html, body, #outer {
     background-color:#ccc;
     border-color:red;
 }
+#stats tr.selected {
+    background-color:#ccc;
+}
 
 #left {
     max-width:200px;
