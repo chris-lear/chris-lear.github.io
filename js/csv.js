@@ -25,6 +25,14 @@ var players = [
         'ottoman':'chris',
         'france':'jamie',
         'england':'ben'
+    },
+    {
+        'hapsburg':'jamie',
+        'protestant':'chris',
+        'pope':'ben',
+        'ottoman':'nick',
+        'france':'filippo',
+        'england':'neil'
     }
 ];
 
@@ -44,7 +52,7 @@ $(()=>{
                     if (i>0) {
                         if (turn.ottoman.cards.length) {
                             delta = oneTurn.vps-lastTurn.vps;
-                            $('#csv').append(`${gamenumber},${i},${power},${players[gamenumber][power]},${lastTurn.vps},${delta},${oneTurn.totalDice},${oneTurn.hits}\n`);
+                            $('#csv').append(`${gamenumber},${i},${power},${players[gamenumber][power]},${lastTurn.vps},${delta},${oneTurn.diceRolled},${oneTurn.hits}\n`);
                         }
                     }
                     lastTurn = oneTurn;
