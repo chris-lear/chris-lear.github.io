@@ -905,7 +905,7 @@ Game.showStats = function(turnNumber) {
     });
     $('#battles').empty();
     this.battlesOnTurn(turnNumber).forEach(battle=>{
-        $('#battles').append($(`<tr class="battle ${battle.winner} ${battle.loser} ${battle.initiator}">
+        $('#battles').append($(`<tr class="battle ${battle.winner} ${battle.loser} ${battle.initiator} ${battle.other}">
 
             <td><span class="date" title="Turn ${battle.turn} Impulse ${battle.impulse}">${battle.getDate(this)}</span></td>
             <td><span class="battleDesc ${battle.class()}" title="${battle.text}"> ${battle.description()}</span></td>
