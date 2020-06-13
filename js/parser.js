@@ -837,28 +837,30 @@ Game.showStats = function(turnNumber) {
                 reformationDice: 0,
                 diceRolled: 0
             }
-            this.Turns.forEach((t,i)=>{
-                var oneTurn = this.extract(power,i);
-                data.cardcount += oneTurn.cardcount;
-                data.ops += oneTurn.ops;
-                data.averageOps = data.ops/data.cardcount;
-                data.diceRolled += oneTurn.diceRolled;
-                data.diceTotal += oneTurn.diceTotal;
-                data.averageDice = data.diceTotal/data.diceRolled;
-                data.battlesInitiated += oneTurn.battlesInitiated;
-                data.battlesWon += oneTurn.battlesWon;
-                data.battlesLost += oneTurn.battlesLost;
-                data.allDice = addvector(data.allDice, oneTurn.allDice);
-                data.allDiceText = data.allDice.reduce((a,c,i)=>{if (!i) return ''; return a+' ' + c + ' '+ i + 's';},'');
-                data.hits += oneTurn.hits;
-                data.hitsPerc = data.hits/data.diceRolled;
-                if (oneTurn.vps) {
-                    data.vps = oneTurn.vps;
-                }
-                if (i==0) {
-                    startVps = oneTurn.vps;
-                }
-            });
+            if (power!='total') {
+                this.Turns.forEach((t,i)=>{
+                    var oneTurn = this.extract(power,i);
+                    data.cardcount += oneTurn.cardcount;
+                    data.ops += oneTurn.ops;
+                    data.averageOps = data.ops/data.cardcount;
+                    data.diceRolled += oneTurn.diceRolled;
+                    data.diceTotal += oneTurn.diceTotal;
+                    data.averageDice = data.diceTotal/data.diceRolled;
+                    data.battlesInitiated += oneTurn.battlesInitiated;
+                    data.battlesWon += oneTurn.battlesWon;
+                    data.battlesLost += oneTurn.battlesLost;
+                    data.allDice = addvector(data.allDice, oneTurn.allDice);
+                    data.allDiceText = data.allDice.reduce((a,c,i)=>{if (!i) return ''; return a+' ' + c + ' '+ i + 's';},'');
+                    data.hits += oneTurn.hits;
+                    data.hitsPerc = data.hits/data.diceRolled;
+                    if (oneTurn.vps) {
+                        data.vps = oneTurn.vps;
+                    }
+                    if (i==0) {
+                        startVps = oneTurn.vps;
+                    }
+                });
+            }
             if (!data.averageOps) {
                 data.averageOps = 0;
             }
@@ -870,6 +872,8 @@ Game.showStats = function(turnNumber) {
         total.ops += data.ops;
         total.averageOps = total.ops/total.cardcount;
         total.diceRolled += data.diceRolled;
+        total.allDice = addvector(total.allDice, data.allDice);
+        total.allDiceText = total.allDice.reduce((a,c,i)=>{if (!i) return ''; return a+' ' + c + ' '+ i + 's';},'');
         total.diceTotal += data.diceTotal;
         total.averageDice = total.diceTotal/total.diceRolled;
         total.battlesInitiated+= data.battlesInitiated;
