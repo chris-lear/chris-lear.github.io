@@ -38,13 +38,3 @@
 }
 
 
-#timeline td .dice-stack svg.die {
-    background-color:white;
-}
-#timeline .dice-chart-container {
-    height:inherit;
-    max-height: 200px;
-}
-#timeline .dice-stack.padding {
-    order:5
-}

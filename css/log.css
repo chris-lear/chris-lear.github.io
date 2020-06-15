@@ -9,6 +9,7 @@ td {
 /* assorted effects */
 #battles td {
     text-align:left;
+    vertical-align: top;
 }
 .dice {
     display:block;
@@ -208,4 +209,17 @@ html, body, #outer {
 }
 .dice-chart-container {
     height: 20px;
+}
+#timeline td .dice-chart-container {
+    padding-top:.2vw;
+}
+#timeline td .dice-stack svg.die {
+    background-color:white;
+}
+#timeline .dice-chart-container {
+    height:inherit;
+    max-height: 200px;
+}
+#timeline .dice-stack.padding {
+    order:5
 }
