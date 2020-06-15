@@ -252,6 +252,9 @@ var Battle = function(b) {
         if (this.type=='Diet') {
             return 'Jan-May 1521';
         }
+        if (this.type=='Theses') {
+            return 'October 31st, 1517';
+        }
         return game.date(this.turn,this.impulse);
     }
     this.getDice = function(which) {
@@ -731,10 +734,10 @@ Game.parseExplorers = function(text) {
         var winner = !!text.match(new RegExp(explorer[2] + ' discovers'));
         this.addBattle(exploration[0], 'Exploration', '', (winner)?this.power(explorer[1]):null, this.power(explorer[1]));
         this.parseNewWorldDice(text, explorer[2]);
-        var re = '(?:' + explorer[2] + ' attempts to circumnavigate.*)[\\s\\S]*?' + '\\(' + explorer[2] + '\\)[\\s\\S]*?(' + explorer[2] + '.*(circumnavigates)?.*?)';
+        var re = '(?:' + explorer[2] + ' attempts to circumnavigate.*)[\\s\\S]*?' + '\\(' + explorer[2] + '\\)[\\s\\S]*?(' + explorer[2] + ' )(circumnavigates the globe!!!|.*)';
         var circ = text.match(new RegExp(re));
         if (circ) {
-            this.addBattle(circ[1], 'Exploration', '', (circ[2])?this.power(explorer[1]):null, this.power(explorer[1]));
+            this.addBattle(circ[1] + circ[2], 'Exploration', '', (circ[2]=='circumnavigates the globe!!!')?this.power(explorer[1]):null, this.power(explorer[1]));
             this.parseCircumDice(circ[0], this.power(explorer[1]));
         }
     });
