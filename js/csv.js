@@ -3,7 +3,7 @@
 
 var players = [
     {
-        'hapsburg':'jamie',
+        'hapsburg':'chris-jamie',
         'protestant':'mikey',
         'pope':'filippo',
         'ottoman':'neil',
@@ -13,7 +13,7 @@ var players = [
     {
         'hapsburg':'nick',
         'protestant':'ben',
-        'pope':'jamie',
+        'pope':'mikey-jamie',
         'ottoman':'filippo',
         'france':'neil',
         'england':'chris'
@@ -23,7 +23,7 @@ var players = [
         'protestant':'filippo',
         'pope':'nick',
         'ottoman':'chris',
-        'france':'jamie',
+        'france':'mikey-jamie',
         'england':'ben'
     },
     {
