@@ -320,6 +320,12 @@ Game.hitDice = function(who, what, hits) {
     if (!what) {
         return;
     }
+    if (this.currentBattle.initiator!=who && this.currentBattle.other!=who) {
+        if (who == 'independent') {
+            console.log('independent interpreted as ' + this.currentBattle.other);
+            who = this.currentBattle.other;
+        }
+    }
     var dice = what.split(/\s*,\s*/);
     [...dice].forEach(d => {
         this.BattleDice[this.currentTurn][who][d]++;
@@ -334,7 +340,7 @@ Game.addImpulse = function(turn, who, impulseNumber, type, num, ops) {
     this.currentPlayer = who;
 }
 
-Game.addBattle = function(text, type, where, winner, other) {
+Game.addBattle = function(text, type, where, winner, loser, other) {
     var loser;
     var winnable = 1;
     var initiator = this.currentPlayer;
@@ -345,23 +351,23 @@ Game.addBattle = function(text, type, where, winner, other) {
         'type': type,
         'location': where,
         'winner': winner,
-        'loser': other,
+        'loser': loser,
         'text': text,
         'winnable': winnable,
-        'other': other,
+        'other': loser,
         'locations':[]
     };
     switch (winner) {
         case 'is successful':
             battle.winner = this.currentPlayer;
-            battle.loser = other;
+            battle.loser = loser;
             break;
         case 'fails':
             battle.loser = this.currentPlayer;
-            battle.winner = other;
+            battle.winner = loser;
             break;
         default:
-            battle.loser = other;
+            battle.loser = loser;
     }
     if (type=='Debate' || type=='Diet') {
         if (winner == 'inconclusive') {
@@ -381,12 +387,12 @@ Game.addBattle = function(text, type, where, winner, other) {
     }
     if (type=='Exploration') {
         battle.other = null;
-        battle.initiator = other;
+        battle.initiator = loser;
         battle.loser = null;
     }
     if (type=='Conquest') {
         battle.other = null;
-        battle.initiator = other;
+        battle.initiator = loser;
         battle.loser = null;
     }
     if (type=='Piracy') {
@@ -400,6 +406,9 @@ Game.addBattle = function(text, type, where, winner, other) {
         battle.other = 'pope';
     }
     if (type=='Field Battle') {
+        battle.other = other;
+    }
+    if (type=='Naval' || type=='Foreign War') {
         if (battle.loser==initiator) {
             battle.other = winner;
         }
@@ -624,8 +633,14 @@ Game.parseBattles = function(text) {
     var battle = [...text.matchAll(/\*\* Battle of (.*) \*\*[\s\S]*?(.*?) dic?e: [\s\S]*?(.*?) dic?e: [\s\S]*?\s\s*(.*?) wins? the battle of *\1/g)];
     battle.forEach(b=> {
         this.currentBattle = null;
-        loser = [this.power(b[2]),this.power(b[3])].filter(item=>item!=this.power(b[4]))[0];
-        this.addBattle(b[0],'Field Battle',b[1],this.power(b[4]),loser);
+        let winner = this.power(b[4]);
+        let initiator = this.power(b[2]);
+        let other = this.power(b[3]);
+        if (winner!= initiator && winner!=other) {
+            //console.log(winner, initiator, other);
+        }
+        loser = [initiator,other].filter(item=>item!=winner)[0];
+        this.addBattle(b[0], 'Field Battle', b[1], winner, loser, other);
         this.parseHits(b[0]);
     });
 
