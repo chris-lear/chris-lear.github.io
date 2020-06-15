@@ -1,6 +1,5 @@
 .dice-chart {
     display:flex;
-    max-height:150px;
     height:100%;
 }
 .dice-stack {
@@ -14,6 +13,7 @@
 }
 .dice-stack svg {
     margin:-1%;
+    max-height:20px;
 }
 
 .dice-stack.ones svg.die {
@@ -37,3 +37,14 @@
     background-color: #800000;
 }
 
+
+#timeline td .dice-stack svg.die {
+    background-color:white;
+}
+#timeline .dice-chart-container {
+    height:inherit;
+    max-height: 200px;
+}
+#timeline .dice-stack.padding {
+    order:5
+}

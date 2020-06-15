@@ -261,11 +261,7 @@ var Battle = function(b) {
         var out = '';
         var dChars = ['','⚀','⚁','⚂','⚃','<span class="hit">⚄</span>','<span class="hit">⚅</span>'];
         var thing = this.dice[which];
-        if (!thing) {
-            return '';
-        }
-        thing.forEach((d,i)=>{out+=('&#8203;'+dChars[i]).repeat(d)});
-        return out;
+        return `<div class='dice-chart-container'>${diceChart(thing)}</div>`;
     }
     this.getWinnerDice = function() {
         return this.getDice('winner');
