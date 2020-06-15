@@ -214,7 +214,7 @@ html, body, #outer {
     padding-top:.2vw;
 }
 #timeline td .dice-stack svg.die {
-    background-color:white;
+    background-color:inherit;
 }
 #timeline .dice-chart-container {
     height:inherit;
