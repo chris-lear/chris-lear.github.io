@@ -466,22 +466,13 @@ Game.extract = function(power, turnNumber) {
 
     ret.diceRolled = ret.count(ret.debateDice)+ret.count(ret.reformationDice)+ret.count(ret.battleDice);
     ret.allDice = addvector(addvector(ret.battleDice,ret.debateDice),ret.reformationDice);
-    ret.allDiceText = ret.allDice.reduce((a,c,i)=>{if (!i) return ''; return a+' ' + c + ' '+ i + 's';},'');
     ret.hits = ret.allDice.reduce((a,c,i)=>{if (i>4) {return a+=c;} else return a;},0);
-    ret.hitsPerc = ret.hits/ret.diceRolled||0;
-    ret.diceTotal = ret.allDice.reduce((a,c,i)=>{if(!i)return 0; return a+(c*i);},0);
-    ret.averageDice = ret.diceTotal/ret.diceRolled||0;
     ret.cards = [].concat(...cards);
     ret.cardcount = ret.cards.length;
     ret.ops = ret.cards.reduce((acc,curr)=>acc+curr.ops, 0);
     ret.battlesInitiated = this.battlesOnTurn(turnNumber).reduce((acc,curr)=>{return (curr.initiator==power && curr.winnable)?acc+1:acc;},0)
     ret.battlesWon = this.battlesOnTurn(turnNumber).reduce((acc,curr)=>{return (curr.winner==power && curr.winnable)?acc+1:acc;},0)
     ret.battlesLost = this.battlesOnTurn(turnNumber).reduce((acc,curr)=>{return (curr.loser==power && curr.winnable)?acc+1:acc;},0)
-    if (ret.ops) {
-        ret.averageOps = ret.ops/ret.cards.length;
-    } else {
-        ret.averageOps = 0;
-    }
     return ret;
 }
 Game.date = function(turn,impulse) {
@@ -812,7 +803,6 @@ Game.showStats = function(turnNumber) {
     var total = {
         battlesInitiated: 0,
         cardcount: 0,
-        diceTotal: 0,
         hits: 0,
         ops: 0,
         reformationDice: 0,
@@ -831,7 +821,6 @@ Game.showStats = function(turnNumber) {
                 battlesWon: 0,
                 battlesLost: 0,
                 cardcount: 0,
-                diceTotal: 0,
                 hits: 0,
                 ops: 0,
                 reformationDice: 0,
@@ -842,17 +831,11 @@ Game.showStats = function(turnNumber) {
                     var oneTurn = this.extract(power,i);
                     data.cardcount += oneTurn.cardcount;
                     data.ops += oneTurn.ops;
-                    data.averageOps = data.ops/data.cardcount;
                     data.diceRolled += oneTurn.diceRolled;
-                    data.diceTotal += oneTurn.diceTotal;
-                    data.averageDice = data.diceTotal/data.diceRolled;
                     data.battlesInitiated += oneTurn.battlesInitiated;
                     data.battlesWon += oneTurn.battlesWon;
                     data.battlesLost += oneTurn.battlesLost;
                     data.allDice = addvector(data.allDice, oneTurn.allDice);
-                    data.allDiceText = data.allDice.reduce((a,c,i)=>{if (!i) return ''; return a+' ' + c + ' '+ i + 's';},'');
-                    data.hits += oneTurn.hits;
-                    data.hitsPerc = data.hits/data.diceRolled;
                     if (oneTurn.vps) {
                         data.vps = oneTurn.vps;
                     }
@@ -861,24 +844,15 @@ Game.showStats = function(turnNumber) {
                     }
                 });
             }
-            if (!data.averageOps) {
-                data.averageOps = 0;
-            }
             data.vpDelta = data.vps - startVps;
         } else {
             data = this.extract(power, turnNumber);
         }
         total.cardcount += data.cardcount;
         total.ops += data.ops;
-        total.averageOps = total.ops/total.cardcount;
         total.diceRolled += data.diceRolled;
         total.allDice = addvector(total.allDice, data.allDice);
-        total.allDiceText = total.allDice.reduce((a,c,i)=>{if (!i) return ''; return a+' ' + c + ' '+ i + 's';},'');
-        total.diceTotal += data.diceTotal;
-        total.averageDice = total.diceTotal/total.diceRolled;
         total.battlesInitiated+= data.battlesInitiated;
-        total.hits += data.hits;
-        total.hitsPerc = total.hits/total.diceRolled;
         total.vps = 'n/a';
         total.vpDelta = 'n/a';
 
@@ -886,6 +860,13 @@ Game.showStats = function(turnNumber) {
             data = total;
             data.battlesWon = data.battlesLost = data.battlesInitiated;
         }
+
+        data.allDiceText = data.allDice.reduce((a,c,i)=>{if (!i) return ''; return a+' ' + c + ' '+ i + 's';},'');
+        data.hits = data.allDice.reduce((a,c,i)=>{if (i>4) {return a+=c;} else return a;},0);
+        data.hitsPerc = data.hits/data.diceRolled||0;
+        data.diceTotal = data.allDice.reduce((a,c,i)=>{if(!i)return 0; return a+(c*i);},0);
+        data.averageDice = (data.diceTotal/data.diceRolled)||0;
+        data.averageOps = (data.ops/data.cardcount)||0;
         $('#stats tbody').append(
             `<tr id="${power}" class="stats-row">
             <td ><span class="power ${power}">${Powers[power]}</span></td>
