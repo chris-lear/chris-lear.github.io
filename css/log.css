@@ -239,3 +239,8 @@ html, body, #outer {
 #timeline .dice-stack.padding {
     order:5
 }
+.stats-row .dice-chart-container:hover {
+    transition: transform .2s;
+    transform-origin: bottom left;
+    transform: scaleX(2) scaleY(2);
+}

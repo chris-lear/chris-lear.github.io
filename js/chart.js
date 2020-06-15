@@ -15,9 +15,9 @@ const diceChart = function(dice) {
         if (x) {
             col = `<svg class='die' viewBox="0 0 7.1 7.1"><text x="-1" y="7.8" font-size="12px">${Dice[i-1]}</text></svg>`.repeat(x);
             padding = `<svg viewBox="0 0 7.1 7.1"><text x="-1" y="7.8" font-size="12px"> </svg>`.repeat(max-x);
-            cols += `<div class='dice-stack ${Class[i-1]}'>${padding}${col}</div>`;
+            cols += `<div class='dice-stack ${Class[i-1]}' title='${x} ${i}${x!=1?"s":""}'>${padding}${col}</div>`;
         } else {
-            cols += "<div class='dice-stack padding'></div>";
+            cols += `<div class='dice-stack padding' title='0 ${i}${x!=1?"s":""}'></div>`;
         }
     });
     return `<div class='dice-chart'>${cols}</div>`;
