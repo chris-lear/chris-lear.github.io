@@ -56,7 +56,7 @@ $(function() {
     $('#gameselector button').on('click', function() {
         $('#gameselector button').removeClass('selected');
         $(this).addClass('selected');
-        fetchGame($(this).attr('gameid') + '.txt');
+        fetchGame('games/'+$(this).attr('gameid') + '.txt');
     });
     $('#right').on('mouseover', 'tbody tr',function() {
         $(this).addClass('hover');

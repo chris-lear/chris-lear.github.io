@@ -42,7 +42,7 @@ $(()=>{
     var gamenumber = 0;
 
     var show = function(gamenumber) {
-        $.get(`game${gamenumber}.txt`, function(data) {
+        $.get(`games/game${gamenumber}.txt`, function(data) {
             game = new G();
             game.update(data);
             var delta, lastTurn;
