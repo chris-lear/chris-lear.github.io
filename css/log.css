@@ -179,7 +179,23 @@ html, body, #outer {
  * winner highlight
  */
 .winner::after {
-    content: '🏆';
+    content: ' 🏆';
+}
+
+.first::after {
+    content: ' 🥇';
+}
+
+.second::after {
+    content: ' 🥈';
+}
+
+.third::after {
+    content: ' 🥉';
+}
+
+.sixth::after {
+    content: ' 🥄';
 }
 
 .ref-location {

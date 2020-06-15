@@ -3,6 +3,15 @@ var game;
 var Game = {};
 var Setup = {};
 
+var Players = {
+    'ottoman':"The Ottomans",
+    'hapsburg':"The Hapsburgs",
+    'england':"England",
+    'france':"France",
+    'pope':"The Papacy",
+    'protestant':"The Protestants",
+};
+
 var Powers = {
     'ottoman':"The Ottomans",
     'hapsburg':"The Hapsburgs",
@@ -116,6 +125,7 @@ var TurnDice = function() {
 };
 
 
+Setup.positions = [];
 Setup.currentBattle = null;
 Setup.currentTurn = 0;
 Setup.currentImpulse = 0;
@@ -766,10 +776,30 @@ Game.parseWinter = function(text) {
 
 Game.parseVictoryDetermination = function(text) {
     [...text.matchAll(/(.*): (\d*)/g)].forEach(points=>{
-        this.Turns[this.currentTurn][this.power(points[1])]['vps'] = points[2];
+        this.Turns[this.currentTurn][this.power(points[1])]['vps'] = Number(points[2]);
     });
+    var winner = text.match(/\*\* (.*?) wins .*/);
+    if (winner) {
+        this.gameWinner = this.power(winner[1]);
+        this.fixPositions();
+    }
 }
 
+
+Game.fixPositions = function() {
+    let points = [];
+    let players = Object.keys(Players);
+    players.forEach(power=> {
+        points[power]=0;
+        this.Turns.forEach((t,i)=>{
+            points[power]+=(t[power].vps*(100**i));
+        });
+    });
+    players.sort((a,b)=>{return points[b]-points[a]});
+    let positions = [];
+    ['first','second','third','fourth','fifth','sixth','seventh'].forEach((v,i)=>{positions[players[i]] = v;});
+    this.positions = positions;
+}
 
 
 
@@ -870,7 +900,7 @@ Game.showStats = function(turnNumber) {
         data.averageOps = (data.ops/data.cardcount)||0;
         $('#stats tbody').append(
             `<tr id="${power}" class="stats-row">
-            <td ><span class="power ${power}">${Powers[power]}</span></td>
+            <td ><span class="power ${power} ${this.positions[power]}" title="${this.positions[power]||''}">${Powers[power]}</span></td>
             <td class="cards-played">${data.cardcount}</td>
             <td class="total-ops">${data.ops}</td>
             <td class="average-ops">${data.averageOps.toFixed(2)}</td>
