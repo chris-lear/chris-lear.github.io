@@ -91,11 +91,6 @@ $(function() {
             update();
         });
     }
-    function doPoll(){
-        fetchGame('log.txt');
-        timeout = setTimeout(doPoll,5000);
-    }
-    //doPoll();
     $('#gameselector button')[3].click();
     $('#log-toggle').on('click',x=>{
         if ($(x.target).hasClass('show')) {
