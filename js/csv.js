@@ -50,7 +50,7 @@ $(()=>{
                 game.Turns.forEach((turn, i) => {
                     var oneTurn = game.extract(power,i);
                     if (i>0) {
-                        if (turn.ottoman.cards.length) {
+                        if (turn.ottoman.cards.length && turn.ottoman.vps) {
                             delta = oneTurn.vps-lastTurn.vps;
                             $('#csv').append(`${gamenumber},${i},${power},${players[gamenumber][power]},${lastTurn.vps},${delta},${oneTurn.diceRolled},${oneTurn.hits}\n`);
                         }
