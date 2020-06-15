@@ -818,7 +818,6 @@ Game.showStats = function(turnNumber) {
     $('#stats tbody tr').remove();
     powers.forEach(power=>{
         var data, startVps;
-        if (turnNumber == -1 ) {
             data = {
                 battlesInitiated: 0,
                 battlesWon: 0,
@@ -829,6 +828,7 @@ Game.showStats = function(turnNumber) {
                 reformationDice: 0,
                 diceRolled: 0
             }
+        if (turnNumber == -1 ) {
             if (power!='total') {
                 this.Turns.forEach((t,i)=>{
                     var oneTurn = this.extract(power,i);
@@ -849,7 +849,9 @@ Game.showStats = function(turnNumber) {
             }
             data.vpDelta = data.vps - startVps;
         } else {
-            data = this.extract(power, turnNumber);
+            if (power!='total') {
+                data = this.extract(power, turnNumber);
+            }
         }
         total.cardcount += data.cardcount;
         total.ops += data.ops;
@@ -877,6 +879,8 @@ Game.showStats = function(turnNumber) {
             <td class="total-ops">${data.ops}</td>
             <td class="average-ops">${data.averageOps.toFixed(2)}</td>
             <td class="total-dice" title="${data.allDiceText}">${data.diceRolled}</td>
+            <td class="chart"><div class='dice-chart-container'>${diceChart(data.allDice)}</div></td>
+
             <td class="average-dice">${data.averageDice.toFixed(2)}</td>
             <td class="hits">${data.hits}</td>
             <td class="hits-percentage">${(data.hitsPerc*100).toFixed(2)}</td>

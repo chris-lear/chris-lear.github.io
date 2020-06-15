@@ -206,3 +206,6 @@ html, body, #outer {
 #log-toggle.hide::after {
     content: '◀️';
 }
+.dice-chart-container {
+    height: 20px;
+}
