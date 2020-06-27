@@ -756,14 +756,16 @@ Game.parseExplorers = function(text) {
     explorers.forEach(explorer=>{
         this.Explorers[explorer[2]] = this.power(explorer[1])
         var exploration = text.match(new RegExp(explorer[2] + ' (?:is|discovers).*'));
-        var winner = !!text.match(new RegExp(explorer[2] + ' discovers'));
-        this.addBattle(exploration[0], 'Exploration', '', (winner)?this.power(explorer[1]):null, this.power(explorer[1]));
-        this.parseNewWorldDice(text, explorer[2]);
-        var re = '(?:' + explorer[2] + ' attempts to circumnavigate.*)[\\s\\S]*?' + '\\(' + explorer[2] + '\\)[\\s\\S]*?(' + explorer[2] + ' )(circumnavigates the globe!!!|.*)';
-        var circ = text.match(new RegExp(re));
-        if (circ) {
-            this.addBattle(circ[1] + circ[2], 'Exploration', '', (circ[2]=='circumnavigates the globe!!!')?this.power(explorer[1]):null, this.power(explorer[1]));
-            this.parseCircumDice(circ[0], this.power(explorer[1]));
+        if (exploration) {
+            var winner = !!text.match(new RegExp(explorer[2] + ' discovers'));
+            this.addBattle(exploration[0], 'Exploration', '', (winner)?this.power(explorer[1]):null, this.power(explorer[1]));
+            this.parseNewWorldDice(text, explorer[2]);
+            var re = '(?:' + explorer[2] + ' attempts to circumnavigate.*)[\\s\\S]*?' + '\\(' + explorer[2] + '\\)[\\s\\S]*?(' + explorer[2] + ' )(circumnavigates the globe!!!|.*)';
+            var circ = text.match(new RegExp(re));
+            if (circ) {
+                this.addBattle(circ[1] + circ[2], 'Exploration', '', (circ[2]=='circumnavigates the globe!!!')?this.power(explorer[1]):null, this.power(explorer[1]));
+                this.parseCircumDice(circ[0], this.power(explorer[1]));
+            }
         }
     });
 }
