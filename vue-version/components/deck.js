@@ -27,7 +27,7 @@ var deck = {
                 this.turn=9;
                 this.deck = deckData.cards();
             } else {
-                axios.get('../../his/games/game'+id+".txt").then(res => {
+                axios.get('../games/game'+id+".txt").then(res => {
                     [...res.data.matchAll(/\s*#(\d*).*?: (.*?) \*[\s\S]{10,4000}\2 card is permanently/g)].forEach(x=>{
                         this.discards.push(+x[1]);
                     });
