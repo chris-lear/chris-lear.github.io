@@ -30,7 +30,7 @@ var Locations = {
     'Augsburg': 'germany',
     'Avignon':'france',
     'Basel': 'germany',
-    'Besancon': 'germany',
+    'Besancon': 'france',
     'Bordeaux':'france',
     'Boulogne':'france',
     'Brandenburg': 'germany',
@@ -176,7 +176,11 @@ var Battle = function(b) {
         if (this.initiator == this.winner) {
             cl = this.loser;
         } else {
-            cl = this.winner + " winner";
+            if (this.winner) {
+                cl = this.winner + " winner";
+            } else {
+                return this.other;
+            }
         }
         return cl;
     }
@@ -408,10 +412,14 @@ Game.addBattle = function(text, type, where, winner, loser, other) {
     if (type=='Field Battle') {
         battle.other = other;
     }
-    if (type=='Naval' || type=='Foreign War') {
+    if (type=='Naval'){
         if (battle.loser==initiator) {
             battle.other = winner;
         }
+    }
+    if (type=='Foreign War'){
+        battle.other = other;
+        console.log(battle);
     }
     this.currentBattle = new Battle(battle);
     this.Battles.push(this.currentBattle);
@@ -644,18 +652,15 @@ Game.parseBattles = function(text) {
         this.parseHits(b[0]);
     });
 
-    var foreignWar = [...text.matchAll(/to fight a foreign war[\s\S]*?\*\* Battle of (.*) \*\*[\s\S]*?(.*?) dic?e: [\s\S]*?(.*?) dic?e: [\s\S]*?War with \1( is resolved!)?/g)];
+    var foreignWar = [...text.matchAll(/to fight a foreign war[\s\S]*?\*\* Battle of (.*) \*\*[\s\S]*?(.*?) dic?e: [\s\S]*?(.*?) dic?e: [\s\S]*?(War with .* is resolved!|Rebel forces for.*now at)/g)];
     foreignWar.forEach(f=> {
         var winner, loser;
         this.currentBattle = null;
-        if (f[4]) {
-            winner = f[2];
-            loser = f[3];
-        } else {
-            winner = f[3];
-            loser = f[2];
+        if (f[4].match(/is resolved!/)) {
+            winner = this.power(f[2]);
+            loser = this.power(f[3]);
         }
-        this.addBattle(f[0],'Foreign War',f[1],this.power(winner),this.power(loser));
+        this.addBattle(f[0],'Foreign War',f[1],winner,loser, this.power(f[3]));
         this.parseHits(f[0]);
     });
 
