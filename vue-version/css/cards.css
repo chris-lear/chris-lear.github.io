@@ -4,11 +4,6 @@
     flex-wrap: wrap;
 }
 
-span {
-    display:inline-block;
-    width:20%;
-    position:relative;
-}
 
 #close {
     position: absolute;
@@ -82,6 +77,14 @@ textarea {
 }
 .discarded {
     filter: brightness(80%);
+}
+
+.popup .info {
+    background-color:#333;
+    color:#eee;
+    font-weight:bold;
+    text-align:center;
+    font-size:larger;
 }
 
 

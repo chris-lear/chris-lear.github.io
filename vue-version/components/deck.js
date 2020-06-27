@@ -27,7 +27,7 @@ var deck = {
                 this.turn=9;
                 this.deck = deckData.cards();
             } else {
-                axios.get('/his/games/game'+id+".txt").then(res => {
+                axios.get('../../his/games/game'+id+".txt").then(res => {
                     [...res.data.matchAll(/\s*#(\d*).*?: (.*?) \*[\s\S]{10,4000}\2 card is permanently/g)].forEach(x=>{
                         this.discards.push(+x[1]);
                     });
@@ -55,10 +55,10 @@ var deck = {
         <div id='deck'>
             <div>
                 <input v-model="deckSearch" id='search' placeholder='search' type="text"></input>
-                <button @click="getGame(3)" >get game 3</button>
-                <button @click="getGame(2)" >get game 2</button>
-                <button @click="getGame(1)" >get game 1</button>
-                <button @click="getGame(0)" >get game 0</button>
+                <button @click="getGame(3)" >Game 3 deck</button>
+                <button @click="getGame(2)" >Game 2 deck</button>
+                <button @click="getGame(1)" >Game 1 deck</button>
+                <button @click="getGame(0)" >Game 0 deck</button>
                 <button @click="getGame(-1)" >Full deck</button>
             </div>
             <div id='searched-deck'>
