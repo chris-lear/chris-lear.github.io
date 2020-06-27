@@ -419,7 +419,6 @@ Game.addBattle = function(text, type, where, winner, loser, other) {
     }
     if (type=='Foreign War'){
         battle.other = other;
-        console.log(battle);
     }
     this.currentBattle = new Battle(battle);
     this.Battles.push(this.currentBattle);
