@@ -27,7 +27,7 @@ var card = {
     `,
     computed: {
         url:function() {
-            return '/his/img/cards/HIS-' + ("00" + this.card.id).slice(-3) +'.png';
+            return '../img/cards/HIS-' + ("00" + this.card.id).slice(-3) +'.png';
         },
         cardClass: function() {
             var cl=[];
