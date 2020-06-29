@@ -1,9 +1,19 @@
 'use strict'
 
+const urlParams = new URLSearchParams(window.location.search);
+console.log(urlParams);
+let mikeyJamie = urlParams.get('mikey-jamie');
+if (!mikeyJamie) {
+    mikeyJamie = 'mikey-jamie';
+}
+let chrisJamie = urlParams.get('chris-jamie');
+if (!chrisJamie) {
+    chrisJamie = 'chris-jamie';
+}
 
 var players = [
     {
-        'hapsburg':'chris-jamie',
+        'hapsburg':chrisJamie,
         'protestant':'mikey',
         'pope':'filippo',
         'ottoman':'neil',
@@ -13,7 +23,7 @@ var players = [
     {
         'hapsburg':'nick',
         'protestant':'ben',
-        'pope':'mikey-jamie',
+        'pope':mikeyJamie,
         'ottoman':'filippo',
         'france':'neil',
         'england':'chris'
@@ -23,7 +33,7 @@ var players = [
         'protestant':'filippo',
         'pope':'nick',
         'ottoman':'chris',
-        'france':'mikey-jamie',
+        'france':mikeyJamie,
         'england':'ben'
     },
     {
@@ -35,6 +45,9 @@ var players = [
         'england':'neil'
     }
 ];
+
+
+
 
 $(()=>{
     $('#csv').append("Game,Turn,Nation,Player,Starting VP,VP Change,Dice Rolled,Hits\n");
