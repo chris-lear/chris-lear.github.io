@@ -55,6 +55,7 @@ var deck = {
         <div id='deck'>
             <div>
                 <input v-model="deckSearch" id='search' placeholder='search' type="text"></input>
+                <button @click="getGame(4)" >Game 4 deck</button>
                 <button @click="getGame(3)" >Game 3 deck</button>
                 <button @click="getGame(2)" >Game 2 deck</button>
                 <button @click="getGame(1)" >Game 1 deck</button>
