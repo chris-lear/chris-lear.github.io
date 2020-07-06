@@ -916,6 +916,8 @@ Game.showStats = function(turnNumber) {
         data.allDiceText = data.allDice.reduce((a,c,i)=>{if (!i) return ''; return a+' ' + c + ' '+ i + 's';},'');
         data.hits = data.allDice.reduce((a,c,i)=>{if (i>4) {return a+=c;} else return a;},0);
         data.hitsPerc = data.hits/data.diceRolled||0;
+        data.jam = jam(data.hits,data.diceRolled);
+
         data.diceTotal = data.allDice.reduce((a,c,i)=>{if(!i)return 0; return a+(c*i);},0);
         data.averageDice = (data.diceTotal/data.diceRolled)||0;
         data.averageOps = (data.ops/data.cardcount)||0;
@@ -927,10 +929,10 @@ Game.showStats = function(turnNumber) {
             <td class="average-ops">${data.averageOps.toFixed(2)}</td>
             <td class="total-dice" title="${data.allDiceText}">${data.diceRolled}</td>
             <td class="chart"><div class='dice-chart-container'>${diceChart(data.allDice)}</div></td>
-
             <td class="average-dice">${data.averageDice.toFixed(2)}</td>
             <td class="hits">${data.hits}</td>
             <td class="hits-percentage">${(data.hitsPerc*100).toFixed(2)}</td>
+            <td class="jam">${data.jam.toFixed(2)}</td>
             <td class="battles-initiated">${data.battlesInitiated}</td>
             <td class="battles-won">${data.battlesWon}</td>
             <td class="battles-lost">${data.battlesLost}</td>
