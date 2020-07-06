@@ -61,5 +61,5 @@ function cdf(X,N,P) {
 }
 
 function jam(hits, dice) {
-    return (cdf(hits,dice,1/3)+cdf(hits,dice,1/3))/2;
+    return (cdf(hits,dice,1/3)+cdf(hits-1,dice,1/3))/2;
 }
