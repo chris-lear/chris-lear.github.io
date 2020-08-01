@@ -30,6 +30,7 @@ var Locations = {
     'Augsburg': 'germany',
     'Avignon':'france',
     'Basel': 'germany',
+    'Berwick': 'england',
     'Besancon': 'france',
     'Bordeaux':'france',
     'Boulogne':'france',
