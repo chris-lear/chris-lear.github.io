@@ -34,7 +34,7 @@ function Betinc(X,A,B) {
 function cdf(X,N,P) {
     with (Math) {
         if (N<=0) {
-            alert("sample size must be positive")
+            return .5;
         } else if ((P<0)||(P>1)) {
             alert("probability must be between 0 and 1")
         } else if (X<0) {
