@@ -4652,30 +4652,6 @@ France spends 1 CP to construct units
 
 Turn 6, Papal 4th impulse
 
-England plays the following card for Command Points:
-  #28 -  Ops 1: Siege Mining (combat)
-England spends 1 CP to declare an assault in Antwerp
-
-    ** Assault of Antwerp**
-English dice: 6(11 SPs) +1(Brandon) = 7 dice
-Hapsburg dice: 4 SPs +1(defending) = 5 dice
-
-** England dice roll: 6, 4, 1, 6, 1, 6, 3 -- 3 hits **
-** The Hapsburgs dice roll: 4, 1, 6, 4, 4 -- 1 hit **
-The assault in Antwerp fails!
-
-Turn 6, French 4th impulse
-
-France plays the following card for Command Points:
-  #4 -  Ops 5: Patron of the Arts (home card)
-France spends 4 CPs to construct units
-2 French regular SPs added to Lyon, making 3 SPs total
-France spends 1 CP to construct units
-1 French mercenary SP added to Lyon, making 4 SPs total
-
-Turn 6, Papal 4th impulse
-
-
 The Papacy plays the following card for Command Points:
   #96 -  Ops 3: Sale of Moluccas *
 The Papacy spends 3 CPs to call a debate in the English language zone
