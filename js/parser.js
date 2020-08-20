@@ -800,7 +800,7 @@ Game.parseVictoryDetermination = function(text) {
     [...text.matchAll(/(.*): (\d*)/g)].forEach(points=>{
         this.Turns[this.currentTurn][this.power(points[1])]['vps'] = Number(points[2]);
     });
-    var winner = text.match(/\*\* (.*?) wins .*/);
+    var winner = text.match(/\*\* (.*?) wins? .*/);
     if (winner) {
         this.gameWinner = this.power(winner[1]);
         this.fixPositions();
