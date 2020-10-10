@@ -1,3 +1,6 @@
+@font-face {font-family: "TerraIgnotaW01-Regular"; src: url("//db.onlinewebfonts.com/t/76da46bd9cc48e5fdf6fe3674323905d.eot"); src: url("//db.onlinewebfonts.com/t/76da46bd9cc48e5fdf6fe3674323905d.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/76da46bd9cc48e5fdf6fe3674323905d.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/76da46bd9cc48e5fdf6fe3674323905d.woff") format("woff"), url("//db.onlinewebfonts.com/t/76da46bd9cc48e5fdf6fe3674323905d.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/76da46bd9cc48e5fdf6fe3674323905d.svg#TerraIgnotaW01-Regular") format("svg"); }
+
+
 /* pure-css is used as a starting point*/
 h1 {
     font-size:inherit;
@@ -38,6 +41,8 @@ tr.clicked {
     background-size:27px;
     background-repeat:no-repeat;
     background-position-y: center;
+    font-family:sans-serif;
+    font-size:small;
 }
 .power.ottoman {
     background-color:#019D4C;
@@ -243,4 +248,8 @@ html, body, #outer {
     transition: transform .2s;
     transform-origin: bottom left;
     transform: scaleX(2) scaleY(2);
+}
+#battles {
+    font-family: TerraIgnotaW01-Regular;
+    font-size:x-large;
 }
