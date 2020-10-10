@@ -7121,12 +7121,6 @@ The Papacy spends 1 CP to place a PC marker in Trent
 
 Turn 8, Protestant 4th impulse
 
-** MSG FROM PAPACY: VICTORY
-
-** MSG FROM OTTOMAN: gg
-
-** MSG FROM HAPSBURGS: gg
-
 The Protestants play the following card for Command Points:
   #61 -  Ops 1: Mary Defies Council
 The Protestants spend 1 CP to scripture translations in the English language
@@ -7751,6 +7745,3 @@ Protestants: 25
 **************************************************
 ** The Protestants win a standard victory!!!
 **************************************************
-
-Type anything to exit.
-** MSG FROM OTTOMAN: gg
