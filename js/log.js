@@ -91,7 +91,7 @@ $(function() {
             update();
         });
     }
-    $('#gameselector button')[5].click();
+    $('#gameselector button')[6].click();
     $('#log-toggle').on('click',x=>{
         if ($(x.target).hasClass('show')) {
             $(x.target).attr('class','hide');
