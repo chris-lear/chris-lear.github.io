@@ -119,13 +119,13 @@ $(()=>{
         });
 
         csv[0][5] = `0,5,Ottomans,Neil,16,4,17,5\n`;
-        csv[0][5] += `0,5,Habsburgs,Chris-Jamie,20,4,13,2\n`;
+        csv[0][5] += `0,5,Habsburgs,${chrisJamie},20,4,13,2\n`;
         csv[0][5] += `0,5,England,Nick,14,3,10,4\n`;
         csv[0][5] += `0,5,France,Ben,15,5,0,0\n`;
         csv[0][5] += `0,5,Papacy,Filippo,24,0,12,2\n`;
         csv[0][5] += `0,5,Protestants,Mikey,12,2,6,3\n`;
         csv[0][6] = `0,6,Ottomans,Neil,20,7,21,11\n`;
-        csv[0][6] += `0,6,Habsburgs,Chris-Jamie,24,-1,22,7\n`;
+        csv[0][6] += `0,6,Habsburgs,${chrisJamie},24,-1,22,7\n`;
         csv[0][6] += `0,6,England,Nick,17,4,11,4\n`;
         csv[0][6] += `0,6,France,Ben,20,4,0,0\n`;
         csv[0][6] += `0,6,Papacy,Filippo,24,3,35,13\n`;
