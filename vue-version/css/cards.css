@@ -34,10 +34,11 @@ textarea {
     max-width:200px;
 }
 .card .popup {
-    display:none;
+    visibility:hidden;
 }
 #deck .card:hover .popup {
     display:block;
+    visibility:inherit;
 }
 .card-pad {
     grid-column: span 3;
@@ -49,6 +50,7 @@ textarea {
     left:-250px;
     top:0px;
     width:250px;
+    height:300px;
 }
 
 #searched-deck {
