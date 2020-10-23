@@ -100,7 +100,7 @@ var PowersTurn = function() {
     this.cards = [];
     this.vps = 0;
 }
-var Turn = function(zero) {
+var Turn = function(zero, three) {
     Object.keys(Powers).forEach(power=> {
         this[power] = new PowersTurn();
     });
@@ -112,7 +112,14 @@ var Turn = function(zero) {
         this['pope'].vps = 19;
         this['protestant'].vps = 0;
     }
-
+    if (three) {
+        this['ottoman'].vps = 16;
+        this['hapsburg'].vps = 18;
+        this['england'].vps = 9;
+        this['france'].vps = 12;
+        this['pope'].vps = 15;
+        this['protestant'].vps = 13;
+    }
 
 }
 var TurnDice = function() {
@@ -830,12 +837,23 @@ Game.fixPositions = function() {
 
 
 Game.update = function(t) {
+    var firstTurn = t.match(/Start of Turn (\d)/);
+    if (firstTurn) {
+        firstTurn = +firstTurn[1];
+    }
     this.BattleDice.push(new TurnDice());
     this.DebateDice.push(new TurnDice());
     this.ReformationDice.push(new TurnDice());
     this.Turns.push(new Turn('turnZero')); // sets up initial scores
     var turns = t.split(/\*\* Start of Turn \d \*\*/)
     turns.shift();
+    while (this.currentTurn < firstTurn-1) {
+        this.Turns.push(new Turn(false, this.currentTurn==2));
+        this.BattleDice.push(new TurnDice());
+        this.DebateDice.push(new TurnDice());
+        this.ReformationDice.push(new TurnDice());
+        this.currentTurn++;
+    }
 
     turns.forEach(turn=> {
         this.currentTurn++;
