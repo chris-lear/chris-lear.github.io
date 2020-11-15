@@ -34,7 +34,7 @@ textarea {
     max-width:200px;
 }
 .card .popup {
-    visibility:hidden;
+    display:none;
 }
 #deck .card:hover .popup {
     display:block;
@@ -51,6 +51,7 @@ textarea {
     top:0px;
     width:250px;
     height:300px;
+    visibility:hidden;
 }
 
 #searched-deck {
