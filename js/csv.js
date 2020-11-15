@@ -67,6 +67,14 @@ var players = [
         'ottoman':'Chris',
         'france':'Filippo',
         'england':'Nick'
+    },
+    {
+        'hapsburg':'Nick',
+        'protestant':'Ben',
+        'pope':'Filippo',
+        'ottoman':'Neil',
+        'france':'Jamie',
+        'england':'Chris'
     }
 ];
 
