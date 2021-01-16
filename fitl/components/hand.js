@@ -16,9 +16,12 @@ var hand = {
             let ids = [...this.handText.matchAll(/(?<=#)\d+/g)].map(x=>{
                 return +x[0];
             });
-            return this.deck.filter(x=>{
+            let filtered = this.deck.filter(x=>{
                 return ids.includes(x.id);
-            })
+            });
+            let ret = [];
+            ids.forEach((id)=>{ret.push(filtered.find(el=>el.id==id))});
+            return ret;
         }
     },
     components: {
