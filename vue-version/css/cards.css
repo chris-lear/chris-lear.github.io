@@ -45,6 +45,15 @@ textarea {
 
 }
 
+#search-container  {
+    float:right;
+    margin-top:-45px;
+    width:50%;
+}
+#search {
+    width:90%;
+}
+
 #searched-deck .popup {
     position:absolute;
     left:-250px;
@@ -94,6 +103,7 @@ textarea {
 #deck .card button {
     display:none;
 }
+
 #hand .card {
     position:relative;
 }
@@ -103,4 +113,11 @@ textarea {
     top: 0;
     cursor: pointer;
     opacity: .8;
+}
+
+#hand textarea {
+    width:70%;
+    position:absolute;
+    left:29%;
+    top:5px;
 }

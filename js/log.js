@@ -1,5 +1,5 @@
-
-function update(e) {
+var game;
+function update() {
     game = new G();
     game.update($('#gamelog').text());
     $('#stats-selector .turn-selector').remove();
@@ -16,7 +16,6 @@ function update(e) {
 
 
 $(function() {
-    var timeout;
     function highlight(text, behavior) {
         if (!text) {
             return;
