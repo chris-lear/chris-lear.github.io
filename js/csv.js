@@ -78,8 +78,8 @@ var players = [
     },
     {
         'hapsburg':'Chris',
-        'protestant':'Nick',
-        'pope':'Jamie',
+        'protestant':'Jamie',
+        'pope':'Nick',
         'ottoman':'Filippo',
         'france':'Ben',
         'england':'Neil'
@@ -97,6 +97,7 @@ var Powers = {
     'england':'England'
 };
 
+var game;
 
 $(()=>{
     $('#csv').append("Game,Turn,Nation,Player,Starting VP,VP Change,Dice Rolled,Hits\n");
