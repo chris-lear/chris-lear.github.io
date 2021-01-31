@@ -1,8 +1,6 @@
 function LogGamma(Z) {
-    with (Math) {
-        var S=1+76.18009173/Z-86.50532033/(Z+1)+24.01409822/(Z+2)-1.231739516/(Z+3)+.00120858003/(Z+4)-.00000536382/(Z+5);
-        var LG= (Z-.5)*log(Z+4.5)-(Z+4.5)+log(S*2.50662827465);
-    }
+    var S=1+76.18009173/Z-86.50532033/(Z+1)+24.01409822/(Z+2)-1.231739516/(Z+3)+.00120858003/(Z+4)-.00000536382/(Z+5);
+    var LG= (Z-.5)*Math.log(Z+4.5)-(Z+4.5)+Math.log(S*2.50662827465);
     return LG
 }
 
@@ -32,7 +30,7 @@ function Betinc(X,A,B) {
 }
 
 function cdf(X,N,P) {
-    with (Math) {
+    var bincdf;
         if (N<=0) {
             return .5;
         } else if ((P<0)||(P>1)) {
@@ -42,21 +40,20 @@ function cdf(X,N,P) {
         } else if (X>=N) {
             bincdf=1
         } else {
-            X=floor(X);
-            Z=P;
-            A=X+1;
-            B=N-X;
-            S=A+B;
-            BT=exp(LogGamma(S)-LogGamma(B)-LogGamma(A)+A*log(Z)+B*log(1-Z));
+            X=Math.floor(X);
+            var Z=P;
+            var A=X+1;
+            var B=N-X;
+            var S=A+B;
+            var BT=Math.exp(LogGamma(S)-LogGamma(B)-LogGamma(A)+A*Math.log(Z)+B*Math.log(1-Z));
             if (Z<(A+1)/(S+2)) {
-                Betacdf=BT*Betinc(Z,A,B)
+                var Betacdf=BT*Betinc(Z,A,B)
             } else {
                 Betacdf=1-BT*Betinc(1-Z,B,A)
             }
             bincdf=1-Betacdf;
         }
-        bincdf=round(bincdf*100000)/100000;
-    }
+        bincdf=Math.round(bincdf*100000)/100000;
     return bincdf;
 }
 

@@ -1,5 +1,4 @@
 'use strict';
-var game;
 var Game = {};
 var Setup = {};
 
@@ -91,7 +90,6 @@ var Locations = {
     'Wittenberg': 'germany',
     'Worms': 'germany',
     'York':'england',
-    'York': 'england',
     'Zurich': 'germany'
 }
 
@@ -223,13 +221,10 @@ var Battle = function(b) {
         switch (this.type) {
             case 'Field Battle':
                 return `Battle of ${this.location}`;
-                break;
             case 'Naval':
                 return `(${this.type}) Battle of ${this.location}`;
-                break;
             case 'Assault':
                 return `Siege of ${this.location}`;
-                break;
             case 'Foreign War':
                 return `Foreign war in ${this.location}`;
             case 'Debate':
@@ -280,8 +275,6 @@ var Battle = function(b) {
         return game.date(this.turn,this.impulse);
     }
     this.getDice = function(which) {
-        var out = '';
-        var dChars = ['','⚀','⚁','⚂','⚃','<span class="hit">⚄</span>','<span class="hit">⚅</span>'];
         var thing = this.dice[which];
         return `<div class='dice-chart-container'>${diceChart(thing)}</div>`;
     }
@@ -353,7 +346,6 @@ Game.addImpulse = function(turn, who, impulseNumber, type, num, ops) {
 }
 
 Game.addBattle = function(text, type, where, winner, loser, other) {
-    var loser;
     var winnable = 1;
     var initiator = this.currentPlayer;
     var battle = {
@@ -519,7 +511,7 @@ Game.date = function(turn,impulse) {
 }
 Game.maxImpulse = function(turn) {
     var max = 0;
-    for (var power in this.Turns[turn]) {max = this.Turns[turn][power]['cards'].length>max?this.Turns[turn][power]['cards'].length:max;};
+    for (var power in this.Turns[turn]) {max = this.Turns[turn][power]['cards'].length>max?this.Turns[turn][power]['cards'].length:max;}
     return max;
 }
 
@@ -557,9 +549,9 @@ Game.parsePhase = function(phase) {
 
 
 Game.parseDebateDice = function(text) {
-    dice1 = text.match(/Protestant .*dic?e roll: (.*?) --/);
+    var dice1 = text.match(/Protestant .*dic?e roll: (.*?) --/);
     this.debateDice('protestant',dice1[1]);
-    dice2 = text.match(/Catholic .*dic?e roll: (.*?) --/);
+    var dice2 = text.match(/Catholic .*dic?e roll: (.*?) --/);
     this.debateDice('pope',dice2[1]);
 
 }
@@ -634,6 +626,7 @@ Game.parseImpulse = function(text) {
     this.currentBattle = null;
     this.parseReformations(text);
     this.parseBattles(text);
+    this.parseAutoVictory(text);
 }
 
 Game.parseBattles = function(text) {
@@ -694,6 +687,17 @@ Game.parseBattles = function(text) {
     });
 
 }
+
+Game.parseAutoVictory = function(text) {
+    var victory = [...text.matchAll(/\*\* (.*?) win an automatic victory!!!/g)];
+    victory.forEach(v=> {
+        this.gameWinner = this.power(v[1]);
+        this.fixPositions();
+    });
+
+
+}
+
 
 
 Game.parseHits = function(text) {
@@ -786,7 +790,8 @@ Game.parseConquests = function(text) {
     var conquests = [...text.matchAll(/Conquest dice roll.*[\r\n]*(?:No effect -- )?(.*) ((conquers|is) .*)/g)];
     conquests.forEach(conquest=>{
         var conqueror, initiator;
-        if ( conqueror = conquest[1].match(/(.*) conqueror/)) {
+        conqueror = conquest[1].match(/(.*) conqueror/);
+        if (conqueror) {
             initiator = this.power(conqueror[1]);
         } else {
             initiator = this.Conquistadors[conquest[1]];
@@ -794,13 +799,14 @@ Game.parseConquests = function(text) {
         var winner;
         if (conquest[2].match(/conquers/)) {
             winner = initiator;
-        };
+        }
         this.addBattle(conquest[0], 'Conquest', conquest[2], winner, initiator);
         this.parseConquestDice(conquest[0], initiator);
     });
 }
 
 Game.parseWinter = function(text) {
+    return text;
 }
 
 Game.parseVictoryDetermination = function(text) {
