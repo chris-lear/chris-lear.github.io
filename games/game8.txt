@@ -6793,7 +6793,7 @@ The Protestants spend 1 CP to remove unrest in Zurich
 
 ** Current VP Totals **
 
-Ottomans: 17
+Ottomans: 19
 Hapsburgs: 20
 England: 25
 France: 23
