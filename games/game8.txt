@@ -6789,3 +6789,18 @@ The Protestants spend 1 CP to remove unrest in Zurich
 ** The Protestants win an automatic victory!!!
 **************************************************
 
+** Victory Determination Phase **
+
+** Current VP Totals **
+
+Ottomans: 17
+Hapsburgs: 20
+England: 25
+France: 23
+Papacy: 14
+Protestants: 28
+
+
+**************************************************
+** The Protestants win a standard victory!!!
+**************************************************
