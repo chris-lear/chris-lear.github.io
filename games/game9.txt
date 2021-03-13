@@ -5,7 +5,7 @@ Game copyright 2006 GMT Games
 Game Design by Ed Beach
 Program by Bruce Wigdor
 
-Your IP address appears to be: 172.17.96.1
+Your IP address appears to be: 172.19.64.1
 
 
 Waiting for the client to connect...
@@ -2335,9 +2335,2044 @@ The Protestants draw 4 cards
 PLEASE!  Do not type anything immediately, so that other players may review the end of turn.
         Begin any negotiations via private communication.
 
+Deal proposed by The Ottomans:  Deal awaits ratification from France
 
-The game is being saved.
+             Terms:
 
-Type anything to exit.
-The game is being saved.
-Game is being saved as hissave-d.wgr
+1) Agreement to form alliance between France and The Ottomans
+
+Deal proposed by The Hapsburgs:  Deal awaits ratification from The Papacy
+
+             Terms:
+
+1) Agreement to form alliance between The Hapsburgs and The Papacy
+
+Deal proposed by England:  Deal awaits ratification from France
+
+             Terms:
+
+1) Agreement to form alliance between France and England
+
+Deal proposed by England:  Deal awaits ratification from The Protestants
+
+             Terms:
+
+1) Agreement to form alliance between England and The Protestants
+
+
+The following deal has been ratified by all parties, and will now go into effect:
+
+1) Agreement to form alliance between France and The Ottomans
+
+The following deal has been ratified by all parties, and will now go into effect:
+
+1) Agreement to form alliance between France and England
+
+The following deal has been ratified by all parties, and will now go into effect:
+
+1) Agreement to form alliance between The Hapsburgs and The Papacy
+Deal proposed by England:  Deal awaits ratification from The Protestants
+
+             Terms:
+
+1) Agreement to form alliance between England and The Protestants
+
+
+The following deal has been ratified by all parties, and will now go into effect:
+
+1) Agreement to form alliance between England and The Protestants
+
+France sues for peace with The Hapsburgs:
+  ** The Hapsburgs receive 1 War Winner VP for defeating France **
+France elects to regain the following 1 home key:
+      Paris
+  ** The Hapsburgs receive 1 War Winner VP for regaining Paris, now 2 total **
+The Hapsburgs must return its forces in Paris to a friendly fortified space
+2 Hapsburg SPs added to Metz from Paris, making 2 SPs total
+2 Hapsburg mercenary SPs added to Metz from Paris, making 4 SPs total
+     in Paris return to Metz
+
+** Spring Deployment Phase **
+The Ottomans deploy Suleiman I, Ibrahim, and  and 14 Ottoman SPs(13 reg, 1 cav) from Istanbul to Belgrade
+The Hapsburgs deploy Ferdinand  and 5 Hapsburg SPs from Valladolid to Barcelona
+England deploys Henry VIII  and 5 English SPs(3 reg, 2 merc) from London to Calais
+
+** Action Phase **
+
+Turn 4, Ottoman 1st impulse
+
+The Ottomans play the following card as a Mandatory Event:
+  #114 -  Ops 2: La Foret's Embassy in Istanbul * (mandatory event)
+
+[Turn 3] If France and the Ottoman are allied, both powers draw and keep 1 card.
+
+
+
+** The La Foret's Embassy in Istanbul card is permanently removed. **
+
+
+
+The Ottomans play the following card for Command Points:
+  #114 -  Ops 2: La Foret's Embassy in Istanbul * (mandatory event)
+Suleiman I  and 12 Ottoman SPs(11 reg, 1 cav) move from Belgrade to Szegedin
+The Ottomans spend 1 CP to place a PC marker in Szegedin
+
+Turn 4, Hapsburg 1st impulse
+
+The Hapsburgs are about to play Gabelle Revolt as an event (Wartburg prompt)
+
+Place Unrest markers on up to 2 unoccupied French home spaces.
+
+
+The Hapsburgs play the following card as an Event:
+  #80 -  Ops 1: Gabelle Revolt
+
+Place Unrest markers on up to 2 unoccupied French home spaces.
+
+
+Unrest in Paris
+Unrest in Dijon
+
+Turn 4, English 1st impulse
+
+England is about to play Huguenot Raiders as an event (Wartburg prompt)
+
+[Turn 4] Playable on behalf of England, France, or Protestant if they have at
+    least one home port under Protestant religious influence and no Raider
+    currently in play. Add a Raider marker of the appropriate power next to the
+    Hapsburg colonies. Hapsburg New World Riches now have a chance to be
+    intercepted by this power (see 20.4).
+
+
+England plays the following card as an Event:
+  #49 -  Ops 2: Huguenot Raiders
+
+[Turn 4] Playable on behalf of England, France, or Protestant if they have at
+    least one home port under Protestant religious influence and no Raider
+    currently in play. Add a Raider marker of the appropriate power next to the
+    Hapsburg colonies. Hapsburg New World Riches now have a chance to be
+    intercepted by this power (see 20.4).
+
+
+English raider marker now in play
+
+Turn 4, French 1st impulse
+
+France plays the following card for Command Points:
+  #37 -  Ops 2: The Wartburg (response)
+France spends 1 CP to remove unrest in Paris
+France spends 1 CP to construct units
+1 French mercenary SP added to Paris, making 1 SP total
+
+Turn 4, Papal 1st impulse
+
+The Papacy plays the following card for Command Points:
+  #43 -  Ops 3: Zwingli Dons Armor *
+The Papacy spends 2 CPs to construct units
+1 Papal regular SP added to Rome, making 5 SPs total
+The Papacy spends 1 CP to work towards the progress on St. Peter's Cathedral
+    The St. Peter's marker advances 1 space
+
+Turn 4, Protestant 1st impulse
+
+The Protestants play the following card for Command Points:
+  #68 -  Ops 5: Andrea Doria
+The Protestants spend 2 CPs to Publish a Treatise for reformation rolls in the German language zone
+
+      Reformation attempt in Brandenburg
+
+Protestant dice: 4(adj. Protestant spaces) +1(adj. Protestant unit) +1(adj. Reformer) +2(Protestant units in space)  = 8 dice
+Catholic dice: 1(adj. Catholic space)  = 1 die
+
+Protestant dice roll: 6, 2, 2, 5, 3, 2, 2, 3 -- Protestant high roll is 6
+
+** The reformation roll in Brandenburg succeeds! **
+
+      Reformation attempt in Strasburg
+
+Protestant dice: 2(adj. Protestant spaces)  = 2 dice
+Catholic dice: 2(adj. Catholic spaces) +1(adj. Catholic unit)  = 3 dice
+
+Protestant dice roll: 4, 3 -- Protestant high roll is 4
+
+Catholic dice roll: 3, 2, 6 -- Catholic high roll is 6
+
+** The reformation roll in Strasburg fails **
+The Protestants spend 3 CPs to scripture translations in the German language
+      Luther is committed to provide a bonus translation
+4 CPs towards Full Bible in German
+
+Turn 4, Ottoman 2nd impulse
+
+The Ottomans play the following card as a Mandatory Event:
+  #13 -  Ops 2: Schmalkaldic League * (mandatory event)
+
+If 12 or more spaces are currently under Protestant religious influence or this
+    is the Winter Phase of Turn 4, the Protestant defense league is formed as
+    specified in 21.6. Protestant spaces in unrest count toward the total of 12.
+    Remove from deck once defense league is formed.
+
+
+
+** The Schmalkaldic League card is permanently removed. **
+
+John Frederick to Wittenberg
+Philip of Hesse to Mainz
+    The Protestants and the Hapsburgs are now at war
+    The Protestants and the Papacy are now at war
+
+
+The Ottomans play the following card for Command Points:
+  #13 -  Ops 2: Schmalkaldic League * (mandatory event)
+Suleiman I  and 12 Ottoman SPs(11 reg, 1 cav) move from Szegedin to Buda
+
+    ** Battle of Buda **
+  (response cards)
+
+Ottoman dice: 12 SPs +2(Suleiman I) = 14 dice
+Hungarian/Bohemian dice: 5 SPs +1(defending) = 6 dice
+  (combat cards)
+
+** The Ottomans dice roll: 4, 5, 1, 1, 3, 5, 1, 6, 4, 2, 6, 4, 5, 2 -- 5 hits **
+** Hungary/Bohemia dice roll: 2, 3, 5, 6, 4, 2 -- 2 hits **
+The Ottomans win the battle of Buda!
+** Hungary-Bohemia has been defeated! **
+The Hapsburgs and Ottomans are now at war
+  ** The Ottomans receive 2 War Winner VPs for defeating Hungary-Bohemia **
+** Hungary/Bohemia is activated as an ally of The Hapsburgs **
+The Ottomans spend 1 CP to place a PC marker in Mohacs
+
+Turn 4, Hapsburg 2nd impulse
+
+The Hapsburgs play the following card for Command Points:
+  #63 -  Ops 4: Dissolution of the Monasteries *
+The Hapsburgs spend 3 CPs to construct units
+3 Hapsburg mercenary SPs added to Vienna, making 10 SPs total
+The Hapsburgs spend 1 CP to construct units
+1 Hapsburg mercenary SP added to Antwerp, making 4 SPs total
+
+Turn 4, English 2nd impulse
+
+England plays the following card as an Event:
+  #94 -  Ops 2: Revolt of the Communeros
+
+Place Unrest markers on up to 3 unoccupied Spanish-speaking spaces.
+
+
+Unrest in Zaragoza
+Unrest in Cartagena
+Unrest in Valencia
+
+Turn 4, French 2nd impulse
+
+France plays the following card as an Event:
+  #4 -  Ops 5: Patron of the Arts (home card)
+
+If Francis I is ruler and not captured or under siege, roll 1 die, and consult
+    the Chateau Table.
+
+
+  ** Patron of the Arts die roll: 2 +2(Milan) +2(3 Italian keys) -1(French space enemy controlled) = 5
+      French Chateaux VPs increased by 1, now at 4
+  France draws 1 card
+
+Turn 4, Papal 2nd impulse
+
+The Papacy plays the following card as an Event:
+  #104 -  Ops 3: Trace Italienne
+
+Add a fortress to any unfortified space (even if under Unrest or controlled by
+    another power). Unless space is independent or in unrest, add 1 regular to that
+    space from the counter mix of the power in control of the space.
+
+
+Fortress marker placed in Siena
+1 Papal SP added to Siena, making 1 Papal SP total
+
+Turn 4, Protestant 2nd impulse
+
+The Protestants play the following card for Command Points:
+  #52 -  Ops 4: Michelangelo *
+The Protestants spend 4 CPs to construct units
+2 Protestant regular SPs added to Trier, making 3 SPs total
+
+Turn 4, Ottoman 3rd impulse
+
+The Ottomans play the following card for Command Points:
+  #36 -  Ops 1: Swiss Mercenaries (response)
+The Ottomans spend 1 CP to make a naval move
+    Ottoman squadron from Scutari to Adriatic Sea
+    Ottoman squadron from Scutari to Adriatic Sea
+    Ottoman squadron from Scutari to Adriatic Sea
+    Ottoman squadron from Scutari to Adriatic Sea
+    Ottoman corsair from Scutari to Adriatic Sea
+    Ottoman corsair from Scutari to Adriatic Sea
+    Ottoman corsair from Scutari to Adriatic Sea
+    Ottoman corsair from Scutari to Adriatic Sea
+    Ottoman corsair from Scutari to Adriatic Sea
+    Barbarossa from Scutari to Adriatic Sea
+
+Turn 4, Hapsburg 3rd impulse
+
+The Hapsburgs play the following card as an Event:
+  #81 -  Ops 3: Indulgence Vendor
+
+Draw a card at random from the Protestant hand.  Add the CP value of the drawn
+    card to the Papal fund for St. Peter's construction. Card is then discarded.
+
+
+Random card selected from the Protestants: #27 -  Ops 2: Mercenaries Grow Restless (combat)
+    The St. Peter's marker advances 2 spaces
+
+Turn 4, English 3rd impulse
+
+England plays the following card for Command Points:
+  #54 -  Ops 3: Potosi Silver Mines *
+England spends 2 CPs to launch a New World exploration
+England spends 1 CP to construct units
+1 English mercenary SP added to London, making 4 SPs total
+
+Turn 4, French 3rd impulse
+
+France plays the following card as a Mandatory Event:
+  #14 -  Ops 2: Paul III * (mandatory event)
+
+[Turn 3] Clement VII dies; remove his card from game. Place this card in the
+    ruler space of the Papal power card. Papacy now wins ties during Counter
+    Reformation attempts. Admin Rating: Save 1 card. Card Bonus: 1 extra card.
+
+
+
+** The Paul III card is permanently removed. **
+
+** Clement VII dies.  Paul III now rules The Papacy **
+France spends 2 CPs to launch a New World exploration
+
+Turn 4, Papal 3rd impulse
+
+The Papacy plays the following card for Command Points:
+  #6 -  Ops 3: Leipzig Debate (home card)
+The Papacy spends 2 CPs to construct units
+1 Papal regular SP added to Rome, making 6 SPs total
+The Papacy spends 1 CP to work towards the progress on St. Peter's Cathedral
+    The St. Peter's marker advances 1 space
+
+Turn 4, Protestant 3rd impulse
+
+The Protestants play the following card as an Event:
+  #78 -  Ops 3: Frederick the Wise *
+
+(1517) Convert the two German-speaking and Catholic spaces nearest to Wittenberg
+    to Protestant religious influence. Protestant player choose between equidistant
+    spaces. Protestant may then pick up Wartburg and add it to his hand if that
+    card is in the discard pile. Remove from deck if played as event.
+
+
+
+** The Frederick the Wise card is permanently removed. **
+
+Linz converted to Protestant
+Vienna converted to Protestant
+    The Protestant takes The Wartburg from the discard pile and adds it to his hand
+
+Turn 4, Ottoman 4th impulse
+
+The Ottomans are about to play Colonial Governor/Native Uprising as an event (Wartburg prompt)
+
+May be played by any power to move this marker to a new position on either side
+    on the colony display.  During the Card Draw phase of subsequent turns, No
+    Effect results from any colony of the chosen player are converted to Card (if
+    marker on Colonial Governor side) or Elim (if marker on Native Uprising side). 
+    Marker is removed from display at the end of the Card Draw phase in which a No
+    Effect result is altered (though it can return if this card is played in a
+    future turn).
+
+
+The Ottomans play the following card as an Event:
+  #111 -  Ops 2: Colonial Governor/Native Uprising
+
+May be played by any power to move this marker to a new position on either side
+    on the colony display.  During the Card Draw phase of subsequent turns, No
+    Effect results from any colony of the chosen player are converted to Card (if
+    marker on Colonial Governor side) or Elim (if marker on Native Uprising side). 
+    Marker is removed from display at the end of the Card Draw phase in which a No
+    Effect result is altered (though it can return if this card is played in a
+    future turn).
+
+
+Native Uprising marker placed on The Hapsburgs
+
+Turn 4, Hapsburg 4th impulse
+
+The Hapsburgs are about to play Anabaptists as an event (Wartburg prompt)
+
+Papal player converts two non-electorate and unoccupied spaces under Protestant
+    religious influence back to Catholic religious influence. Spaces converted need
+    not be eligible for Counter Reformation attempts (i.e. they need not be
+    adjacent to a Catholic space).
+
+
+The Hapsburgs play the following card as an Event:
+  #67 -  Ops 3: Anabaptists
+
+Papal player converts two non-electorate and unoccupied spaces under Protestant
+    religious influence back to Catholic religious influence. Spaces converted need
+    not be eligible for Counter Reformation attempts (i.e. they need not be
+    adjacent to a Catholic space).
+
+
+Geneva converted to Catholic
+Basel converted to Catholic
+
+Turn 4, English 4th impulse
+
+England plays the following card for Command Points:
+  #3 -  Ops 5: Six Wives of Henry VIII (home card)
+England spends 2 CPs to build naval squadrons
+    English naval squadron placed in Calais
+England spends 2 CPs to construct units
+1 English regular SP added to London, making 5 SPs total
+England spends 1 CP to construct units
+1 English mercenary SP added to London, making 6 SPs total
+
+Turn 4, French 4th impulse
+
+France plays the following card for Command Points:
+  #109 -  Ops 1: Venetian Informant
+France spends 1 CP to place a PC marker in Modena
+
+Turn 4, Papal 4th impulse
+
+The Papacy plays the following card for Command Points:
+  #5 -  Ops 4: Papal Bull (home card)
+The Papacy spends 2 CPs to build naval squadrons
+    Papal naval squadron placed in Rome
+The Papacy spends 2 CPs to construct units
+1 Papal regular SP added to Rome, making 7 SPs total
+
+Turn 4, Protestant 4th impulse
+
+The Protestants play the following card for Command Points:
+  #7 -  Ops 5: Here I Stand (home card)
+The Protestants spend 2 CPs to construct units
+1 Protestant regular SP added to Mainz, making 2 SPs total
+The Protestants spend 2 CPs to construct units
+1 Protestant regular SP added to Cologne, making 2 SPs total
+The Protestants spend 1 CP to construct units
+1 Protestant mercenary SP added to Trier, making 4 SPs total
+
+Turn 4, Ottoman 5th impulse
+
+The Ottomans play the following card for Command Points:
+  #40 -  Ops 3: Machiavelli's 'The Prince'
+The Ottomans spend 1 CP to make a naval move
+    Ottoman squadron from Adriatic Sea to Ionian Sea
+    Ottoman squadron from Adriatic Sea to Ionian Sea
+    Ottoman squadron from Adriatic Sea to Ionian Sea
+    Ottoman squadron from Adriatic Sea to Ionian Sea
+    Ottoman corsair from Adriatic Sea to Ionian Sea
+    Ottoman corsair from Adriatic Sea to Ionian Sea
+    Ottoman corsair from Adriatic Sea to Ionian Sea
+    Ottoman corsair from Adriatic Sea to Ionian Sea
+    Ottoman corsair from Adriatic Sea to Ionian Sea
+    Barbarossa from Adriatic Sea to Ionian Sea
+The Ottomans spend 2 CPs to initiate piracy in Ionian Sea against The Hapsburgs
+
+Anti-Piracy Dice: 0(0 squadrons in zone) +1(adjacent squadron) +1(adjacent fortress) = 2 dice
+** Anti-Piracy dice roll: 6, 6 -- 2 hits
+  Ottoman corsair (Ionian Sea) eliminated and placed on Turn Track
+  Ottoman corsair (Ionian Sea) eliminated and placed on Turn Track
+
+Ottoman Piracy dice: 2 +1(Barbarossa) = 3 dice
+** Ottoman Piracy dice roll: 4, 6, 3 -- 1 hit
+  Hapsburg squadron (Malta) eliminated and placed on Turn Track
+
+Turn 4, Hapsburg 5th impulse
+
+The Hapsburgs are about to play Cloth Prices Fluctuate as an event (Wartburg prompt)
+
+If England controls Calais and Hapsburgs control Antwerp, both powers draw a
+    card from the deck; the power playing this card adds 2 mercenaries in a
+    friendly home space not under siege. OR Draw and discard a card at random from
+    power controlling Antwerp. Add unrest on up to 2 unoccupied spaces from this
+    list: Antwerp, Brussels, Amsterdam, all German and Italian-speaking Hapsburg
+    home spaces.
+
+
+The Hapsburgs play the following card as an Event:
+  #72 -  Ops 3: Cloth Prices Fluctuate
+
+If England controls Calais and Hapsburgs control Antwerp, both powers draw a
+    card from the deck; the power playing this card adds 2 mercenaries in a
+    friendly home space not under siege. OR Draw and discard a card at random from
+    power controlling Antwerp. Add unrest on up to 2 unoccupied spaces from this
+    list: Antwerp, Brussels, Amsterdam, all German and Italian-speaking Hapsburg
+    home spaces.
+
+
+      England and the Hapsburgs each draw a card from the deck
+2 Hapsburg mercenary SPs added to Vienna, making 12 Hapsburg SPs(6 reg, 6 merc) total
+
+Turn 4, English 5th impulse
+
+England plays the following card for Command Points:
+  #76 -  Ops 4: Foreign Recruits
+England spends 4 CPs to construct units
+2 English regular SPs added to London, making 8 SPs total
+
+Turn 4, French 5th impulse
+
+France plays the following card for Command Points:
+  #42 -  Ops 4: Roxelana
+France spends 3 CPs to establish the Charlesbourg Royale colony
+France spends 1 CP to construct units
+1 French mercenary SP added to Paris, making 2 SPs total
+
+Turn 4, Papal 5th impulse
+
+The Papacy passes
+
+Turn 4, Protestant 5th impulse
+
+The Protestants pass
+
+Turn 4, Ottoman 6th impulse
+
+The Ottomans play the following card as an Event:
+  #1 -  Ops 5: Janissaries (home card)
+
+Gain 5 extra dice in a field battle or 4 extra dice in a naval combat. Play
+    after seeing both sides' rolls. OR Add 4 new regulars to any combination of
+    controlled Ottoman home spaces and/or foreign war cards.
+
+
+  1 Ottoman regular SP added to Edirne, making 2 SPs total
+  3 Ottoman regular SPs added to Istanbul, making 4 SPs total
+
+Turn 4, Hapsburg 6th impulse
+
+The Hapsburgs are about to play Plantations as an event (Wartburg prompt)
+
+[Turn 4] Place a 'Plantations +1' marker next to the colonies of England,
+    France, or the Hapsburgs. That power adds 1 to all rolls on the Potosi and
+    Colony columns of the New World Riches Table for the rest of the game.
+
+
+The Hapsburgs play the following card as an Event:
+  #53 -  Ops 2: Plantations
+
+[Turn 4] Place a 'Plantations +1' marker next to the colonies of England,
+    France, or the Hapsburgs. That power adds 1 to all rolls on the Potosi and
+    Colony columns of the New World Riches Table for the rest of the game.
+
+
+    The Hapsburgs receive a Plantations marker
+
+Turn 4, English 6th impulse
+
+England passes
+
+Turn 4, French 6th impulse
+
+France plays the following card for Command Points:
+  #84 -  Ops 1: Julia Gonzaga *
+France spends 1 CP to construct units
+1 French mercenary SP added to Paris, making 3 SPs total
+
+Turn 4, Papal 6th impulse
+
+The Papacy passes
+
+Turn 4, Protestant 6th impulse
+
+The Protestants pass
+
+Turn 4, Ottoman 7th impulse
+
+The Ottomans pass
+
+Turn 4, Hapsburg 7th impulse
+
+The Hapsburgs play the following card for Command Points:
+  #89 -  Ops 3: Pirate Haven
+The Hapsburgs spend 2 CPs to launch a New World exploration
+The Hapsburgs spend 1 CP to construct units
+1 Hapsburg mercenary SP added to Vienna, making 13 SPs total
+
+Turn 4, English 7th impulse
+
+England passes
+
+Turn 4, French 7th impulse
+
+France passes
+
+Turn 4, Papal 7th impulse
+
+The Papacy passes
+
+Turn 4, Protestant 7th impulse
+
+The Protestants pass
+
+Turn 4, Ottoman 8th impulse
+
+The Ottomans pass
+
+Turn 4, Hapsburg 8th impulse
+
+The Hapsburgs play the following card for Command Points:
+  #32 -  Ops 2: Gout (response)
+The Hapsburgs spend 2 CPs to build naval squadrons
+    Hapsburg naval squadron placed in Malta
+
+Turn 4, English 8th impulse
+
+England passes
+
+Turn 4, French 8th impulse
+
+France passes
+
+Turn 4, Papal 8th impulse
+
+The Papacy passes
+
+Turn 4, Protestant 8th impulse
+
+The Protestants pass
+
+Turn 4, Ottoman 9th impulse
+
+The Ottomans pass
+
+Turn 4, Hapsburg 9th impulse
+
+The Hapsburgs are about to play Peasants' War as an event (Wartburg prompt)
+
+(1517) Place Unrest markers on up to 5 unoccupied German-speaking spaces. Remove
+    from deck if played as event.
+
+
+The Hapsburgs play the following card as an Event:
+  #88 -  Ops 3: Peasants' War *
+
+(1517) Place Unrest markers on up to 5 unoccupied German-speaking spaces. Remove
+    from deck if played as event.
+
+
+
+** The Peasants' War card is permanently removed. **
+
+Unrest in Bremen
+Unrest in Hamburg
+Unrest in Lubeck
+Unrest in Stettin
+Unrest in Brunswick
+
+Turn 4, English 9th impulse
+
+England passes
+
+Turn 4, French 9th impulse
+
+France passes
+
+Turn 4, Papal 9th impulse
+
+The Papacy passes
+
+Turn 4, Protestant 9th impulse
+
+The Protestants pass
+
+Turn 4, Ottoman 10th impulse
+
+The Ottomans pass
+
+Turn 4, Hapsburg 10th impulse
+
+The Hapsburgs play the following card as an Event:
+  #2 -  Ops 5: Holy Roman Emperor (home card)
+
+If Charles V is not captured or under siege, move Charles V to any controlled
+    Hapsburg home space not in unrest and not occupied by enemy units; then conduct
+    5 CP of actions. Duke of Alva may accompany Charles if he began the impulse in
+    the same space as Charles.
+
+
+Charles V and Duke of Alva from Metz to Vienna
+
+
+The Hapsburgs play the following card for Command Points:
+  #2 -  Ops 5: Holy Roman Emperor (home card)
+Charles V  and 7 Hapsburg SPs(5 reg, 2 merc) move from Vienna to Brunn
+
+Charles V  and 7 Hapsburg SPs(5 reg, 2 merc) move from Brunn to Breslau
+
+Charles V  and 7 Hapsburg SPs(5 reg, 2 merc) move from Breslau to Brandenburg
+
+John Frederick  and 2 Protestant SPs attempt to intercept from Wittenberg
+  ** Interception dice roll: 4, 5 = 9 -- success!
+    ** Battle of Brandenburg **
+  (response cards)
+
+Hapsburg dice: 7 SPs +2(Charles V) = 9 dice
+Protestant dice: 3 SPs +1(defending) = 4 dice
+  (combat cards)
+
+** The Hapsburgs dice roll: 3, 6, 6, 4, 6, 3, 1, 5, 4 -- 4 hits **
+** The Protestants dice roll: 2, 6, 5, 4 -- 2 hits **
+The Hapsburgs win the battle of Brandenburg!
+      John Frederick is captured by The Hapsburgs!
+    Brandenburg is now under siege
+The Hapsburgs spend 2 CPs to construct units
+1 Hapsburg regular SP added to Vienna, making 7 SPs total
+
+Turn 4, English 10th impulse
+
+England passes
+
+Turn 4, French 10th impulse
+
+France passes
+
+Turn 4, Papal 10th impulse
+
+The Papacy passes
+
+Turn 4, Protestant 10th impulse
+
+The Protestants play the following card for Command Points:
+  #83 -  Ops 3: John Zapolya *
+The Protestants spend 1 CP to construct units
+1 Protestant mercenary SP added to Wittenberg, making 1 SP total
+
+1 Protestant SP(0 reg, 1 merc) moves from Wittenberg to Breslau
+The Protestants spend 1 CP to place a PC marker in Breslau
+
+Turn 4, Ottoman 11th impulse
+
+The Ottomans pass
+
+Turn 4, Hapsburg 11th impulse
+
+
+The Hapsburgs play the following card for Command Points:
+  #85 -  Ops 3: Katherina Bora *
+Charles V  and 4 Hapsburg SPs move from Brandenburg to Wittenberg
+
+1 Protestant SP(0 reg, 1 merc) attempts to intercept from Breslau
+  ** Interception dice roll: 1, 5 = 6 -- fails.    Wittenberg is now under siege
+The Hapsburgs spend 2 CPs to construct units
+1 Hapsburg regular SP added to Brussels, making 2 SPs total
+
+Turn 4, English 11th impulse
+
+England passes
+
+Turn 4, French 11th impulse
+
+France passes
+
+Turn 4, Papal 11th impulse
+
+The Papacy passes
+
+Turn 4, Protestant 11th impulse
+
+The Protestants pass
+
+Turn 4, Ottoman 12th impulse
+
+The Ottomans pass
+
+Turn 4, Hapsburg 12th impulse
+
+
+The Hapsburgs play the following card for Command Points:
+  #110 -  Ops 4: War with Persia
+The Hapsburgs spend 1 CP to declare an assault in Wittenberg
+
+    ** Assault of Wittenberg**
+Hapsburg dice: 4 SPs +2(Charles V) = 6 dice
+Protestant dice: 0 SPs +1(defending) = 1 die
+
+** The Hapsburgs dice roll: 1, 5, 5, 2, 2, 2 -- 2 hits **
+** The Protestants die roll: 2 -- 0 hits **
+The assault in Wittenberg is successful!
+
+Charles V  and 4 Hapsburg SPs move from Wittenberg to Brandenburg
+
+Charles V  and 4 Hapsburg SPs move from Brandenburg to Magdeburg
+
+Charles V  and 4 Hapsburg SPs move from Magdeburg to Brandenburg
+
+Turn 4, English 12th impulse
+
+England passes
+
+Turn 4, French 12th impulse
+
+France passes
+
+Turn 4, Papal 12th impulse
+
+The Papacy passes
+
+Turn 4, Protestant 12th impulse
+
+The Protestants pass
+
+Turn 4, Ottoman 13th impulse
+
+The Ottomans pass
+
+Turn 4, Hapsburg 13th impulse
+
+
+The Hapsburgs play the following card for Command Points:
+  #30 -  Ops 2: Tercios (combat)
+The Hapsburgs spend 1 CP to declare an assault in Brandenburg
+
+    ** Assault of Brandenburg**
+Hapsburg dice: 5 SPs +2(Charles V) = 7 dice
+Protestant dice: 0 SPs +1(defending) = 1 die
+
+** The Hapsburgs dice roll: 1, 1, 5, 3, 5, 5, 2 -- 3 hits **
+** The Protestants die roll: 5 -- 1 hit **
+The assault in Brandenburg is successful!
+The Hapsburgs spend 1 CP to construct units
+1 Hapsburg mercenary SP added to Vienna, making 8 SPs total
+
+Turn 4, English 13th impulse
+
+England passes
+
+Turn 4, French 13th impulse
+
+France passes
+
+Turn 4, Papal 13th impulse
+
+The Papacy passes
+
+Turn 4, Protestant 13th impulse
+
+The Protestants pass
+
+Turn 4, Ottoman 14th impulse
+
+The Ottomans pass
+
+Turn 4, Hapsburg 14th impulse
+
+The Hapsburgs pass
+
+** Winter Phase **
+Barbarossa, 4 Ottoman squadrons,  and 3 Ottoman corsairs return from Ionian Sea to Coron
+1 Protestant SP(0 reg, 1 merc) returns from Breslau to Mainz
+    ** 1 SP lost to attrition **
+Suleiman I  and 6 Ottoman SPs(5 reg, 1 cav) return from Buda to Istanbul
+Ibrahim returns from Belgrade to Istanbul
+1 Ottoman SP returns from Edirne to Istanbul
+Ferdinand  and 5 Hapsburg SPs(4 reg, 1 merc) return from Barcelona to Valladolid
+Charles V  and 4 Hapsburg SPs return from Brandenburg to Vienna
+5 English SPs return from Calais to London
+1 Papal SP returns from Siena to Rome
+
+1 Ottoman SP added to Istanbul, making 12 Ottoman SPs(10 reg, 2 cav) total
+1 Hapsburg SP added to Valladolid, making 8 Hapsburg SPs(7 reg, 1 merc) total
+1 Hapsburg SP added to Vienna, making 13 Hapsburg SPs(7 reg, 6 merc) total
+1 English SP added to London, making 14 English SPs(12 reg, 2 merc) total
+1 French SP added to Paris, making 4 French SPs(1 reg, 3 merc) total
+1 Papal SP added to Rome, making 9 Papal SPs total
+
+** New World Phase **
+Hapsburg explorer selected: DeSoto
+English explorer selected: Willoughby
+French explorer selected: Cartier
+
+  ** Cartier's exploration dice roll: 5, 1 = 6 +3(Cartier) = 9
+Cartier discovers the Mississippi River!!!
+  ** France receives 1 Exploration VP for discovering the Mississippi River, now 3 total **
+
+  ** DeSoto's exploration dice roll: 2, 6 = 8 +2(DeSoto) = 10
+      DeSoto attempts to circumnavigate the globe!!!
+  ** Circumnavigation dice roll: 3, 4 = 7 +2(DeSoto) = 9
+DeSoto is speared by islanders!
+
+  ** Willoughby's exploration dice roll: 4, 4 = 8 +0(Willoughby) = 8
+No effect -- Willoughby is returned to the force pool
+
+** Victory Determination Phase **
+
+** Current VP Totals **
+
+Ottomans: 19
+Hapsburgs: 23
+England: 16
+France: 23
+Papacy: 14
+Protestants: 13
+
+** Start of Turn 5 **
+
+
+** Card Draw Phase **
+  ** Riches for Puerto Rico dice roll: 4, 4 = 8 +1(plantations) = 9 -- Card
+    The Hapsburgs get a bonus card
+  ** England raider die roll: 2 -- the Hapsburgs do not have Galleons: no effect
+  ** Riches for Cuba dice roll: 4, 6 = 10 +1(plantations) = 11 -- Card
+    The Hapsburgs get a bonus card
+  ** England raider die roll: 6 -- the raider steals the card!
+  ** Riches for Hispaniola dice roll: 5, 3 = 8 +1(plantations) = 9 -- Card
+    The Hapsburgs get a bonus card
+  ** England raider die roll: 2 -- the Hapsburgs do not have Galleons: no effect
+  ** Riches for Jamestown dice roll: 6, 6 = 12 -- Card
+    England gets a bonus card
+  ** Riches for Roanoke Island dice roll: 5, 1 = 6 -- no effect
+  ** Riches for Charlesbourg Royale dice roll: 6, 6 = 12 -- Card
+    France gets a bonus card
+  ** Riches for the Mayans dice roll: 1, 4 = 5 -- Depleted 1
+    The Hapsburgs get a bonus card, but the Mayans are removed
+  ** England raider die roll: 3 -- no effect
+************************************************************
+**              The  deck is being shuffled.              **
+************************************************************
+The Ottomans draw 5 cards
+The Hapsburgs draw 6 cards
+England draws 4 cards
+France draws 4 cards
+The Papacy draws 3 cards
+The Protestants draw 5 cards
+
+** Diplomacy Phase **
+
+PLEASE!  Do not type anything immediately, so that other players may review the end of turn.
+        Begin any negotiations via private communication.
+
+Deal proposed by The Hapsburgs:  Deal awaits ratification from The Papacy
+
+             Terms:
+
+1) Agreement to form alliance between The Hapsburgs and The Papacy
+
+Deal proposed by The Hapsburgs:  Deal awaits ratification from England
+
+             Terms:
+
+1) Agreement to form alliance between The Hapsburgs and England
+
+England vetos a deal proposed by The Hapsburgs
+
+The following deal has been ratified by all parties, and will now go into effect:
+
+1) Agreement to form alliance between The Hapsburgs and The Papacy
+
+** Spring Deployment Phase **
+The Ottomans deploy Suleiman I, Ibrahim, and  and 11 Ottoman SPs(9 reg, 2 cav) from Istanbul to Buda
+The Hapsburgs deploy 4 Hapsburg SPs(2 reg, 2 merc) from Vienna to Wittenberg
+England deploys Brandon  and 5 English SPs from London to Calais
+The Papacy deploys 4 Papal SPs from Rome to Siena
+
+** Action Phase **
+
+Turn 5, Ottoman 1st impulse
+
+The Ottomans are about to play Dissolution of the Monasteries as an event (Wartburg prompt)
+
+[Variable (after Henry marries Anne Boleyn)] English player draws 2 cards from
+    deck. Protestant player then makes 3 Reformation attempts targeting the English
+    language zone. Remove from deck if played as event.
+
+
+The Ottomans play the following card as an Event:
+  #63 -  Ops 4: Dissolution of the Monasteries *
+
+[Variable (after Henry marries Anne Boleyn)] English player draws 2 cards from
+    deck. Protestant player then makes 3 Reformation attempts targeting the English
+    language zone. Remove from deck if played as event.
+
+
+
+** The Dissolution of the Monasteries card is permanently removed. **
+
+    The English player draws 2 cards from the deck
+
+      Reformation attempt in Norwich
+
+Protestant dice: 1(adj. Protestant space) +1(adj. Reformer)  = 2 dice
+Catholic dice:  1 (minimum 1 die)  = 1 die
+    The Protestants commit Cranmer for a bonus die, making 3
+
+Protestant dice roll: 6, 1, 2 -- Protestant high roll is 6
+
+** The reformation roll in Norwich succeeds! **
+
+      Reformation attempt in Portsmouth
+
+Protestant dice: 1(adj. Protestant space) +1(adj. Reformer) +1(Cranmer) = 3 dice
+Catholic dice: 2(adj. Catholic spaces)  = 2 dice
+
+Protestant dice roll: 3, 4, 6 -- Protestant high roll is 6
+
+** The reformation roll in Portsmouth succeeds! **
+
+      Reformation attempt in Plymouth
+
+Protestant dice: 1(adj. Protestant space) +1(Cranmer) = 2 dice
+Catholic dice: 1(adj. Catholic space)  = 1 die
+
+Protestant dice roll: 5, 3 -- Protestant high roll is 5
+
+Catholic die roll: 5 -- Catholic high roll is 5
+
+** The reformation roll in Plymouth succeeds! **
+
+Turn 5, Hapsburg 1st impulse
+
+The Hapsburgs are about to play Unsanitary Camp as an event (Wartburg prompt)
+
+A single stack of land units is stricken by disease. One-third (rounded up) of
+    the units are removed from play (as chosen by their owner). At least half of
+    the losses must be from regular troops (if possible). If multiple major powers
+    have units in a single space, only one of the major powers can be affected by
+    this event. Allied minor power units are considered to be a part of the stack
+    with the major power that controls them.
+
+
+The Protestants play the following card as an interrupt:
+  #37 -  Ops 2: The Wartburg (response)
+
+Only playable by Protestant and Luther must be alive. Protestant cancels the
+    play of a card as an event. Must be played after event is declared but before
+    it is resolved. Can not be used to cancel Mandatory Events, Combat cards,
+    Response cards, or non-Papal Home cards (Papal Bull and Leipzig Debate may be
+    cancelled). Discard the event; this player's impulse is over. Protestant may
+    not initiate debates for rest of turn. Commit Luther (if not already); he can
+    not be added into debates with Here I Stand until next turn.
+
+
+    The effect of the Unsanitary Camp card is negated.
+      Luther is now committed
+
+Turn 5, English 1st impulse
+
+England plays the following card as an Event:
+  #74 -  Ops 5: Diplomatic Overture
+
+Draw 2 new cards from the deck.  Then give any one card (other than your Home
+    Card or a Mandatory Event) to another power.  IF no such card is in your hand
+    you may in that one case give up a Mandatory Event.
+
+
+England draws 2 cards from the deck
+England gives a card to The Ottomans
+
+Turn 5, French 1st impulse
+
+France plays the following card as an Event:
+  #4 -  Ops 5: Patron of the Arts (home card)
+
+If Francis I is ruler and not captured or under siege, roll 1 die, and consult
+    the Chateau Table.
+
+
+  ** Patron of the Arts die roll: 2 +2(Milan) +2(3 Italian keys) -1(French space enemy controlled) = 5
+      French Chateaux VPs increased by 1, now at 5
+  France draws 1 card
+
+Turn 5, Papal 1st impulse
+
+
+The Papacy plays the following card for Command Points:
+  #95 -  Ops 5: Sack of Rome
+4 Papal SPs move from Siena to Florence
+
+1 Independent SP withdraws into the fortification in Florence
+    Florence is now under siege
+The Papacy spends 4 CPs to construct units
+2 Papal regular SPs added to Rome, making 7 SPs total
+
+Turn 5, Protestant 1st impulse
+
+The Protestants play the following card for Command Points:
+  #45 -  Ops 1: Calvin Expelled *
+The Protestants spend 1 CP to scripture translations in the English language
+      Tyndale is committed to provide a bonus translation
+That completes the English New Testament translation!
+    The Protestant player may make 6 Reformation attempts in the English language zone
+
+      Reformation attempt in Bristol
+
+Protestant dice: 3(adj. Protestant spaces) +1(adj. Reformer)  = 4 dice
+Catholic dice: 2(adj. Catholic spaces)  = 2 dice
+
+Protestant dice roll: 6, 2, 6, 6 -- Protestant high roll is 6
+
+** The reformation roll in Bristol succeeds! **
+
+      Reformation attempt in Lincoln
+
+Protestant dice: 1(adj. Protestant space) +1(adj. Reformer)  = 2 dice
+Catholic dice: 1(adj. Catholic space)  = 1 die
+
+Protestant dice roll: 6, 5 -- Protestant high roll is 6
+
+** The reformation roll in Lincoln succeeds! **
+
+      Reformation attempt in Wales
+
+Protestant dice: 1(adj. Protestant space)  = 1 die
+Catholic dice: 1(adj. Catholic space)  = 1 die
+
+Protestant die roll: 4 -- Protestant high roll is 4
+
+Catholic die roll: 4 -- Catholic high roll is 4
+
+** The reformation roll in Wales succeeds! **
+
+      Reformation attempt in Shrewsbury
+
+Protestant dice: 3(adj. Protestant spaces) +1(adj. Reformer)  = 4 dice
+Catholic dice: 2(adj. Catholic spaces)  = 2 dice
+
+Protestant dice roll: 2, 2, 1, 4 -- Protestant high roll is 4
+
+Catholic dice roll: 2, 5 -- Catholic high roll is 5
+
+** The reformation roll in Shrewsbury fails **
+
+      Reformation attempt in Berwick
+
+Protestant dice:  1 (minimum 1 die) 
+ = 1 die
+Catholic dice: 3(adj. Catholic spaces)  = 3 dice
+
+Protestant die roll: 5 -- Protestant high roll is 5
+
+Catholic dice roll: 1, 4, 3 -- Catholic high roll is 4
+
+** The reformation roll in Berwick succeeds! **
+
+      Reformation attempt in York
+
+Protestant dice: 2(adj. Protestant spaces)  = 2 dice
+Catholic dice: 2(adj. Catholic spaces)  = 2 dice
+
+Protestant dice roll: 1, 1 -- Protestant high roll is 1
+
+Catholic dice roll: 3, 4 -- Catholic high roll is 4
+
+** The reformation roll in York fails **
+1 CP towards Full Bible in English
+
+Turn 5, Ottoman 2nd impulse
+
+
+The Ottomans play the following card for Command Points:
+  #42 -  Ops 4: Roxelana
+Suleiman I, Ibrahim, and  and 14 Ottoman SPs(13 reg, 1 cav) move from Buda to Pressburg
+The Ottomans spend 1 CP to place a PC marker in Pressburg
+
+Suleiman I, Ibrahim, and  and 14 Ottoman SPs(13 reg, 1 cav) move from Pressburg to Vienna
+
+    ** Battle of Vienna **
+  (response cards)
+
+Ottoman dice: 14 SPs +2(Suleiman I) = 16 dice
+Hapsburg dice: 9 SPs +2(Charles V) +1(defending) = 12 dice
+  (combat cards)
+
+** The Ottomans dice roll: 5, 1, 1, 6, 1, 5, 5, 2, 5, 3, 2, 6, 3, 3, 3, 6 -- 7 hits **
+** The Hapsburgs dice roll: 1, 2, 1, 4, 3, 4, 4, 3, 5, 4, 5, 3 -- 2 hits **
+The Ottomans win the battle of Vienna!
+    Duke of Alva, Charles V, and  and 2 Hapsburg SPs retreat to Brunn
+    Vienna is now under siege
+
+The Ottomans spend 0 CPs to declare an assault in Vienna
+
+    ** Assault of Vienna**
+Ottoman dice: 11 SPs = 11 dice
+Hapsburg dice: 0 SPs +1(defending) = 1 die
+
+** The Ottomans dice roll: 6, 4, 5, 4, 2, 1, 3, 1, 1, 6, 2 -- 3 hits **
+** The Hapsburgs die roll: 2 -- 0 hits **
+The assault in Vienna is successful!
+The Ottomans spend 1 CP to place a PC marker in Graz
+
+Turn 5, Hapsburg 2nd impulse
+
+
+The Hapsburgs play the following card for Command Points:
+  #41 -  Ops 5: Marburg Colloquy *
+Duke of Alva, Charles V, and  and 2 Hapsburg SPs move from Brunn to Prague
+The Hapsburgs spend 2 CPs to construct units
+1 Hungarian/Bohemian regular SP added to Prague, making 2 SPs total
+The Hapsburgs spend 2 CPs to build naval squadrons
+    Hapsburg naval squadron placed in Messina
+
+Turn 5, English 2nd impulse
+
+England plays the following card as an Event:
+  #3 -  Ops 5: Six Wives of Henry VIII (home card)
+
+Declare war on France, Hapsburgs, or Scotland during the Action Phase and then
+    conduct 5 CP. If declaration is against Scotland, France may intervene without
+    playing a card. In this case, England and France are at war and Scotland is
+    activated as a French ally. OR If Turn 2 or later and Henry is alive, not
+    captured, and not under siege, advance Marital Status marker one space to right
+    and resolve using procedure in 21.3 (rolling on Pregnancy Table if Henry
+    remarries).
+
+
+**  England uses its home card to declare war against France  **
+** England and France are now at war **
+
+
+England plays the following card for Command Points:
+  #3 -  Ops 5: Six Wives of Henry VIII (home card)
+Henry VIII, Brandon, and  and 8 English SPs(7 reg, 1 merc) move from Calais to Boulogne
+
+France plays the following card as a response:
+  #31 -  Ops 2: Foul Weather (response)
+
+Play during another power's impulse just after they have announced they are
+    spending CP to move, assault, initiate piracy, conduct a naval move, or start a
+    naval transport. 1 CP is lost. For the rest of the impulse, no land unit of
+    that power may move more than 1 space; assault, piracy, naval moves, and naval
+    transport are prohibited. All effects last only during this power's impulse.
+    May not be used to stop Treachery! event.
+
+
+England spends 2 CPs to construct units
+1 English regular SP added to Calais, making 10 SPs total
+
+Henry VIII, Brandon, and  and 9 English SPs(7 reg, 2 merc) move from Calais to Boulogne
+England spends 1 CP to place a PC marker in Boulogne
+
+Turn 5, French 2nd impulse
+
+France plays the following card for Command Points:
+  #58 -  Ops 5: Spanish Inquisition
+France spends 2 CPs to construct units
+1 French regular SP added to Rouen, making 2 SPs total
+France spends 2 CPs to construct units
+2 French mercenary SPs added to Rouen, making 4 SPs total
+France spends 1 CP to remove unrest in Dijon
+
+Turn 5, Papal 2nd impulse
+
+
+The Papacy plays the following card for Command Points:
+  #6 -  Ops 3: Leipzig Debate (home card)
+The Papacy spends 1 CP to declare an assault in Florence
+
+    ** Assault of Florence**
+Papal dice: 2(4 SPs) = 2 dice
+Independent dice: 1 SP +1(defending) = 2 dice
+
+** The Papacy dice roll: 3, 1 -- 0 hits **
+** The Independents dice roll: 6, 6 -- 2 hits **
+The assault in Florence fails!
+The Papacy spends 1 CP to work towards the progress on St. Peter's Cathedral
+    The St. Peter's marker advances 1 space
+** The Papacy earns a VP for progress on St. Peter's Cathedral! **
+The Papacy spends 1 CP to construct units
+1 Papal mercenary SP added to Rome, making 8 SPs total
+
+Turn 5, Protestant 2nd impulse
+
+The Protestants play the following card for Command Points:
+  #80 -  Ops 1: Gabelle Revolt
+The Protestants spend 1 CP to scripture translations in the German language
+      Melanchthon is committed to provide a bonus translation
+6 CPs towards Full Bible in German
+
+Turn 5, Ottoman 3rd impulse
+
+The Ottomans play the following card as an Event:
+  #33 -  Ops 1: Landsknechts (response)
+
+If played by Hapsburgs, place 4 new Hapsburg mercenaries. If played by Ottomans,
+    they eliminate 2 mercenaries anywhere on map. If played by any other power,
+    place 2 new mercenaries. Mercenaries are placed in any combination of spaces
+    already containing friendly land units (even just before a field battle or
+    assault), but not in a stack under siege. May also be used as an event card to
+    add mercenaries in a player's own impulse.
+
+
+    2 Ottoman mercenary SPs removed from Ravenna
+
+Turn 5, Hapsburg 3rd impulse
+
+The Hapsburgs play the following card for Command Points:
+  #98 -  Ops 2: Search for Cibola
+The Hapsburgs spend 2 CPs to launch a New World exploration
+
+Turn 5, English 3rd impulse
+
+England plays the following card for Command Points:
+  #92 -  Ops 3: Revolt in Egypt
+England spends 1 CP to make a naval move
+    English squadron from Calais to English Channel
+    English squadron from Calais to English Channel
+    English squadron from Calais to English Channel
+    English squadron from Calais to English Channel
+
+Henry VIII, Brandon, and  and 9 English SPs(7 reg, 2 merc) move from Boulogne to Rouen
+
+4 French SPs(2 reg, 2 merc) withdraw into the fortification in Rouen
+    Rouen is now under siege
+England spends 1 CP to construct units
+1 English mercenary SP added to London, making 10 SPs total
+
+Turn 5, French 3rd impulse
+
+France plays the following card as an Event:
+  #112 -  Ops 3: Thomas More *
+
+If played by England or Protestant, More is executed.  Place Thomas More marker
+    on Turn Track to indicate there are no debates in England this turn.  England
+    draws 1 card from deck and then discards any 1 card they choose from their
+    hand.  Remove from deck.  OR If played by any other power, Papacy gets to call
+    a debate and roll 1 extra attack die each round (3 extra dice if debate is in
+    England).  Remove from deck if Henry has married Anne Boleyn.
+
+
+
+** The Thomas More card is permanently removed. **
+
+
+The Papacy calls a debate in the English language zone
+     Papal debater: Eck(3) (randomly selected from the uncommitted debaters)
+    Protestant debater: Latimer(1)  (randomly selected from the uncommitted debaters)
+Papal dice: 3(Eck), +3(attacking), +1(Eck attacking) = 7 dice
+Protestant dice: 1(Latimer), +2(defending while uncommitted) = 3 dice
+
+** Papal dice roll: 2, 5, 5, 4, 5, 3, 5 -- 4 hits
+** Protestant dice roll: 6, 5, 4 -- 2 hits
+
+The Papacy wins the debate, 4 to 2
+** Latimer is burned at the stake!!! **
+    Norwich converted to Catholic control
+    Portsmouth converted to Catholic control
+
+Turn 5, Papal 3rd impulse
+
+
+The Papacy plays the following card for Command Points:
+  #5 -  Ops 4: Papal Bull (home card)
+2 Papal SPs(1 reg, 1 merc) move from Rome to Siena
+
+2 Papal SPs(1 reg, 1 merc) move from Siena to Florence
+
+The Papacy spends 1 CP to declare an assault in Florence
+
+    ** Assault of Florence**
+Papal dice: 2(4 SPs) = 2 dice
+Independent dice: 1 SP +1(defending) = 2 dice
+
+** The Papacy dice roll: 5, 1 -- 1 hit **
+** The Independents dice roll: 2, 5 -- 1 hit **
+The assault in Florence is successful!
+The Papacy spends 1 CP to work towards the progress on St. Peter's Cathedral
+    The St. Peter's marker advances 1 space
+
+Turn 5, Protestant 3rd impulse
+
+The Protestants play the following card for Command Points:
+  #100 -  Ops 2: Shipbuilding
+The Protestants spend 2 CPs to scripture translations in the French language
+      Olivetan is committed to provide a bonus translation
+That completes the French New Testament translation!
+    The Protestant player may make 6 Reformation attempts in the French language zone
+
+      Reformation attempt in Liege
+
+Protestant dice: 2(adj. Protestant spaces) +2(adj. Protestant units)  = 4 dice
+Catholic dice: 3(adj. Catholic spaces) +3(adj. Catholic units)  = 6 dice
+
+Protestant dice roll: 6, 6, 6, 5 -- Protestant high roll is 6
+
+** The reformation roll in Liege succeeds! **
+
+      Reformation attempt in Geneva
+
+Protestant dice: 0(adj. Protestant spaces) +2(Reformer in space)  = 2 dice
+Catholic dice: 3(adj. Catholic spaces) +1(adj. Catholic unit)  = 4 dice
+
+Protestant dice roll: 3, 3 -- Protestant high roll is 3
+
+Catholic dice roll: 3, 5, 3, 4 -- Catholic high roll is 5
+
+** The reformation roll in Geneva fails **
+
+      Reformation attempt in Metz
+
+Protestant dice: 2(adj. Protestant spaces) +1(adj. Protestant unit)  = 3 dice
+Catholic dice: 3(adj. Catholic spaces) +2(Catholic units in space)  = 5 dice
+
+Protestant dice roll: 6, 1, 3 -- Protestant high roll is 6
+
+** The reformation roll in Metz succeeds! **
+
+      Reformation attempt in Besancon
+
+Protestant dice: 1(adj. Protestant space) +1(adj. Reformer)  = 2 dice
+Catholic dice: 4(adj. Catholic spaces) +1(adj. Catholic unit)  = 5 dice
+
+Protestant dice roll: 6, 1 -- Protestant high roll is 6
+
+** The reformation roll in Besancon succeeds! **
+
+      Reformation attempt in Dijon
+
+Protestant dice: 1(adj. Protestant space)  = 1 die
+Catholic dice: 4(adj. Catholic spaces) +2(adj. Catholic units)  = 6 dice
+
+Protestant die roll: 5 -- Protestant high roll is 5
+
+Catholic dice roll: 1, 6, 4, 4, 1, 2 -- Catholic high roll is 6
+
+** The reformation roll in Dijon fails **
+
+      Reformation attempt in Brussels
+
+Protestant dice: 1(adj. Protestant space)  = 1 die
+Catholic dice: 4(adj. Catholic spaces) +1(adj. Catholic unit) +2(Catholic units in space)  = 7 dice
+
+Protestant die roll: 4 -- Protestant high roll is 4
+
+Catholic dice roll: 4, 6, 4, 5, 1, 2, 6 -- Catholic high roll is 6
+
+** The reformation roll in Brussels fails **
+2 CPs towards Full Bible in French
+
+Turn 5, Ottoman 4th impulse
+
+The Ottomans play the following card as an Event:
+  #77 -  Ops 2: Fountain of Youth
+
+Cancel a Voyage of Exploration that is underway.  Remove the Exploration
+    Underway marker for the targeted power and place it on the Turn Track to
+    reenter play next turn.  Then roll a die.  On a roll of '4', '5', or '6', one
+    of the targeted power's explorers (chosen now at random) is removed from the
+    game.
+
+
+The Hapsburg exploration underway is cancelled
+  ** Fountain of Youth die roll: 3 -- no effect
+
+Turn 5, Hapsburg 4th impulse
+
+The Hapsburgs play the following card as a Mandatory Event:
+  #97 -  Ops 2: Scots Raid (mandatory event)
+
+Ignore event unless Scotland is allied with France.  If Stirling is not under
+    French control, switch Stirling to French control and desplace any units that
+    are not French or Scottish from this space.  Then France gains up to 6 VP that
+    must be spent (as permitted by current war status) on building units, moving,
+    controlling spaces or assaulting in Scottish home spaces, Berwick, Carlisle, or
+    York.  Assaults on these spaces can be conducted even on a fortified space not
+    under siege at the start of the impulse.  France has the option to transfer a
+    French leader to a Scottish home space before thaking thee actions but in this
+    case gets only 3 CP to spend.
+
+
+France spends 6 CPs to construct units
+3 Scottish regular SPs added to Stirling, making 3 SPs total
+The Hapsburgs spend 2 CPs to construct units
+1 Hapsburg regular SP added to Antwerp, making 5 SPs total
+
+Turn 5, English 4th impulse
+
+
+England plays the following card for Command Points:
+  #96 -  Ops 3: Sale of Moluccas *
+4 English SPs(2 reg, 2 merc) move from London to Portsmouth
+
+England spends 1 CP to declare an assault in Rouen
+
+England plays the following card as a response:
+  #36 -  Ops 1: Swiss Mercenaries (response)
+
+If played by France or Ottomans, the French player places 4 new French
+    mercenaries. If played by any other power, place 2 new mercenaries. Mercenaries
+    are placed in any combination of spaces already containing friendly land units
+    (even just before a field battle or assault), but not in a stack under siege.
+    May also be used as an event card to add mercenaries in a player's own impulse.
+
+
+    2 English mercenary SPs added to Rouen
+
+    ** Assault of Rouen**
+English dice: 6(11 SPs) +1(Henry VIII) = 7 dice
+French dice: 4 SPs +1(defending) = 5 dice
+
+** England dice roll: 1, 5, 2, 5, 1, 2, 4 -- 2 hits **
+** France dice roll: 6, 2, 6, 4, 5 -- 3 hits **
+The assault in Rouen fails!
+England spends 1 CP to construct units
+1 English mercenary SP added to London, making 7 SPs total
+
+Turn 5, French 4th impulse
+
+France plays the following card for Command Points:
+  #72 -  Ops 3: Cloth Prices Fluctuate
+France spends 2 CPs to construct units
+1 French regular SP added to Lyon, making 2 SPs total
+France spends 1 CP to remove unrest in Grenoble
+
+Turn 5, Papal 4th impulse
+
+
+The Papacy plays the following card for Command Points:
+  #51 -  Ops 4: Michael Servetus *
+3 Papal SPs move from Rome to Siena
+
+3 Papal SPs move from Siena to Florence
+1 SP added to the moving force in Florence
+    Moving force is now 4 Papal SPs
+
+4 Papal SPs move from Florence to Modena
+The Papacy spends 1 CP to place a PC marker in Modena
+
+Turn 5, Protestant 4th impulse
+
+The Protestants play the following card for Command Points:
+  #50 -  Ops 2: Mercator's Map
+The Protestants spend 2 CPs to scripture translations in the English language
+      Coverdale is committed to provide a bonus translation
+4 CPs towards Full Bible in English
+
+Turn 5, Ottoman 5th impulse
+
+The Ottomans play the following card for Command Points:
+  #1 -  Ops 5: Janissaries (home card)
+The Ottomans spend 1 CP to make a naval move
+    Ottoman squadron from Coron to Ionian Sea
+    Ottoman squadron from Coron to Ionian Sea
+    Ottoman squadron from Coron to Ionian Sea
+    Ottoman squadron from Coron to Ionian Sea
+    Ottoman corsair from Coron to Ionian Sea
+    Ottoman corsair from Coron to Ionian Sea
+    Ottoman corsair from Coron to Ionian Sea
+    Barbarossa from Coron to Ionian Sea
+The Ottomans spend 1 CP to make a naval move
+    Ottoman squadron from Ionian Sea to Malta
+    Ottoman squadron from Ionian Sea to Malta
+    Ottoman squadron from Ionian Sea to Malta
+    Ottoman squadron from Ionian Sea to Malta
+    Ottoman corsair from Ionian Sea to Malta
+    Ottoman corsair from Ionian Sea to Malta
+    Ottoman corsair from Ionian Sea to Malta
+    Barbarossa from Ionian Sea to Malta
+
+    ** Naval Combat in Malta, The Ottomans vs. The Hapsburgs **
+Ottoman dice: 11(4 squadrons, 3 corsairs) +2(Barbarossa) = 13 dice
+Hapsburg dice: 2(1 squadron) +1(defending in port) = 3 dice
+
+** Ottoman dice roll: 2, 4, 1, 5, 1, 3, 5, 5, 3, 6, 2, 1, 4 -- 4 hits **
+** Hapsburg dice roll: 1, 5, 6 -- 2 hits **
+The Ottomans win the naval battle in Malta!
+  Ottoman squadron (Malta) eliminated and placed on Turn Track
+  Hapsburg squadron (Malta) eliminated and placed on Turn Track
+
+Barbarossa, 3 Ottoman squadrons,  and 3 Ottoman corsairs retreat to Ionian Sea
+The Ottomans spend 1 CP to make a naval move
+    Ottoman squadron from Ionian Sea to Messina
+    Ottoman squadron from Ionian Sea to Messina
+    Ottoman squadron from Ionian Sea to Messina
+    Ottoman corsair from Ionian Sea to Messina
+    Ottoman corsair from Ionian Sea to Messina
+    Ottoman corsair from Ionian Sea to Messina
+    Barbarossa from Ionian Sea to Messina
+
+    ** Naval Combat in Messina, The Ottomans vs. The Hapsburgs **
+Ottoman dice: 9(3 squadrons, 3 corsairs) +2(Barbarossa) = 11 dice
+Hapsburg dice: 2(1 squadron) +1(defending in port) = 3 dice
+
+** Ottoman dice roll: 1, 3, 5, 3, 6, 1, 2, 4, 6, 6, 2 -- 4 hits **
+** Hapsburg dice roll: 1, 5, 1 -- 1 hit **
+The Ottomans win the naval battle in Messina!
+  Ottoman corsair (Messina) eliminated and placed on Turn Track
+  Hapsburg squadron (Messina) eliminated and placed on Turn Track
+
+Barbarossa, 3 Ottoman squadrons,  and 2 Ottoman corsairs retreat to Ionian Sea
+The Ottomans spend 2 CPs to initiate piracy in Ionian Sea against The Hapsburgs
+
+Anti-Piracy Dice: 0(0 squadrons in zone) +1(adjacent fortress) = 1 die
+** Anti-Piracy die roll: 2 -- 0 hits
+
+Ottoman Piracy dice: 2 +1(Barbarossa) = 3 dice
+** Ottoman Piracy dice roll: 5, 4, 6 -- 2 hits
+  The Hapsburgs give the Ottoman a randomly selected card
+  The Hapsburgs award the Ottoman 1 Piracy VP
+      The Ottoman now has 4 Piracy VP
+
+Turn 5, Hapsburg 5th impulse
+
+The Hapsburgs play the following card as an Event:
+  #76 -  Ops 4: Foreign Recruits
+
+Spend 4 CP on building new military units. These units may be built in any space
+    you control. The spaces need not be home spaces like usual.
+
+
+The Hapsburgs spend 2 CPs to construct units
+2 Hapsburg mercenary SPs added to Metz, making 6 SPs total
+The Hapsburgs spend 2 CPs to construct units
+2 Hapsburg mercenary SPs added to Trieste, making 2 SPs total
+
+Turn 5, English 5th impulse
+
+England plays the following card for Command Points:
+  #67 -  Ops 3: Anabaptists
+
+4 English SPs(2 reg, 2 merc) begin a naval transport by moving from Portsmouth to English Channel
+
+
+England spends 1 CP to declare an assault in Rouen
+
+    ** Assault of Rouen**
+English dice: 4(8 SPs) +1(Henry VIII) = 5 dice
+French dice: 2 SPs +1(defending) = 3 dice
+
+** England dice roll: 6, 2, 2, 5, 4 -- 2 hits **
+** France dice roll: 4, 2, 6 -- 1 hit **
+The assault in Rouen is successful!
+  French squadron (Rouen) eliminated and placed on Turn Track
+
+Turn 5, French 5th impulse
+
+France plays the following card for Command Points:
+  #44 -  Ops 2: Affair of the Placards *
+France spends 2 CPs to construct units
+1 French regular SP added to Lyon, making 3 SPs total
+
+Turn 5, Papal 5th impulse
+
+The Papacy passes
+
+Turn 5, Protestant 5th impulse
+
+The Protestants play the following card as an Event:
+  #7 -  Ops 5: Here I Stand (home card)
+
+If Luther is alive, Protestant may exchange this card for any card in the
+    discard pile, playing or holding that card OR If Luther is alive, Protestant
+    may substitute Luther (even if committed) for any debater during any round of a
+    debate in the German language zone and then draw a new card. Replaced debater
+    becomes committed (if he wasn't already); Luther returns off-map after debate
+    if he was excommunicated when debate was called.
+
+
+The Protestant player reclaims the following card from the discard pile:
+  #41 -  Ops 5: Marburg Colloquy *
+The Protestant player elects to hold the card
+
+Turn 5, Ottoman 6th impulse
+
+The Ottomans play the following card for Command Points:
+  #43 -  Ops 3: Zwingli Dons Armor *
+The Ottomans spend 2 CPs to build corsairs
+    Ottoman corsair placed in Coron
+    Ottoman corsair placed in Coron
+The Ottomans spend 1 CP to make a naval move
+    Ottoman corsair from Coron to Ionian Sea
+    Ottoman corsair from Coron to Ionian Sea
+
+Turn 5, Hapsburg 6th impulse
+
+The Hapsburgs play the following card as an Event:
+  #70 -  Ops 4: Charles Bourbon
+
+Add Renegade Leader and 3 mercenaries (or 3 cavalry if Ottoman plays event) to
+    any space you control. If at war with France, these forces can be added to any
+    unoccupied space adjacent to Lyon; take immediate control of that space. 
+    Leader is removed from map at the end of the turn.
+
+
+Renegade Leader and 3 mercenary SPs to Trieste
+
+Turn 5, English 6th impulse
+
+
+England plays the following card for Command Points:
+  #34 -  Ops 2: Professional Rowers (response)
+Henry VIII, Brandon, and  and 6 English SPs move from Rouen to Paris
+
+4 French SPs(1 reg, 3 merc) withdraw into the fortification in Paris
+    Paris is now under siege
+
+4 English SPs(2 reg, 2 merc) move from Boulogne to Paris
+
+Turn 5, French 6th impulse
+
+France plays the following card for Command Points:
+  #30 -  Ops 2: Tercios (combat)
+France spends 2 CPs to build naval squadrons
+    French naval squadron placed in Bordeaux
+
+Turn 5, Papal 6th impulse
+
+The Papacy passes
+
+Turn 5, Protestant 6th impulse
+
+The Protestants pass
+
+Turn 5, Ottoman 7th impulse
+
+The Ottomans play the following card for Command Points:
+  #91 -  Ops 3: Ransom
+The Ottomans spend 1 CP to make a naval move
+    Ottoman squadron from Ionian Sea to Barbary Coast
+    Ottoman squadron from Ionian Sea to Barbary Coast
+    Ottoman squadron from Ionian Sea to Barbary Coast
+    Ottoman corsair from Ionian Sea to Barbary Coast
+    Ottoman corsair from Ionian Sea to Barbary Coast
+    Ottoman corsair from Ionian Sea to Barbary Coast
+    Ottoman corsair from Ionian Sea to Barbary Coast
+    Barbarossa from Ionian Sea to Barbary Coast
+The Ottomans spend 1 CP to make a naval move
+    Ottoman squadron from Barbary Coast to Tyrrhenian Sea
+    Ottoman squadron from Barbary Coast to Tyrrhenian Sea
+    Ottoman squadron from Barbary Coast to Tyrrhenian Sea
+    Ottoman corsair from Barbary Coast to Tyrrhenian Sea
+    Ottoman corsair from Barbary Coast to Tyrrhenian Sea
+    Ottoman corsair from Barbary Coast to Tyrrhenian Sea
+    Ottoman corsair from Barbary Coast to Tyrrhenian Sea
+    Barbarossa from Barbary Coast to Tyrrhenian Sea
+The Ottomans spend 1 CP to make a naval move
+    Ottoman squadron from Tyrrhenian Sea to Naples
+    Ottoman squadron from Tyrrhenian Sea to Naples
+    Ottoman squadron from Tyrrhenian Sea to Naples
+    Ottoman corsair from Tyrrhenian Sea to Naples
+    Ottoman corsair from Tyrrhenian Sea to Naples
+    Ottoman corsair from Tyrrhenian Sea to Naples
+    Ottoman corsair from Tyrrhenian Sea to Naples
+    Barbarossa from Tyrrhenian Sea to Naples
+
+    ** Naval Combat in Naples, The Ottomans vs. The Hapsburgs **
+Ottoman dice: 10(3 squadrons, 4 corsairs) +2(Barbarossa) = 12 dice
+Hapsburg dice: 2(1 squadron) +1(defending in port) = 3 dice
+
+** Ottoman dice roll: 4, 5, 1, 5, 5, 1, 2, 3, 6, 1, 6, 4 -- 5 hits **
+** Hapsburg dice roll: 6, 4, 3 -- 1 hit **
+The Ottomans win the naval battle in Naples!
+  Ottoman corsair (Naples) eliminated and placed on Turn Track
+  Hapsburg squadron (Naples) eliminated and placed on Turn Track
+
+Barbarossa, 3 Ottoman squadrons,  and 3 Ottoman corsairs retreat to Tyrrhenian Sea
+
+Turn 5, Hapsburg 7th impulse
+
+The Hapsburgs play the following card as an Event:
+  #2 -  Ops 5: Holy Roman Emperor (home card)
+
+If Charles V is not captured or under siege, move Charles V to any controlled
+    Hapsburg home space not in unrest and not occupied by enemy units; then conduct
+    5 CP of actions. Duke of Alva may accompany Charles if he began the impulse in
+    the same space as Charles.
+
+
+Charles V and Duke of Alva from Prague to Besancon
+
+
+The Hapsburgs play the following card for Command Points:
+  #2 -  Ops 5: Holy Roman Emperor (home card)
+Charles V, Duke of Alva move from Besancon to Metz
+6 SPs added to the moving force in Metz
+    Moving force is now Charles V, Duke of Alva, and  and 6 Hapsburg SPs(2 reg, 4 merc)
+
+Charles V, Duke of Alva, and  and 6 Hapsburg SPs(2 reg, 4 merc) move from Metz to Trier
+
+4 Protestant SPs(3 reg, 1 merc) withdraw into the fortification in Trier
+    Trier is now under siege
+
+Renegade  and 5 Hapsburg SPs(0 reg, 5 merc) move from Trieste to Agram
+
+Renegade  and 5 Hapsburg SPs(0 reg, 5 merc) move from Agram to Mohacs
+
+4 Ottoman SPs attempt to intercept from Belgrade
+  ** Interception dice roll: 5, 3 = 8 -- fails.
+Renegade  and 4 Hapsburg SPs(0 reg, 4 merc) move from Mohacs to Buda
+
+1 Ottoman SP(0 reg, 1 cav) withdraws into the fortification in Buda
+    Buda is now under siege
+
+Turn 5, English 7th impulse
+
+
+England plays the following card for Command Points:
+  #24 -  Ops 1: Arquebusiers (combat)
+England spends 1 CP to declare an assault in Paris
+
+    ** Assault of Paris**
+English dice: 5(10 SPs) +1(Henry VIII) = 6 dice
+French dice: 4 SPs +1(defending) = 5 dice
+
+** England dice roll: 2, 1, 3, 1, 5, 5 -- 2 hits **
+** France dice roll: 4, 5, 6, 3, 1 -- 2 hits **
+The assault in Paris fails!
+
+Turn 5, French 7th impulse
+
+France passes
+
+Turn 5, Papal 7th impulse
+
+The Papacy passes
+
+Turn 5, Protestant 7th impulse
+
+The Protestants pass
+
+Turn 5, Ottoman 8th impulse
+
+The Ottomans play the following card for Command Points:
+  #110 -  Ops 4: War with Persia
+The Ottomans spend 2 CPs to initiate piracy in Tyrrhenian Sea against The Hapsburgs
+
+Anti-Piracy Dice: 0(0 squadrons in zone) = 0 dice
+** Anti-Piracy dice roll:  -- 0 hits
+
+Ottoman Piracy dice: 2 +1(Barbarossa) = 3 dice
+** Ottoman Piracy dice roll: 5, 4, 6 -- 2 hits
+  The Hapsburgs award the Ottoman 1 Piracy VP
+      The Ottoman now has 5 Piracy VP
+  The Hapsburgs give the Ottoman a randomly selected card
+
+Suleiman I  and 8 Ottoman SPs(7 reg, 1 cav) move from Vienna to Graz
+
+Suleiman I  and 8 Ottoman SPs(7 reg, 1 cav) move from Graz to Mohacs
+
+1 Hapsburg SP(0 reg, 1 merc) attempts to avoid battle from Mohacs
+  ** Avoid Battle dice roll: 3, 6 = 9 -1(enemy cavalry) = 8 -- fails.
+    ** Battle of Mohacs **
+  (response cards)
+
+Ottoman dice: 8 SPs +2(Suleiman I) = 10 dice
+Hapsburg dice: 1 SP +1(defending) = 2 dice
+  (combat cards)
+
+** The Ottomans dice roll: 6, 4, 1, 2, 1, 3, 4, 4, 6, 1 -- 2 hits **
+** The Hapsburgs dice roll: 2, 4 -- 0 hits **
+The Ottomans win the battle of Mohacs!
+
+Turn 5, Hapsburg 8th impulse
+
+
+The Hapsburgs play the following card for Command Points:
+  #71 -  Ops 4: City State Rebels
+The Hapsburgs spend 1 CP to declare an assault in Trier
+
+    ** Assault of Trier**
+Hapsburg dice: 3(6 SPs) +2(Charles V) = 5 dice
+Protestant dice: 4 SPs +1(defending) = 5 dice
+
+** The Hapsburgs dice roll: 2, 5, 1, 6, 5 -- 3 hits **
+** The Protestants dice roll: 1, 5, 5, 1, 6 -- 3 hits **
+The assault in Trier fails!
+The Hapsburgs spend 2 CPs to construct units
+1 Hapsburg regular SP added to Besancon, making 1 SP total
+The Hapsburgs spend 1 CP to construct units
+1 Hapsburg mercenary SP added to Besancon, making 2 SPs total
+
+Turn 5, English 8th impulse
+
+
+England plays the following card for Command Points:
+  #48 -  Ops 2: Galleons
+England spends 1 CP to declare an assault in Paris
+
+    ** Assault of Paris**
+English dice: 4(8 SPs) +1(Henry VIII) = 5 dice
+French dice: 2 SPs +1(defending) = 3 dice
+
+** England dice roll: 5, 1, 5, 1, 3 -- 2 hits **
+** France dice roll: 4, 4, 1 -- 0 hits **
+The assault in Paris is successful!
+England spends 1 CP to construct units
+1 English mercenary SP added to York, making 2 SPs total
+
+Turn 5, French 8th impulse
+
+France passes
+
+Turn 5, Papal 8th impulse
+
+The Papacy passes
+
+Turn 5, Protestant 8th impulse
+
+The Protestants play the following card for Command Points:
+  #65 -  Ops 4: A Mighty Fortress
+The Protestants spend 3 CPs to construct units
+3 Protestant mercenary SPs added to Mainz, making 5 SPs total
+
+Philip of Hesse  and 5 Protestant SPs(2 reg, 3 merc) move from Mainz to Trier
+
+    ** Battle of Trier **
+  (response cards)
+
+Protestant dice: 6 SPs = 6 dice
+Hapsburg dice: 3 SPs +2(Charles V) +1(defending) = 6 dice
+  (combat cards)
+
+** The Protestants dice roll: 4, 3, 3, 3, 3, 4 -- 0 hits **
+** The Hapsburgs dice roll: 6, 1, 6, 1, 1, 1 -- 2 hits **
+The Hapsburgs win the battle of Trier!
+    Philip of Hesse  and 3 Protestant SPs(2 reg, 1 merc) retreat to Mainz
+
+Turn 5, Ottoman 9th impulse
+
+The Ottomans play the following card for Command Points:
+  #94 -  Ops 2: Revolt of the Communeros
+The Ottomans spend 1 CP to place a PC marker in Agram
+The Ottomans spend 1 CP to construct units
+1 Ottoman cavalry SP added to Istanbul, making 2 SPs total
+
+Turn 5, Hapsburg 9th impulse
+
+
+The Hapsburgs play the following card for Command Points:
+  #28 -  Ops 1: Siege Mining (combat)
+The Hapsburgs spend 1 CP to declare an assault in Trier
+
+    ** Assault of Trier**
+Hapsburg dice: 2(3 SPs) +2(Charles V) = 4 dice
+Protestant dice: 1 SP +1(defending) = 2 dice
+
+** The Hapsburgs dice roll: 1, 3, 4, 2 -- 0 hits **
+** The Protestants dice roll: 4, 6 -- 1 hit **
+The assault in Trier fails!
+
+Turn 5, English 9th impulse
+
+England plays the following card for Command Points:
+  #26 -  Ops 3: Mercenaries Bribed (combat)
+England spends 3 CPs to Publish a Treatise for reformation rolls in the English language zone
+
+      Reformation attempt in Portsmouth
+
+Protestant dice: 3(adj. Protestant spaces) +1(adj. Reformer)  = 4 dice
+Catholic dice:  1 (minimum 1 die)  = 1 die
+
+Protestant dice roll: 4, 2, 2, 2 -- Protestant high roll is 4
+
+Catholic die roll: 1 -- Catholic high roll is 1
+
+** The reformation roll in Portsmouth succeeds! **
+
+      Reformation attempt in Shrewsbury
+
+Protestant dice: 3(adj. Protestant spaces) +1(adj. Reformer)  = 4 dice
+Catholic dice: 2(adj. Catholic spaces)  = 2 dice
+
+Protestant dice roll: 6, 1, 5, 2 -- Protestant high roll is 6
+
+** The reformation roll in Shrewsbury succeeds! **
+
+Turn 5, French 9th impulse
+
+France passes
+
+Turn 5, Papal 9th impulse
+
+The Papacy passes
+
+Turn 5, Protestant 9th impulse
+
+The Protestants pass
+
+Turn 5, Ottoman 10th impulse
+
+The Ottomans pass
+
+Turn 5, Hapsburg 10th impulse
+
+The Hapsburgs pass
+
+Turn 5, English 10th impulse
+
+England plays the following card as an Event:
+  #47 -  Ops 6: Copernicus *
+
+[Turn 4] If half or more of your power's home spaces are under Protestant
+    relgious influence, gain 2 VP.  Otherwise gain 1 VP and either draw a card from
+    the deck or force the Protestant to discard one card at random.  Remove from
+    deck if played as an event.
+
+
+
+** The Copernicus card is permanently removed. **
+
+      +2 VPs for England, now 26 total
+
+Turn 5, French 10th impulse
+
+France passes
+
+Turn 5, Papal 10th impulse
+
+The Papacy passes
+
+Turn 5, Protestant 10th impulse
+
+The Protestants pass
+
+Turn 5, Ottoman 11th impulse
+
+The Ottomans pass
+
+Turn 5, Hapsburg 11th impulse
+
+The Hapsburgs pass
+
+Turn 5, English 11th impulse
+
+England passes
+
+** Winter Phase **
+
+The renegade leader is removed from Buda
+Barbarossa, 3 Ottoman squadrons,  and 3 Ottoman corsairs return from Tyrrhenian Sea to Algiers
+4 English squadrons return from English Channel to Calais
+Suleiman I  and 8 Ottoman SPs(7 reg, 1 cav) return from Mohacs to Istanbul
+1 Hapsburg SP(0 reg, 1 merc) returns from Antwerp to Valladolid
+Charles V, Duke of Alva, and  and 2 Hapsburg SPs return from Trier to Metz
+4 Hapsburg SPs(0 reg, 4 merc) return from Buda to Valladolid
+    ** 2 SPs lost to attrition **
+Henry VIII, Brandon, and  and 4 English SPs return from Paris to London
+4 English SPs return from Paris to London
+** French capital enemy controlled **
+2 Papal SPs return from Modena to Florence
+2 Papal SPs return from Modena to Rome
+
+1 Ottoman SP added to Istanbul, making 11 Ottoman SPs(9 reg, 2 cav) total
+1 Hapsburg SP added to Valladolid, making 12 Hapsburg SPs(8 reg, 4 merc) total
+1 English SP added to London, making 16 English SPs(14 reg, 2 merc) total
+1 Papal SP added to Rome, making 6 Papal SPs total
+
+** New World Phase **
+
+** Victory Determination Phase **
+
+** Current VP Totals **
+
+Ottomans: 23
+Hapsburgs: 22
+England: 26
+France: 20
+Papacy: 15
+Protestants: 16
+
+
+**************************************************
+** England wins a standard victory!!!
+**************************************************
+
