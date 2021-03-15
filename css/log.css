@@ -180,6 +180,14 @@ html, body, #outer {
     background-color:#e0e0e0;
 }
 
+.power::after {
+    transition: transform .2s;
+    display: inline-block;
+}
+.power:hover::after {
+    transform: scale(3);
+}
+
 /*
  * winner highlight
  */
