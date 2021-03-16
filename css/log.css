@@ -183,6 +183,7 @@ html, body, #outer {
 .power::after {
     transition: transform .2s;
     display: inline-block;
+    margin-left: .2em;
 }
 .power:hover::after {
     transform: scale(3);
@@ -192,23 +193,23 @@ html, body, #outer {
  * winner highlight
  */
 .winner::after {
-    content: ' 🏆';
+    content: '🏆';
 }
 
 .first::after {
-    content: ' 🥇';
+    content: '🥇';
 }
 
 .second::after {
-    content: ' 🥈';
+    content: '🥈';
 }
 
 .third::after {
-    content: ' 🥉';
+    content: '🥉';
 }
 
 .sixth::after {
-    content: ' 🥄';
+    content: '🥄';
 }
 
 .ref-location {
