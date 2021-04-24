@@ -90,7 +90,7 @@ $(function() {
             update();
         });
     }
-    $('#gameselector button')[9].click();
+    $('#gameselector button')[10].click();
     $('#log-toggle').on('click',x=>{
         if ($(x.target).hasClass('show')) {
             $(x.target).attr('class','hide');
