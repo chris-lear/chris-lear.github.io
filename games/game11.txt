@@ -9,7 +9,7 @@ Your IP address appears to be: 172.24.16.1
 
 
 Attempting to link to 81.154.22.86
-Socket[addr=/81.154.22.86,port=2222,localport=55563]
+Socket[addr=/81.154.22.86,port=2222,localport=61095]
 Connection successful...you are 'Client 5'
 ************************ 
 ** Loading saved game ** 
@@ -1542,22 +1542,6 @@ The following deal has been ratified by all parties, and will now go into effect
 
 ** Spring Deployment Phase **
 The Ottomans deploy Suleiman I  and 12 Ottoman SPs(11 reg, 1 cav) from Istanbul to Szegedin
-
-      French Force Pool:
-French regular 2
-French regular 4
-French regular 4
-French regular 6
-French regular 2
-French regular 1
-French regular 1
-French regular 1
-Cartier (explore 3)
-Roberval (explore 0)
-The French conqueror (conquer 0)
-The French conqueror (conquer 0)
-French squadron
-French squadron
 The Hapsburgs deploy Ferdinand, Charles V, and  and 6 Hapsburg SPs from Vienna to Innsbruck
 England deploys Brandon  and 4 English SPs(2 reg, 2 merc) from London to Calais
 The Papacy deploys 1 Papal SP from Rome to Florence
@@ -1667,7 +1651,6 @@ If Francis I is ruler and not captured or under siege, roll 1 die, and consult
   ** Patron of the Arts die roll: 2 +2(Milan) = 4
       French Chateaux VPs increased by 1, now at 3
   France draws 1 card
-        Card drawn: #111 -  Ops 2: Colonial Governor/Native Uprising
      France discards the following card: #87 -  Ops 2: Mercenaries Demand Pay
 
 Turn 3, Papal 1st impulse
@@ -2250,3 +2233,398 @@ The Hapsburgs play the following card for Command Points:
   #2 -  Ops 5: Holy Roman Emperor (home card)
 The Hapsburgs spend 4 CPs to construct units
 2 Hapsburg regular SPs added to Innsbruck, making 2 SPs total
+The Hapsburgs spend 1 CP to construct units
+1 Hapsburg mercenary SP added to Innsbruck, making 3 SPs total
+
+Turn 3, English 6th impulse
+  (Halley's Comet prompt)
+
+England passes
+Free advance of the Marital Status Marker -- Henry VIII is wedded to Jane Seymour!
+
+  ** Jane Seymour pregnancy die roll: 6 +1(Jane Seymour) = 7
+
+Success, Edward VI becomes Henry's healthy, long-lived heir.  If Edward was born on a previous
+result of 5, this result indicates that he has regained his health.  If there was no previous
+result of 5, Edward is born as a healthy lad and the queen becomes Henry's consort until the
+end of his days.  No more rolls on this chart this game.  Remove Mary I and Elizabeth I from
+the game.  Add Edward VI to the deck on Turn 6 (or next turn if it is already Turn 6 or later).
+
+
+Turn 3, French 6th impulse
+  (Halley's Comet prompt)
+
+France passes
+
+Turn 3, Papal 6th impulse
+  (Halley's Comet prompt)
+
+The Papacy plays the following card for Command Points:
+  #71 -  Ops 4: City State Rebels
+The Papacy spends 2 CPs to Burn Books for counter reformation rolls in the German language zone
+
+      Counter Reformation attempt in Regensburg
+
+Catholic dice: 2(adj. Catholic spaces) +1(adj. Catholic unit)  = 3 dice
+Protestant dice: 2(adj. Protestant spaces) +1(adj. Protestant unit)  = 3 dice
+    The Papacy commits Tetzel for bonus progress on St. Peters after the counter reformation
+
+Catholic dice roll: 3, 5, 2 -- Catholic high roll is 5
+
+Protestant dice roll: 2, 6, 4 -- Protestant high roll is 6
+
+** The counter reformation roll in Regensburg fails **
+Tetzel's bonus:    The St. Peter's marker advances 1 space
+
+      Counter Reformation attempt in Augsburg
+
+Catholic dice: 1(adj. Catholic space) +1(adj. Catholic unit)  = 2 dice
+Protestant dice: 3(adj. Protestant spaces) +2(Protestant units in space)  = 5 dice
+
+Catholic dice roll: 1, 5 -- Catholic high roll is 5
+
+Protestant dice roll: 5, 4, 2, 3, 4 -- Protestant high roll is 5
+
+** The counter reformation roll in Augsburg succeeds! **
+The Papacy spends 2 CPs to work towards the progress on St. Peter's Cathedral
+    The St. Peter's marker advances 2 spaces
+
+Turn 3, Protestant 6th impulse
+  (Halley's Comet prompt)
+
+The Protestants pass
+
+Turn 3, Ottoman 7th impulse
+  (Halley's Comet prompt)
+
+The Ottomans pass
+
+Turn 3, Hapsburg 7th impulse
+  (Halley's Comet prompt)
+
+
+The Hapsburgs play the following card for Command Points:
+  #103 -  Ops 3: Threat to Power
+3 Hapsburg SPs(2 reg, 1 merc) move from Innsbruck to Trent
+
+Ferdinand, Charles V, and  and 5 Hapsburg SPs(4 reg, 1 merc) move from Trent to Milan
+
+2 French SPs withdraw into the fortification in Milan
+    Milan is now under siege
+
+Turn 3, English 7th impulse
+  (Halley's Comet prompt)
+
+England passes
+
+Turn 3, French 7th impulse
+  (Halley's Comet prompt)
+
+France passes
+
+Turn 3, Papal 7th impulse
+
+The Papacy passes
+
+Turn 3, Protestant 7th impulse
+  (Halley's Comet prompt)
+
+The Protestants pass
+
+Turn 3, Ottoman 8th impulse
+  (Halley's Comet prompt)
+
+The Ottomans pass
+
+Turn 3, Hapsburg 8th impulse
+  (Halley's Comet prompt)
+
+
+The Hapsburgs play the following card for Command Points:
+  #25 -  Ops 1: Field Artillery (combat)
+The Hapsburgs spend 1 CP to declare an assault in Milan
+
+    ** Assault of Milan**
+Hapsburg dice: 3(5 SPs) +2(Charles V) = 5 dice
+French dice: 2 SPs +1(defending) = 3 dice
+
+** The Hapsburgs dice roll: 1, 6, 3, 5, 1 -- 2 hits **
+** France dice roll: 3, 4, 5 -- 1 hit **
+The assault in Milan is successful!
+
+Turn 3, English 8th impulse
+  (Halley's Comet prompt)
+
+England passes
+
+Turn 3, French 8th impulse
+  (Halley's Comet prompt)
+
+France passes
+
+Turn 3, Papal 8th impulse
+
+The Papacy passes
+
+Turn 3, Protestant 8th impulse
+  (Halley's Comet prompt)
+
+The Protestants pass
+
+Turn 3, Ottoman 9th impulse
+  (Halley's Comet prompt)
+
+The Ottomans play the following card for Command Points:
+  #102 -  Ops 3: Spring Preparations
+The Ottomans spend 1 CP to make a naval move
+    Ottoman squadron from Gulf of Lyon to Barcelona
+    Ottoman squadron from Gulf of Lyon to Barcelona
+    Barbarossa from Gulf of Lyon to Barcelona
+    Ottoman squadron from Barbary Coast to Gulf of Lyon
+    Ottoman squadron from Barbary Coast to Gulf of Lyon
+    Ottoman squadron from Barbary Coast to Gulf of Lyon
+
+    ** Naval Combat in Barcelona, The Ottomans vs. The Hapsburgs **
+Ottoman dice: 4(2 squadrons) +2(Barbarossa) = 6 dice
+Hapsburg dice: 2(1 squadron) +1(defending in port) = 3 dice
+
+** Ottoman dice roll: 5, 4, 3, 2, 6, 4 -- 2 hits **
+** Hapsburg dice roll: 2, 2, 5 -- 1 hit **
+The Ottomans win the naval battle in Barcelona!
+  Hapsburg squadron (Barcelona) eliminated and placed on Turn Track
+
+Barbarossa,  and 2 Ottoman squadrons retreat to Gulf of Lyon
+The Ottomans spend 2 CPs to initiate piracy in Gulf of Lyon against France
+
+Anti-Piracy Dice: 0(0 squadrons in zone) = 0 dice
+** Anti-Piracy dice roll:  -- 0 hits
+
+Ottoman Piracy dice: 1 +1(Barbarossa) = 2 dice
+** Ottoman Piracy dice roll: 5, 3 -- 1 hit
+  France gives the Ottoman a randomly selected card
+      Card selected: #69 -  Ops 3: Auld Alliance
+
+Turn 3, Hapsburg 9th impulse
+  (Halley's Comet prompt)
+
+The Hapsburgs pass
+
+Turn 3, English 9th impulse
+  (Halley's Comet prompt)
+
+England passes
+
+Turn 3, French 9th impulse
+
+France passes
+
+Turn 3, Papal 9th impulse
+
+The Papacy passes
+
+Turn 3, Protestant 9th impulse
+  (Halley's Comet prompt)
+
+The Protestants pass
+
+Turn 3, Ottoman 10th impulse
+  (Halley's Comet prompt)
+
+The Ottomans pass
+
+** Winter Phase **
+
+The renegade leader is removed from Salzburg
+1 French squadron return from Gulf of Lyon to Marseille
+Barbarossa, 4 Ottoman squadrons,  and 5 Ottoman corsairs return from Gulf of Lyon to Algiers
+Montmorency returns from Lyon to Paris
+Suleiman I  and 8 Ottoman SPs(7 reg, 1 cav) return from Buda to Istanbul
+Ferdinand, Charles V return from Milan to Vienna
+Brandon  and 2 English SPs(1 reg, 1 merc) return from Calais to London
+1 Papal SP(0 reg, 1 merc) returns from Salzburg to Rome
+2 Papal SPs(0 reg, 2 merc) return from Salzburg to Ravenna
+2 Papal SPs(1 reg, 1 merc) return from Modena to Florence
+
+1 Ottoman SP added to Istanbul, making 15 Ottoman SPs(13 reg, 2 cav) total
+1 Hapsburg SP added to Valladolid, making 5 Hapsburg SPs(4 reg, 1 merc) total
+1 Hapsburg SP added to Vienna, making 4 Hapsburg SPs(1 reg, 3 merc) total
+1 English SP added to London, making 7 English SPs(4 reg, 3 merc) total
+1 French SP added to Paris, making 5 French SPs(4 reg, 1 merc) total
+1 Papal SP added to Rome, making 6 Papal SPs(3 reg, 3 merc) total
+
+** New World Phase **
+English explorer selected: Willoughby
+
+  ** Willoughby's exploration dice roll: 4, 6 = 10 +0(Willoughby) = 10
+Willoughby discovers the Pacific Strait!!!
+  ** England receives 1 Exploration VP for discovering the Pacific Strait, now 3 total **
+      Willoughby attempts to circumnavigate the globe!!!
+  ** Circumnavigation dice roll: 2, 1 = 3 +0(Willoughby) = 3
+Willoughby is shipwrecked in the Pacific Strait!
+  ** Conquest dice roll: 6, 3 = 9
+No effect -- The English conqueror is returned to the force pool
+
+** Victory Determination Phase **
+
+** Current VP Totals **
+
+Ottomans: 18
+Hapsburgs: 14
+England: 20
+France: 15
+Papacy: 16
+Protestants: 7
+
+** Start of Turn 4 **
+
+
+** Card Draw Phase **
+      Calvin to Geneva
+      Cranmer to London
+  ** Riches for Puerto Rico dice roll: 4, 2 = 6 -- no effect
+  ** Riches for Charlesbourg Royale dice roll: 3, 5 = 8 -- Galleon
+    No effect.
+  ** Riches for Montreal dice roll: 6, 6 = 12 -- Card
+    France gets a bonus card
+        Card drawn: #26 -  Ops 3: Mercenaries Bribed (combat)
+  ** Riches for the Mayans dice roll: 1, 2 = 3 -- Depleted 1
+    The Hapsburgs get a bonus card, but the Mayans are removed
+************************************************************
+**              The  deck is being shuffled.              **
+************************************************************
+The Ottomans draw 5 cards
+The Hapsburgs draw 6 cards
+England draws 4 cards
+France draws 3 cards
+
+   French Strategy Hand
+#26 -  Ops 3: Mercenaries Bribed (combat)
+#4 -  Ops 5: Patron of the Arts (home card)
+#108 -  Ops 4: Venetian Alliance
+#86 -  Ops 2: Knights of St. John
+#114 -  Ops 2: La Foret's Embassy in Istanbul * (mandatory event)
+
+The Papacy draws 4 cards
+The Protestants draw 4 cards
+
+** Diplomacy Phase **
+
+PLEASE!  Do not type anything immediately, so that other players may review the end of turn.
+        Begin any negotiations via private communication.
+
+Deal proposed by The Ottomans:  Deal awaits ratification from France
+
+             Terms:
+
+1) Agreement to form alliance between The Ottomans and France
+
+Deal proposed by The Ottomans:  Deal awaits ratification from The Protestants
+
+             Terms:
+
+1) Agreement to form alliance between The Ottomans and The Protestants
+
+Deal proposed by The Ottomans:  Deal awaits ratification from England
+
+             Terms:
+
+1) Agreement to form alliance between The Ottomans and England
+
+Deal proposed by The Hapsburgs:  Deal awaits ratification from The Papacy
+
+             Terms:
+
+1) Agreement to form alliance between The Hapsburgs and The Papacy
+
+Deal proposed by The Hapsburgs:  Deal awaits ratification from England
+
+             Terms:
+
+1) Agreement by The Hapsburgs to give 1 random card to England:
+
+Deal proposed by The Hapsburgs:  Deal awaits ratification from France
+
+             Terms:
+
+1) Agreement to end war between The Hapsburgs and France
+
+England vetos a deal proposed by The Ottomans
+
+The following deal has been ratified by all parties, and will now go into effect:
+
+1) Agreement by The Hapsburgs to give 1 random card to England:
+Deal proposed by England:  Deal awaits ratification from The Papacy
+
+             Terms:
+
+1) Agreement by England to give 2 random cards to The Papacy:
+
+Deal proposed by The Ottomans:  Deal awaits ratification from France
+
+             Terms:
+
+1) Agreement to form alliance between The Ottomans and France
+
+
+The following deal has been ratified by all parties, and will now go into effect:
+
+1) Agreement to form alliance between The Ottomans and France
+Deal proposed by The Hapsburgs:  Deal awaits ratification from France
+
+             Terms:
+
+1) Agreement to end war between The Hapsburgs and France
+
+
+The following deal has been ratified by all parties, and will now go into effect:
+
+1) Agreement to end war between The Hapsburgs and France
+
+The following deal has been ratified by all parties, and will now go into effect:
+
+1) Agreement to form alliance between The Hapsburgs and The Papacy
+
+The following deal has been ratified by all parties, and will now go into effect:
+
+1) Agreement by England to give 2 random cards to The Papacy:
+
+The following deal has been ratified by all parties, and will now go into effect:
+
+1) Agreement to form alliance between The Ottomans and The Protestants
+
+** Spring Deployment Phase **
+The Ottomans deploy Suleiman I  and 12 Ottoman SPs from Istanbul to Buda
+England deploys Henry VIII  and 4 English SPs(2 reg, 2 merc) from London to Calais
+
+** Action Phase **
+
+Turn 4, Ottoman 1st impulse
+  (Halley's Comet prompt)
+
+The Ottomans play the following card for Command Points:
+  #87 -  Ops 2: Mercenaries Demand Pay
+The Ottomans spend 1 CP to make a naval move
+    Ottoman squadron from Algiers to Barbary Coast
+    Ottoman squadron from Algiers to Barbary Coast
+    Ottoman squadron from Algiers to Barbary Coast
+    Ottoman squadron from Algiers to Barbary Coast
+    Ottoman corsair from Algiers to Barbary Coast
+    Ottoman corsair from Algiers to Barbary Coast
+    Ottoman corsair from Algiers to Barbary Coast
+    Ottoman corsair from Algiers to Barbary Coast
+    Ottoman corsair from Algiers to Barbary Coast
+    Barbarossa from Algiers to Barbary Coast
+The Ottomans spend 1 CP to make a naval move
+    Ottoman squadron from Barbary Coast to Gulf of Lyon
+    Ottoman squadron from Barbary Coast to Gulf of Lyon
+    Ottoman squadron from Barbary Coast to Gulf of Lyon
+    Ottoman squadron from Barbary Coast to Gulf of Lyon
+    Ottoman corsair from Barbary Coast to Gulf of Lyon
+    Ottoman corsair from Barbary Coast to Gulf of Lyon
+    Ottoman corsair from Barbary Coast to Gulf of Lyon
+    Ottoman corsair from Barbary Coast to Gulf of Lyon
+    Ottoman corsair from Barbary Coast to Gulf of Lyon
+    Barbarossa from Barbary Coast to Gulf of Lyon
+
+Turn 4, Hapsburg 1st impulse
+  (Halley's Comet prompt)
