@@ -99,6 +99,14 @@ var players = [
         'ottoman':'Nick',
         'france':'Neil',
         'england':'Jamie'
+    },
+    {
+        'hapsburg':'Neil',
+        'protestant':'Nick',
+        'pope':'Ben',
+        'ottoman':'Jamie',
+        'france':'Chris',
+        'england':'Filippo'
     }
 
 ];
