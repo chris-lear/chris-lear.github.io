@@ -7784,12 +7784,3 @@ France: 19
 Papacy: 18
 Protestants: 23
 
-
-**************************************************
-** The Ottomans win a standard victory!!!
-**************************************************
-
-Type anything to exit.
-** MSG FROM OTTOMAN: gg
-
-** MSG FROM HAPSBURGS: gg
