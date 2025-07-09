@@ -138,6 +138,33 @@
                 Plotly.restyle('plotly-div', update, [trailIndex, markerIndex]);
             }, 50);
         });
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+        });
+        function startup() {
+            var distanceKm=params.distance;
+            if (!distanceKm) {
+                return;
+            }
+            var display = document.getElementById('distance-display');
+            display.textContent = 'Distance: ' + Math.round(distanceKm) + ' km';
+            var coords = calculateTrailCoords(distanceKm);
+            var trailX = coords.trail.map(function(c) { return c[0]; });
+            var trailY = coords.trail.map(function(c) { return c[1]; });
+
+            // Update trail and marker
+            var update = {
+                x: [trailX, [coords.marker[0]]],
+                y: [trailY, [coords.marker[1]]]
+            };
+
+            // Find trail and marker trace indices (they should be the last two)
+            var trailIndex = plotData.data.length - 2;
+            var markerIndex = plotData.data.length - 1;
+
+            Plotly.restyle('plotly-div', update, [trailIndex, markerIndex]);
+        }
+        startup()
     </script>
 </body>
 </html>
